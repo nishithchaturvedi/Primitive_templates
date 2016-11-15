@@ -1,0 +1,235 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Perspica</title>
+        
+        <!-- meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- dns prefetch -->
+        <link href="http://www.google-analytics.com" rel="dns-prefetch">
+        
+        <!-- icons -->
+		<link href="img/favicon.ico" rel="shortcut icon">
+		<link href="img/touch.png" rel="apple-touch-icon-precomposed">
+		
+        <!-- stylesheets -->
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        
+        <!-- font awesome css -->
+        <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+
+        <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <!-- load jQuery from Goolge CDN -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    </head>
+    <body class="home logged-in">
+        <header id="header" role="banner">
+        	<div class="inner clear nav">
+            	<a href="javascript:void(0);" class="nav-control left toggle" onClick="jQuery('body').toggleClass('open');"></a>
+                <a href="/" title="Home" class="logo left"><img src="img/logo.png" alt="the Tech" /></a>
+                <a href="javascript:void(0);" class="showMobile search-control right" onClick="jQuery('body').toggleClass('search');"></a>
+            </div><!-- end left -->
+            <form class="left form-item" action="index.html" method="get" id="global-search" name="global-search">
+                <div class="showLabels">
+                    <label for="search">Search Here</label>
+                    <input type="search" name="search" id="search"/>
+                </div>
+                <button type="submit" class="search"><i class="fa fa-search"></i></button>
+            </form><!-- end form -->
+			<div class="inner right clear" id="profile-menu">
+                <div class="avatar left">               	
+                    <a href="profile.html" title="Profile"><img src="img/nelson.jpg" width="33px" alt="Scott" /></a>
+                    <span>Hello Scott</span>
+                </div><!-- end avatar -->
+                 <ul class="right toggleable" id="user-settings">
+                    <li><a class="settings toggle" href="javascript:void(0);" onClick="jQuery('#user-settings').toggleClass('open');"></a>
+                        <ul>
+                            <li><a href="#" title="Profile">My Profile</a></li>
+                            <li><a href="#" title="Preferences">Preferences</a></li>
+                            <li><a href="#" title="Administration">Help</a></li>
+                            <li><a href="#" title="Log Out" class="logout">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+        	</div><!-- end inner -->
+        </header><!-- end header -->
+        <nav class="toggleable">
+            <ul>
+                <li><a href="#" title="Topology" class="icon topology-icon">Topology</a></li>
+                <li class="hasChildren">
+                	<a href="#" title="Alerting" class="icon alert-icon">Alerting</a><span class="sub-toggle"></span>
+                    <ul>
+                    	<li><a href="#" title="Alerting">Alerting Overview</a></li>
+                        <li><a href="#" title="Alerting">Incidents</a></li>
+                        <li><a href="#" title="Alerting">Alarms</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" title="Dashboard" class="icon dashboard-icon">Dashboards</a></li>
+                <li><a href="#" title="Reports" class="icon reports-icon">Reports</a></li>
+                <li><a href="#" title="Planning" class="icon plan-icon">Planning</a></li>
+                <li><a href="#" title="KnowledgeBase" class="icon knowledge-icon">Knowledge Base</a></li>
+                <li><a href="#" title="Configuration" class="icon configuration-icon">Configuration</a></li>
+                <li><a href="#" title="Collaboration" class="icon collaboration-icon">Collaboration</a></li>
+                <li><a href="#" title="Help" class="icon help-icon">Help</a></li>
+            </ul>
+        </nav>
+       <div class="wrapper clear">
+        	<div class="page-top clear">
+                <div class="breadcrumbs left">
+                    <ul class="clear">
+                        <li><a href="/" title="Home">Home</a></li>
+                        <li>&nbsp;/&nbsp;&nbsp;</li>
+                        <li><span>Form</span></li>
+                    </ul>
+                </div><!-- end breadcrumbs -->
+                <ul class="header-actions right clear">
+                	<li><a href="#"><i class="fa fa-bookmark"></i></a></li>
+                    <li><a href="#"><i class="fa fa-file-pdf-o"></i></a></li>
+                    <li><a href="#"><i class="fa fa-share"></i></a></li>
+                    <li><a href="#"><i class="fa fa-comment"></i></a></li>
+                </ul>
+            </div><!-- end page-top -->
+        	<section class="main clear">
+            	<form name="form" id="form" action="" class="clear" style="width:500px">
+                	<div class="form-item">
+                        <label for="select">Select:</label>
+                        <select name="select" id="select" class="jquerySelect" tabindex="0">
+                            <option value="0">Option 1</option>
+                            <option value="1">Option 2</option>
+                            <option value="2">Option 3</option>
+                        </select>
+                    </div>
+                    <div class="form-item">
+                        <label for="select">Multi Select:</label>
+                        <select name="select" multiple="multiple" id="select" tabindex="0">
+                            <option value="0">Option 1</option>
+                            <option value="1">Option 2</option>
+                            <option value="2">Option 3</option>
+                        </select>
+                    </div>
+                    <h2>Radio</h2>
+                    <div class="form-item">
+                        <ul class="checkList">
+                            <li>
+                                <input name="tiles" id="same" type="radio" checked tabindex="1" />
+                                <label for="same">Same Object(s), Different Period</label>
+                            </li>
+                            <li>
+                                <input name="tiles" id="diff" type="radio" tabindex="2"/>
+                                <label for="diff">Different Object(s), Same Metrics</label>
+                            </li>
+                            <li>
+                                <input name="tiles" id="own" type="radio" tabindex="3"/>
+                                <label for="own">I'll select my own</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <h2>Check boxes</h2>
+                    <div class="form-item">
+                        <ul class="checkList">
+                            <li>
+                                <input name="ex-value" id="ex-value" type="checkbox" tabindex="4" />
+                                <label for="ex-value">Expected Value</label>
+                            </li>
+                            <li>
+                                <input name="h-value" id="h-value" type="checkbox" tabindex="5" />
+                                <label for="h-value">Historical Value</label>
+                            </li>
+                            <li>
+                                <input name="h-band" id="h-band" type="checkbox" tabindex="6" />
+                                <label for="h-band">Historical Band</label>
+                            </li>
+                            <li>
+                                <input name="minmax" id="minmax" type="checkbox" tabindex="7" />
+                                <label for="minmax">Min/Max</label>
+                            </li>
+                            <li>
+                                <input name="hminmax" id="hminmax" type="checkbox" tabindex="8" />
+                                <label for="hminmax">Historical Min/Max</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <h2>Input</h2>
+                    <div class="form-item">
+                   	 	<label for="text">Input</label>
+                    	<input type="text" name="text" id="text" value="Blur" tabindex="9" />
+                    </div>
+                    <div class="form-item">
+                   	 	<label for="text1">Input</label>
+                    	<input type="text" name="text1" id="text1" value="Focus" class="focus" tabindex="10"/>
+                    </div>
+                    <div class="form-item">
+                   	 	<label for="text2">Input</label>
+                    	<input type="text" name="text2" id="text2" value="Success" class="success" tabindex="11"/>
+                    </div>
+                    <div class="form-item">
+                   	 	<label for="text3">Input</label>
+                    	<input type="text" name="text3" id="text3" value="Error" class="error" tabindex="12" />
+                        <div class="error-msg"><i class="fa fa-exclamation-triangle"></i> ERROR MESSAGE: Not a valid entry</div>
+                    </div>
+                    <div class="form-item">
+                   	 	<label for="textarea">Textarea</label>
+                    	<textarea name="textarea" id="textarea" value="" tabindex="13" rows="5">Here is some text</textarea>
+                    </div>
+                    <div class="form-item clear">
+                    	<a href="#" class="button cancel left">Cancel</a>
+                        <input type="submit" value="Submit" name="submit" class="button right" tabindex="14"/>
+                    </div>
+                </form>
+                 
+        	</section><!-- end main -->
+        </div><!-- end wrapper -->
+        <div class="actions-panel">
+        	<ul>
+            	<li class="bookmark"><a href="#"><span>12</span><i class="fa fa-bookmark"></i></a></li>
+                <li class="alarms hasNew"><a href="#"><span>45</span><i class="fa fa-warning"></i></a>
+                	<ul>
+                    	<li><a href="#">Slow response time due to network condition</a></li>
+                        <li><a href="#" class="alarms">Queue size above SLA due to port failure</a></li>
+                    </ul>
+                </li>
+                <li class="archive"><a href="#"><span>5</span><i class="fa fa-archive"></i></a></li>
+                <li class="comments"><a href="#"><span>1</span><i class="fa fa-comment"></i></a></li>           
+            </ul>
+        </div><!-- end actions panel -->
+		<footer class="clear">
+        	
+        	<!-- Attach scripts -->
+            <script src="js/plugins.js"></script>
+            <script src="js/scripts.js"></script>
+            <script src="js/jquery.outside.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js" async ></script>
+            
+            <!-- attach CSS thats not needed on page load -->
+            
+            <script>
+
+				 $(document).ready( function(){
+					 // Initiate Select Method
+                	$("select:not([multiple='multiple'])").selectmenu();
+				 });
+
+				</script>	
+        	<!--- attach typekit account for custom fonts -->
+        	<script src="http://use.typekit.net/kws6hqw.js"></script>
+			<script>try{Typekit.load();}catch(e){}</script>
+            
+        	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        	<script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        	</script>
+        </footer><!-- end footer -->
+
+    </body>
+</html>

@@ -1,0 +1,955 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Perspica | Applications</title>
+        
+        <!-- meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- dns prefetch -->
+        <link href="http://www.google-analytics.com" rel="dns-prefetch">
+        
+        <!-- icons -->
+		<link href="img/favicon.ico" rel="shortcut icon">
+		<link href="img/touch.png" rel="apple-touch-icon-precomposed">
+		
+        <!-- stylesheets -->
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        
+        <!-- font awesome css -->
+        <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+
+        <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <!-- load jQuery from Goolge CDN -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    </head>
+    <body class="topology logged-in">
+        <header id="header" role="banner">
+        	<div class="inner clear nav">
+            	<a href="javascript:void(0);" class="nav-control left toggle" onClick="jQuery('body').toggleClass('open');"></a>
+                <a href="/" title="Home" class="logo left"><img src="img/logo.png" alt="the Tech" /></a>
+                <a href="javascript:void(0);" class="showMobile search-control right" onClick="jQuery('body').toggleClass('search');"></a>
+            </div><!-- end left -->
+            <form class="left form-item" action="index.html" method="get" id="global-search" name="global-search">
+                <div class="showLabels">
+                    <label for="search">Search Here</label>
+                    <input type="search" name="search" id="search"/>
+                </div>
+                <button type="submit" class="search"><i class="fa fa-search"></i></button>
+            </form><!-- end form -->
+			<div class="inner right clear" id="profile-menu">
+                <div class="avatar left">               	
+                    <a href="profile.html" title="Profile"><img src="img/nelson.jpg" width="33px" alt="Scott" /></a>
+                    <span>Hello Scott</span>
+                </div><!-- end avatar -->
+                 <ul class="right toggleable" id="user-settings">
+                    <li><a class="settings toggle" href="javascript:void(0);"></a>
+                        <ul>
+                            <li><a href="#" title="Profile">My Profile</a></li>
+                            <li><a href="#" title="Preferences">Preferences</a></li>
+                            <li><a href="#" title="Administration">Help</a></li>
+                            <li><a href="#" title="Log Out" class="logout">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+        	</div><!-- end inner -->
+        </header><!-- end header -->
+        <nav class="toggleable">
+            <ul>
+                <li><a href="#" title="Topology" class="icon topology-icon">Topology</a></li>
+                <li class="hasChildren">
+                	<a href="#" title="Alerting" class="icon alert-icon">Alerting</a><span class="sub-toggle"></span>
+                    <ul>
+                    	<li><a href="#" title="Alerting">Alerting Overview</a></li>
+                        <li><a href="#" title="Alerting">Incidents</a></li>
+                        <li><a href="#" title="Alerting">Alarms</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" title="Dashboard" class="icon dashboard-icon">Dashboards</a></li>
+                <li><a href="#" title="Reports" class="icon reports-icon">Reports</a></li>
+                <li><a href="#" title="Planning" class="icon plan-icon">Planning</a></li>
+                <li><a href="#" title="KnowledgeBase" class="icon knowledge-icon">Knowledge Base</a></li>
+                <li><a href="#" title="Configuration" class="icon configuration-icon">Configuration</a></li>
+                <li><a href="#" title="Collaboration" class="icon collaboration-icon">Collaboration</a></li>
+                <li><a href="#" title="Help" class="icon help-icon">Help</a></li>
+            </ul>
+        </nav>
+        <div class="wrapper clear">
+        	<div class="page-top clear">
+                <div class="breadcrumbs left">
+                    <ul class="clear">
+                        <li><a href="/" title="Home">Home</a></li>
+                        <li>&nbsp;/&nbsp;&nbsp;</li>
+                        <li><span>Applications</span></li>
+                    </ul>
+                </div><!-- end breadcrumbs -->
+                <div class="date-picker right clear">
+                    <input type="text" class="left" value="" id="datepicker" name="datepicker">
+                    <label class="left" for="datepicker"><i class="fa fa-calendar"></i></label>
+                </div><!-- end date-picker -->
+                <ul class="header-actions right clear">
+                	<li><a href="#"><i class="fa fa-bookmark"></i></a></li>
+                    <li><a href="#"><i class="fa fa-file-pdf-o"></i></a></li>
+                    <li><a href="#"><i class="fa fa-share"></i></a></li>
+                    <li><a href="#"><i class="fa fa-comment"></i></a></li>
+                </ul>
+            </div><!-- end page-top -->
+        	<section id="topology" class="main clear">
+                <div class="module clear">
+                    <ul class="view-toggle">
+                        <li><a href="#" title="table" data-toggle="1"><i class="fa fa-list"></i></a></li>
+                        <li class="active"><a href="#" title="chart" data-toggle="2"><i class="fa fa-sitemap"></i></a></li>
+                    </ul><!-- end view toggle -->
+                	<div class="filters clear">
+                        <div class="form-item clear left">
+                        	<div class="label left">Status: </div>
+                            <ul class="fake-select left">
+                                <li><a href="javascript:void(0);" class="control" data-value="logical">Active</a>
+                                    <ul>
+                                        <li><a href="#" data-value="active">Active</a></li>
+                                        <li><a href="#" data-value="inactive">Inactive</a></li>
+                                        <li><a href="#" data-value="semi-active">Semi-Active</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div><!-- end form item -->
+                        <div class="form-item clear left">
+                        	<div class="label left">Object: </div>
+                            <ul class="fake-select left">
+                                <li><a href="javascript:void(0);" class="control" data-value="logical">All</a>
+                                    <ul>
+                                        <li><a href="#" data-value="all">All</a></li>
+                                        <li><a href="#" data-value="none">Illogical</a></li>
+                                        <li><a href="#" data-value="some">Some</a></li>
+                                        <li><a href="#" data-value="few">A few</a></li>
+                                        <li><a href="#" data-value="couple">A Couple</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div><!-- end form item -->
+                        <a id="new-app" href="#" class="button">New Application</a>
+                    </div><!-- end filters -->
+                    <div class="wrap clear">
+                    	<div id="topology-nav" class="left">
+                            <a href="javascript:void(0);" class="hide-topology" onClick="jQuery('.wrap').toggleClass('expanded');"><i class="fa fa-angle-double-left"></i> <span>HIDE</span></a>
+                            <ul>
+                            	<li id="menuAll"><a href="javascript:void(0);" title="All" onClick="resetFiltered();">All</a>
+                                	<ul>
+                                        <li><a href="javascript:void(0);" title="Application1" data-center="1" data-level="normal">
+                                        <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                            <use xlink:href="svgs/icons.svg#icon-application"/>
+                                        </svg>
+                                        Application1
+                                        </a>
+                                        	<ul>
+                                            	<li><a href="javascript:void(0);" title="ServerCluster1" data-cluster="1" data-level="normal" data-type="cluster">
+                                                <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                    <use xlink:href="svgs/icons.svg#icon-cluster"/>
+                                                </svg>
+                                                ServerCluster1
+                                                </a>
+                                                    <ul>
+                                                        <li><a href="javascript:void(0);" title="ServerCluster1" data-cluster="1" data-server="1" data-level="normal" data-type="server">
+                                                        <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                            <use xlink:href="svgs/icons.svg#icon-server"/>
+                                                        </svg>
+                                                        Server1</a>
+                                                            <ul>
+                                                            	<li><a href="javascript:void(0);" title="ServerCluster1" data-cluster="1" data-level="warning" data-type="virtual">
+                                                                <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                                    <use xlink:href="svgs/icons.svg#icon-server_v"/>
+                                                                </svg>
+                                                                VirtualServer1
+                                                                </a></li>
+                                                                <li><a href="javascript:void(0);" title="ServerCluster1" data-cluster="1" data-level="warning" data-type="virtual">
+                                                                <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                                    <use xlink:href="svgs/icons.svg#icon-server_v"/>
+                                                                </svg>
+                                                                VirtualServer2
+                                                                </a>
+                                                                </li>
+                                                                <li><a href="javascript:void(0);" title="ServerCluster1" data-cluster="1" data-level="warning" data-type="virtual">
+                                                                <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                                    <use xlink:href="svgs/icons.svg#icon-server_v"/>
+                                                                </svg>
+                                                                VirtualServer3
+                                                                </a>
+                                                                </li>
+                                                            </ul>
+                                                    	</li>
+                                                        <li><a href="javascript:void(0);" title="ServerCluster1" data-cluster="1" data-server="2" data-level="normal" data-type="server">
+                                                        <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                            <use xlink:href="svgs/icons.svg#icon-server"/>
+                                                        </svg>
+                                                        Server2</a>
+                                                            <ul>
+                                                            	<li><a href="javascript:void(0);" title="ServerCluster1" data-cluster="1" data-level="warning" data-type="virtual">
+                                                                <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                                    <use xlink:href="svgs/icons.svg#icon-server_v"/>
+                                                                </svg>
+                                                                VirtualServer1
+                                                                </a></li>
+                                                                <li><a href="javascript:void(0);" title="ServerCluster1" data-cluster="1" data-level="warning" data-type="virtual">
+                                                                <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                                    <use xlink:href="svgs/icons.svg#icon-server_v"/>
+                                                                </svg>
+                                                                VirtualServer2
+                                                                </a>
+                                                                </li>
+                                                                <li><a href="javascript:void(0);" title="ServerCluster1" data-cluster="1" data-level="warning" data-type="virtual">
+                                                                <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                                    <use xlink:href="svgs/icons.svg#icon-server_v"/>
+                                                                </svg>
+                                                                VirtualServer3
+                                                                </a>
+                                                                </li>
+                                                            </ul>
+                                                    	</li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="javascript:void(0);" title="ServerCluster2" data-cluster="2" data-level="normal" data-type="cluster">
+                                                <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                    <use xlink:href="svgs/icons.svg#icon-cluster"/>
+                                                </svg>
+                                                ServerCluster2</a>
+                                                    <ul>
+                                                        <li><a href="javascript:void(0);" title="ServerCluster1" data-cluster="2" data-server="3" data-level="normal" data-type="server">
+                                                        <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                            <use xlink:href="svgs/icons.svg#icon-server"/>
+                                                        </svg>
+                                                        Server3</a>
+                                                            <ul>
+                                                            	<li><a href="javascript:void(0);" title="ServerCluster1" data-cluster="1" data-level="normal" data-type="virtual">
+                                                                <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                                    <use xlink:href="svgs/icons.svg#icon-server_v"/>
+                                                                </svg>
+                                                                VirtualServer1
+                                                                </a></li>
+                                                                <li><a href="javascript:void(0);" title="ServerCluster1" data-cluster="1" data-level="normal" data-type="virtual">
+                                                                <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                                    <use xlink:href="svgs/icons.svg#icon-server_v"/>
+                                                                </svg>
+                                                                VirtualServer2
+                                                                </a></li>
+                                                                <li><a href="javascript:void(0);" title="ServerCluster1" data-cluster="1" data-level="normal" data-type="virtual">
+                                                                <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                                    <use xlink:href="svgs/icons.svg#icon-server_v"/>
+                                                                </svg>
+                                                                VirtualServer3
+                                                                </a></li>
+                                                            </ul>
+                                                    	</li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="javascript:void(0);" title="ServerCluster3" data-cluster="3" data-level="normal" data-type="cluster">
+                                                <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                    <use xlink:href="svgs/icons.svg#icon-cluster"/>
+                                                </svg>
+                                                ServerCluster3</a>
+                                                    <ul>
+                                                        <li><a href="javascript:void(0);" title="ServerCluster1" data-cluster="3" data-server="4" data-level="normal" data-type="server">
+                                                        <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                            <use xlink:href="svgs/icons.svg#icon-server"/>
+                                                        </svg>
+                                                        Server4</a>
+                                                            <ul>
+                                                            	<li><a href="javascript:void(0);" title="ServerCluster1" data-cluster="3" data-level="normal" data-type="virtual">
+                                                                <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                                    <use xlink:href="svgs/icons.svg#icon-server_v"/>
+                                                                </svg>
+                                                                VirtualServer1</a></li>
+                                                                <li><a href="javascript:void(0);" title="ServerCluster1" data-cluster="3" data-level="normal" data-type="virtual">
+                                                                <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                                    <use xlink:href="svgs/icons.svg#icon-server_v"/>
+                                                                </svg>
+                                                                VirtualServer2</a></li>
+                                                                <li><a href="javascript:void(0);" title="ServerCluster1" data-cluster="3" data-level="normal" data-type="virtual">
+                                                                <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                                    <use xlink:href="svgs/icons.svg#icon-server_v"/>
+                                                                </svg>
+                                                                VirtualServer3</a></li>
+                                                            </ul>
+                                                    	</li>
+                                                    </ul>
+                                                </li>
+                                        	</ul>
+                                        </li>
+                                        <li><a href="javascript:void(0);" title="Application2" data-center="2" data-level="urgent">
+                                        <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                            <use xlink:href="svgs/icons.svg#icon-application"/>
+                                        </svg>
+                                        Application2
+                                        </a>
+                                        	<ul>
+                                            	<li><a href="javascript:void(0);" title="ServerCluster1" data-cluster="4" data-level="warning" data-type="cluster">
+                                                <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                    <use xlink:href="svgs/icons.svg#icon-cluster"/>
+                                                </svg>
+                                                ServerCluster4</a>
+                                                    <ul>
+                                                        <li><a href="javascript:void(0);" title="ServerCluster4" data-cluster="4" data-level="warning" data=server="5" data-type="server">
+                                                        <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                            <use xlink:href="svgs/icons.svg#icon-server"/>
+                                                        </svg>
+                                                        Server5</a>
+                                                            <ul>
+                                                            	<li><a href="javascript:void(0);" title="ServerCluster1" data-cluster="4" data-level="warning" data-type="virtual">
+                                                                <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                                    <use xlink:href="svgs/icons.svg#icon-server_v"/>
+                                                                </svg>
+                                                                VirtualServer1</a></li>
+                                                                <li><a href="javascript:void(0);" title="ServerCluster1" data-cluster="4" data-level="warning" data-type="virtual">
+                                                                <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                                    <use xlink:href="svgs/icons.svg#icon-server_v"/>
+                                                                </svg>
+                                                                VirtualServer2</a></li>
+                                                                <li><a href="javascript:void(0);" title="ServerCluster1" data-cluster="4" data-level="urgent" data-type="virtual">
+                                                                <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                                    <use xlink:href="svgs/icons.svg#icon-server_v"/>
+                                                                </svg>
+                                                                VirtualServer3</a></li>
+                                                            </ul>
+                                                    	</li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="javascript:void(0);" title="ServerCluster5" data-cluster="5" data-level="warning" data-type="cluster">
+                                                <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                    <use xlink:href="svgs/icons.svg#icon-cluster"/>
+                                                </svg>
+                                                ServerCluster5</a>
+                                                    <ul>
+                                                        <li><a href="javascript:void(0);" title="Server6" data-cluster="1" data-level="warning" data-server="6" data-type="server">
+                                                        <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                            <use xlink:href="svgs/icons.svg#icon-server"/>
+                                                        </svg>
+                                                        Server6</a>
+                                                            <ul>
+                                                            	<li><a href="javascript:void(0);" title="ServerCluster1" data-cluster="5" data-level="warning" data-type="virtual">
+                                                                <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                                    <use xlink:href="svgs/icons.svg#icon-server_v"/>
+                                                                </svg>
+                                                                VirtualServer1</a></li>
+                                                                <li><a href="javascript:void(0);" title="ServerCluster1" data-cluster="5" data-level="warning" data-type="virtual">
+                                                                <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                                    <use xlink:href="svgs/icons.svg#icon-server_v"/>
+                                                                </svg>
+                                                                VirtualServer2</a></li>
+                                                                <li><a href="javascript:void(0);" title="ServerCluster1" data-cluster="5" data-level="warning" data-type="virtual">
+                                                                <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                                    <use xlink:href="svgs/icons.svg#icon-server_v"/>
+                                                                </svg>
+                                                                VirtualServer3</a></li>
+                                                            </ul>
+                                                    	</li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="javascript:void(0);" title="ServerCluster6" data-cluster="6" data-level="warning" data-type="cluster">
+                                                <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                    <use xlink:href="svgs/icons.svg#icon-cluster"/>
+                                                </svg>
+                                                ServerCluster6</a>
+                                                    <ul>
+                                                        <li><a href="javascript:void(0);" title="Server7" data-cluster="6" data-server="7" data-level="warning" data-type="server">
+                                                        <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                            <use xlink:href="svgs/icons.svg#icon-server"/>
+                                                        </svg>
+                                                        Server7</a>
+                                                            <ul>
+                                                            	<li><a href="javascript:void(0);" title="VirtualServer1" data-cluster="6" data-level="warning" data-type="virtual">
+                                                                <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                                    <use xlink:href="svgs/icons.svg#icon-server_v"/>
+                                                                </svg>
+                                                                VirtualServer1</a></li>
+                                                                <li><a href="javascript:void(0);" title="VirtualServer2" data-cluster="6" data-level="warning" data-type="virtual">
+                                                                <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                                    <use xlink:href="svgs/icons.svg#icon-server_v"/>
+                                                                </svg>
+                                                                VirtualServer2</a></li>
+                                                                <li><a href="javascript:void(0);" title="VirtualServer3" data-cluster="6" data-level="warning" data-type="virtual">
+                                                                <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                                    <use xlink:href="svgs/icons.svg#icon-server_v"/>
+                                                                </svg>
+                                                                VirtualServer3</a></li>
+                                                            </ul>
+                                                    	</li>
+                                                    </ul>
+                                                </li>
+                                        	</ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="toggle-tab left" data-toggle="1">
+                        	<div class="table-wrap">Table</div><!-- end table wrap -->
+                        </div><!-- end toggle tab -->
+                        <div class="toggle-tab active left" data-toggle="2">
+                            <div class="detail-view left">
+                                <div class="chart-wrap">
+                                    <img src="img/object-zone.png" width="100%" height="338" />
+                                </div><!-- end chart wrap -->
+                            </div><!-- end detail view -->
+                            <div id="app-stage" class="stage left clear open">
+                                <ul class="data-centers clear">
+                                    <li data-center="1" data-level="normal" class="left clear impacted-object">
+                                        <svg class="icon48 normal" role="img" viewBox="0 0 1024 1024">
+                                            <use xlink:href="svgs/icons.svg#icon-application"/>
+                                        </svg>
+                                        <span class="label">Application1</span>
+                                        <div class="v-machine-gauge clear no-alerts">
+                                            <span class="normal left" style="width:23%"></span>
+                                            <span class="warning left" style="width:27%"></span>
+                                            <span class="urgent left" style="width:33%"></span>
+                                            <span class="critical left" style="width:17%"></span>
+                                        </div><!-- end relevant -->
+                                        <div class="alerts no-alerts">
+                                            <div class="clear">
+                                                <div class="alarm left tiny"><span></span><span></span><span></span></div><!-- end alarm -->
+                                                <span class="left">0</span>
+                                            </div><!-- end clear -->
+                                            <div class="icon-lightbulb"> 2</div>
+                                        </div><!-- end alerts -->
+                                        <ul class="object-options">
+                                            <li><a href="javascript:void(0);"><i class="fa fa-chevron-circle-down"></i></a>
+                                                <ul>
+                                                    <li><a href="javascript:void(0);" title="View Contents" data-action="contents">View Contents</a></li>
+                                                    <li><a href="javascript:void(0);" title="View Details" data-action="details">View Details</a></li>
+                                                    <li><a href="javascript:void(0);" title="View Incidents" data-action="incidents">View Incidents</a></li>
+                                                    <li><a href="javascript:void(0);" title="Edit" data-action="edit">Edit</a></li>
+                                                    <li><a href="javascript:void(0);" title="Delete" data-action="delete">Delete</a></li>
+                                                </ul>
+                                            </li>
+                                       </ul>
+                                    </li><!-- data center -->
+                                    <li data-center="2"data-level="urgent" class="left clear impacted-object">
+                                        <svg class="icon48 urgent" role="img" viewBox="0 0 1024 1024">
+                                            <use xlink:href="svgs/icons.svg#icon-application"/>
+                                        </svg>
+                                        <span class="label">Application2</span>
+                                        <div class="v-machine-gauge clear">
+                                            <span class="normal left" style="width:23%"></span>
+                                            <span class="warning left" style="width:27%"></span>
+                                            <span class="urgent left" style="width:33%"></span>
+                                            <span class="critical left" style="width:17%"></span>
+                                        </div><!-- end relevant -->
+                                        <div class="alerts">
+                                            <div class="clear">
+                                                <div class="alarm medium left tiny"><span></span><span></span><span></span></div><!-- end alarm -->
+                                                <span class="left">2</span>
+                                            </div><!-- end clear -->
+                                            <div class="icon-lightbulb"> 2</div>
+                                        </div><!-- end alerts -->
+                                        <ul class="object-options">
+                                            <li><a href="javascript:void(0);"><i class="fa fa-chevron-circle-down"></i></a>
+                                                <ul>
+                                                    <li><a href="javascript:void(0);" title="View Contents" data-action="contents">View Contents</a></li>
+                                                    <li><a href="javascript:void(0);" title="View Details" data-action="details">View Details</a></li>
+                                                    <li><a href="javascript:void(0);" title="View Incidents" data-action="incidents">View Incidents</a></li>
+                                                    <li><a href="javascript:void(0);" title="Edit" data-action="edit">Edit</a></li>
+                                                    <li><a href="javascript:void(0);" title="Delete" data-action="delete">Delete</a></li>
+                                                </ul>
+                                            </li>
+                                       </ul>
+                                    </li><!-- data center -->
+                                    <li data-center="3" data-level="normal" class="left clear impacted-object">
+                                        <svg class="icon48 normal" role="img" viewBox="0 0 1024 1024">
+                                            <use xlink:href="svgs/icons.svg#icon-application"/>
+                                        </svg>
+                                        <span class="label">Application3</span>
+                                        <div class="v-machine-gauge clear no-alerts">
+                                            <span class="normal left" style="width:23%"></span>
+                                            <span class="warning left" style="width:27%"></span>
+                                            <span class="urgent left" style="width:33%"></span>
+                                            <span class="critical left" style="width:17%"></span>
+                                        </div><!-- end relevant -->
+                                        <div class="alerts no-alerts">
+                                            <div class="clear">
+                                                <div class="alarm left tiny"><span></span><span></span><span></span></div><!-- end alarm -->
+                                                <span class="left">2</span>
+                                            </div><!-- end clear -->
+                                            <div class="icon-lightbulb"> 2</div>
+                                        </div><!-- end alerts -->
+                                        <ul class="object-options">
+                                            <li><a href="javascript:void(0);"><i class="fa fa-chevron-circle-down"></i></a>
+                                                <ul>
+                                                    <li><a href="javascript:void(0);" title="View Contents" data-action="contents">View Contents</a></li>
+                                                    <li><a href="javascript:void(0);" title="View Details" data-action="details">View Details</a></li>
+                                                    <li><a href="javascript:void(0);" title="View Incidents" data-action="incidents">View Incidents</a></li>
+                                                    <li><a href="javascript:void(0);" title="Edit" data-action="edit">Edit</a></li>
+                                                    <li><a href="javascript:void(0);" title="Delete" data-action="delete">Delete</a></li>
+                                                </ul>
+                                            </li>
+                                       </ul>
+                                    </li><!-- data center -->
+                                    <li data-center="4" data-level="critical" class="left clear impacted-object">
+                                        <svg class="icon48 critical" role="img" viewBox="0 0 1024 1024">
+                                            <use xlink:href="svgs/icons.svg#icon-application"/>
+                                        </svg>
+                                        <span class="label">Application4</span>
+                                        <div class="v-machine-gauge clear">
+                                            <span class="normal left" style="width:23%"></span>
+                                            <span class="warning left" style="width:27%"></span>
+                                            <span class="urgent left" style="width:33%"></span>
+                                            <span class="critical left" style="width:17%"></span>
+                                        </div><!-- end relevant -->
+                                        <div class="alerts">
+                                            <div class="clear">
+                                                <div class="alarm high left tiny"><span></span><span></span><span></span></div><!-- end alarm -->
+                                                <span class="left">2</span>
+                                            </div><!-- end clear -->
+                                            <div class="icon-lightbulb"> 2</div>
+                                        </div><!-- end alerts -->
+                                        <ul class="object-options">
+                                            <li><a href="javascript:void(0);"><i class="fa fa-chevron-circle-down"></i></a>
+                                                <ul>
+                                                    <li><a href="javascript:void(0);" title="View Contents" data-action="contents">View Contents</a></li>
+                                                    <li><a href="javascript:void(0);" title="View Details" data-action="details">View Details</a></li>
+                                                    <li><a href="javascript:void(0);" title="View Incidents" data-action="incidents">View Incidents</a></li>
+                                                    <li><a href="javascript:void(0);" title="Edit" data-action="edit">Edit</a></li>
+                                                    <li><a href="javascript:void(0);" title="Delete" data-action="delete">Delete</a></li>
+                                                </ul>
+                                            </li>
+                                       </ul>
+                                    </li><!-- data center -->
+                                    <li data-center="5" data-level="warning" class="left clear impacted-object">
+                                        <svg class="icon48 warning" role="img" viewBox="0 0 1024 1024">
+                                            <use xlink:href="svgs/icons.svg#icon-application"/>
+                                        </svg>
+                                        <span class="label">Application5</span>
+                                        <div class="v-machine-gauge clear">
+                                            <span class="normal left" style="width:23%"></span>
+                                            <span class="warning left" style="width:27%"></span>
+                                            <span class="urgent left" style="width:33%"></span>
+                                            <span class="critical left" style="width:17%"></span>
+                                        </div><!-- end relevant -->
+                                        <div class="alerts">
+                                            <div class="clear">
+                                                <div class="alarm low left tiny"><span></span><span></span><span></span></div><!-- end alarm -->
+                                                <span class="left">2</span>
+                                            </div><!-- end clear -->
+                                            <div class="icon-lightbulb no-alerts"> 2</div>
+                                        </div><!-- end alerts -->
+                                        <ul class="object-options">
+                                            <li><a href="javascript:void(0);"><i class="fa fa-chevron-circle-down"></i></a>
+                                                <ul>
+                                                    <li><a href="javascript:void(0);" title="View Contents" data-action="contents">View Contents</a></li>
+                                                    <li><a href="javascript:void(0);" title="View Details" data-action="details">View Details</a></li>
+                                                    <li><a href="javascript:void(0);" title="View Incidents" data-action="incidents">View Incidents</a></li>
+                                                    <li><a href="javascript:void(0);" title="Edit" data-action="edit">Edit</a></li>
+                                                    <li><a href="javascript:void(0);" title="Delete" data-action="delete">Delete</a></li>
+                                                </ul>
+                                            </li>
+                                       </ul>
+                                    </li><!-- data center -->
+                                </ul><!-- end data-centers -->
+                            </div><!-- end stage -->
+                    	</div><!-- end toggle tab -->
+                    </div><!-- end wrap -->
+                </div><!-- end module -->     
+        	</section><!-- end main -->
+        </div><!-- end wrapper -->
+        <div class="actions-panel">
+        	<ul>
+            	<li class="bookmark"><a href="#"><span>12</span><i class="fa fa-bookmark"></i></a></li>
+                <li class="alarms hasNew"><a href="#"><span>45</span><i class="fa fa-warning"></i></a>
+                	<ul>
+                    	<li><a href="#">Slow response time due to network condition</a></li>
+                        <li><a href="#" class="alarms">Queue size above SLA due to port failure</a></li>
+                    </ul>
+                </li>
+                <li class="archive"><a href="#"><span>5</span><i class="fa fa-archive"></i></a></li>
+                <li class="comments"><a href="#"><span>1</span><i class="fa fa-comment"></i></a></li>           
+            </ul>
+        </div><!-- end actions panel -->
+		<footer class="clear">
+        	
+        	<!-- Attach scripts -->
+            <script src="js/plugins.js"></script>
+            <script src="js/scripts.js"></script>
+            <script src="js/jquery.outside.js"></script>
+            <script src="js/jquery-ui-timepicker-addon.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js" async ></script>
+
+            
+            <!-- attach CSS thats not needed on page load -->
+            <link rel="stylesheet" href="css/jquery.datepicker.css">
+            <link rel="stylesheet" href="css/jquery-ui-timepicker-addon.min.css">
+            
+            <script>
+				$(function() {
+    				$('.modal').easyModal({
+						top: 'auto',
+						autoOpen: false,
+						overlayOpacity: 0.5,
+						overlayColor: "#000",
+						overlayClose: true,
+						closeOnEscape: true,
+						updateZIndexOnOpen: false
+					});
+
+					$('#datepicker').datetimepicker({
+						showOtherMonths: true,
+						timeFormat: "hh:mm tt",
+						dayNamesMin: [ "Su", "M", "Tu", "W", "Th", "F", "Sa" ]
+					});
+					
+				});
+				 $(document).ready( function(){
+					 // Create the Virtual Machines Chart
+					 caculateVMWidths();
+					 //Populate initial server counts
+					 updateServerCounts('All');
+					 
+					 // Server Menu Actions/Options
+					 $('.object-options ul a, .tool-actions a').on('click', function(){
+						 // Grab the action
+						 var action = $(this).data('action');
+						 var parent, name;
+						 //If the tool tip
+						 console.log($(this).parents('.tool-tip').height());
+						 if($(this).parents('.tool-tip').height() != null){
+						 	parent = $(this).parents('.tool-tip');
+							name = parent.find('.name').html();
+						 } else {
+							 parent = $(this).parents('.impacted-object');
+							 name = parent.find('.label').html();
+						 }
+
+						 
+						 var level = parent.attr('data-level');
+						 
+						 if(action == 'contents'){/* Contents */
+							 $('#contents').attr('data-level', level).trigger('openModal');
+						 } else if(action == 'details'){ /* Details */
+						 	 $('#modal-server-name').html(name);
+							 $('#details').attr('data-level', level).trigger('openModal');
+						 }
+						 //Scroll to top!
+						 $('html, body').animate({scrollTop:0}, '500', 'swing');
+						 
+					 });
+					 
+					 // Left Menu Functions 
+					 $('#topology-nav ul a').on('click', function(){
+						var li = $(this).parent('li');
+						var datacenter = $(this).data('center');
+						var type = $(this).data('type');
+						var el = $('.impacted-object[data-center="'+datacenter+'"]');
+						
+						if(datacenter != undefined){
+							// Already Opened so Reset stage
+							if(li.hasClass('expanded')){
+								resetFiltered();
+							} else {
+								highlightStage(el, datacenter);
+							}
+						}
+						li.toggleClass('expanded').children('ul').slideToggle(400); 
+						if(type == 'server' || type == 'cluster' || type == "virtual"){
+							if(!$('.detail-view').hasClass('open')){
+								toggleStage();
+							}
+						} else{
+							if(!$('.stage').hasClass('open')){
+								toggleStage();
+							}
+						}
+						
+					 })
+					 
+					 // Bind the tool tip action
+					 $('.section span').on('click', function(){
+						 var toolTip = $('#server-actions');
+						 var offset = $(this).offset();
+						 var top = offset.top - 20; //Top Position
+						 var left = offset.left + 11; ///Left Position
+						 var name = $(this).data('cluster'); // Server/Cluster Name
+						 var level = $(this).data('level'); // Crticality Level of Server/Cluster
+						 var parent = $(this).parents('.chart'); 
+						 var namePre = 'Server Cluster ';
+						 if(parent.hasClass('server-chart')){
+							 namePre = 'Server ';
+						 }
+						 //Update the ToolTip
+						 toolTip.attr('data-level', level).find('.name').html(namePre+name);
+						 //Place the tool tip
+						 toolTip.css({left: left+'px', top: top+'px'}).fadeIn(300);
+						 
+					 });
+					 /** Close The Tool Tip on Click Away **/
+					$('.section span, .v-machines span').on('mousedownoutside', function(event){
+						var target = $( event.target );
+						if(!target.is('.section span')){
+							$('#server-actions').fadeOut(300);
+						}else if(!target.is('.v-machines span')){
+							$('#vm-tip').fadeOut(300);
+						}
+					});
+					
+					/* Simple Tool Tip for vMachines */
+					$('.v-machines span').on('click', function(){
+						var toolTip = $('#vm-tip');
+						var offset = $(this).offset();
+						var top = offset.top - 20; //Top Position
+						var left = offset.left + 11; ///Left Position
+						var number = $(this).data('number-vm');
+						var level = $(this).parents('.v-machines').data('level');
+						//Place the tool tip
+						 toolTip.attr('data-level', level).css({left: left+'px', top: top+'px'}).fadeIn(300).find('span').html(number);
+					});
+					
+					 
+					 // Capture the Click on a Datacenter and DO stuff! :)
+					 $('li.impacted-object').on('click', function(){
+						 var datacenter = $(this).data('center');
+						 highlightStage($(this), datacenter);
+						 //Opne up side nav to current item
+						 openSideNav(datacenter);
+					 });
+
+                     // Open New Application Modal
+                     $('#new-app').on('click', function(){
+                        $('#new-app-modal').trigger('openModal')
+                     })
+
+				 });
+				 
+				 function highlightStage(el, datacenter){
+					if(!el.hasClass('active')){
+						 //Remove Previous Active li
+						 $('.impacted-object').removeClass('active');
+						 //Add class Active to clicked li
+						 el.addClass('active');
+						 //Add filtered class to stagem container
+						 $('.stage').addClass('filtered');
+						 // Update the server counts 
+						 updateServerCounts(datacenter);
+					 } 
+				 }
+				 
+				 function openSideNav(datacenter){
+					var el = $('#topology-nav a[data-center="'+datacenter+'"]');	
+					var parent = el.parent('li'); 
+					var topLevel = $('#menuAll');
+					if(!topLevel.hasClass('expanded')){
+						topLevel.addClass('expanded');
+						topLevel.children('ul').slideDown();
+					}
+					if(!parent.hasClass('expanded')){
+						parent.addClass('expanded');
+						parent.children('ul').slideDown();
+					}
+				 }
+				 /** Function to calculate all the servers that 
+				 	 correspond to a datacenter and highlight them
+					 
+					 @variable - datacenter: the data-center ID
+					 If set to all, calculates server counts for
+					 ALL datacenters on page.
+				**/
+				 function updateServerCounts(datacenter){
+					 // Set all Value to zero
+					 var serverClusters = 0, servers = 0, virtualMachines = 0;
+					 //All Data centers?
+					 if(datacenter == 'All'){
+						 serverClusters  = $('.cluster-chart .section span').length;
+						 servers  = $('.server-chart .section span').length;
+						 virtualMachines = $('.vm-chart').data('total');
+						
+					 }else{
+						 //Remove Active Classes from all spans, if applicable
+						 $('.chart span.active').removeClass('active');
+						 serverClusters  = $('.cluster-chart span[data-center="'+datacenter+'"]').addClass('active').length;
+						 servers  = $('.server-chart span[data-center="'+datacenter+'"]').addClass('active').length;
+						 var vms  = $('.vm-chart .v-machines span[data-center="'+datacenter+'"]');
+						 var number = 0, length = 0;
+						 for(var i=0;i<vms.length;i++){ 
+							number = $(vms[i]).data('number-vm');
+							length = length + parseInt(number);
+						}
+						virtualMachines = length;
+						vms.addClass('active').length;
+					 }
+					 //Populate the Fields
+					 $('#cluster-total').html(serverClusters);
+					 $('#servers-total').html(servers);
+					 $('#virtual-total').html(formatNum(virtualMachines));				 					 
+				 }
+				 
+				 function caculateVMWidths(){
+					var total = 0, normal = 0, warning = 0, urgent = 0, critical = 0;
+					var vms = $('.v-machines'); 
+					// Get the lengths for each section and set widths
+					// for the data-centers
+					for(var i=0;i<vms.length;i++){ 
+						var length = 0, number, vlength;
+						$(vms[i]).children('span').each( function(){
+							number = $(this).data('number-vm');
+							length = length + parseInt(number);
+						});
+						$(vms[i]).attr('data-total', length);
+						$(vms[i]).children('span').each( function(){
+							number = $(this).data('number-vm');
+							vlength = (parseInt(number)/length)*100;
+							$(this).css('width', vlength+'%');
+						});
+						total = total + length;
+						// Save the total in the container
+						$('.vm-chart').attr('data-total', total);
+					}
+					// Set the widths for each section
+					var length = 0, vlength = 0;
+					for(var i=0;i<vms.length;i++){ 
+						length = $(vms[i]).attr('data-total');
+						vlength = (length/total) * 100;
+						$(vms[i]).css('width', vlength+'%');
+					}
+					
+				 }
+				 /** Function to abbroeviate large numbers.
+				 
+				 	@variable number - integer
+					returns formatted integer
+				**/
+				 function formatNum(number){
+					 //If over 999, then format!
+					 if(number > 999){
+						 number = Math.floor(number/1000);
+						 number = number+'K';
+					 }
+					 return number;	 
+				 }
+				 
+				 /** Function to remove all Filters from the Stage,
+				 	 no variables
+				**/
+				function resetFiltered(){
+					$(".stage").removeClass('filtered').find('.active').removeClass('active');	
+				}
+				
+				/** Toggle between Stage and detail view **/
+				function toggleStage(){
+					$('.detail-view, .stage').toggleClass('open');
+				}
+				 
+				</script>	
+        	<!--- attach typekit account for custom fonts -->
+        	<script src="http://use.typekit.net/kws6hqw.js"></script>
+			<script>try{Typekit.load();}catch(e){}</script>
+            
+        	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        	<script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        	</script>
+        </footer><!-- end footer -->
+        
+        <!-- Tool Tips Menu for Servers -->
+                <div id="server-actions" class="tool-tip">
+                    <div class="inner">
+                        <div class="top clear">
+                            <svg class="icon24 normal left" role="img" viewBox="0 0 1024 1024">
+                                <use xlink:href="svgs/icons.svg#icon-server_m"/>
+                            </svg>
+                            <div class="name left">Server 134</div>
+                        </div>
+                        <ul class="tool-actions">
+                            <li><a href="javascript:void(0);" title="View Contents" data-action="contents">View Contents</a></li>
+                            <li><a href="javascript:void(0);" title="View Details" data-action="details">View Details</a></li>
+                            <li><a href="javascript:void(0);" title="Edit" data-action="edit">Edit</a></li>
+                        </ul>
+                    </div><!-- end inner -->
+                </div><!-- end tool tip -->
+                
+                <div id="vm-tip" class="tool-tip">
+                    <svg class="icon24 normal left" role="img" viewBox="0 0 1024 1024">
+                        <use xlink:href="svgs/icons.svg#icon-server_mv"/>
+                    </svg>
+                	<div class="number left"><span></span> Virtual Servers</div>
+                </div>
+        <!-- end Tool Tip Markup -->
+        
+        <!-- Code for jQuery Modal Overlay -->
+        <!-- Create additional <div>s with the class .modal
+        	 Give them a unique ID and use $('#ID').trigger('openModal') to
+             open the modal window.  $('#ID').trigger('closeModal') to close it.
+         -->
+  		<div id="contents" class="modal" data-server="">
+            <a href="#" class="close right" title="Close"><i class="fa fa-times-circle"></i></a>
+            <div class="modal-body">
+            	<div class="view-wrap clear">
+            		<img src="img/view-content.png" width="100%" height="416" />
+                </div><!-- view -wrap -->
+            </div><!-- end modal body -->
+        </div><!-- end modal -->
+        
+        <div id="details" class="modal" data-server="3" data-level="critical">
+            <a href="#" class="close right" title="Close"><i class="fa fa-times-circle"></i></a>
+            <div class="modal-body">
+            	<div class="top-details clear">
+                	<svg class="icon48 left" role="img" viewBox="0 0 1024 1024">
+                        <use xlink:href="svgs/icons.svg#icon-server"/>
+                    </svg>
+                    <a href="#" id="modal-server-name" class="left">Server3</a>
+                    <div class="stats left clear">
+                    	<div class="stat left">
+                        	<div class="data" data-stat="rps">23K</div>
+                            <div class="label">RPS</div>
+                        </div><!-- end stat -->
+                        <div class="stat left">
+                        	<div class="data" data-stat="error">3%</div>
+                            <div class="label">Error Rate</div>
+                        </div><!-- end stat -->
+                        <div class="stat left">
+                        	<div class="data" data-stat="cpu">89%</div>
+                            <div class="label">CPU Utilization</div>
+                        </div><!-- end stat -->
+                        <div class="stat left">
+                        	<div class="data" data-stat="mem">78%</div>
+                            <div class="label">Memory Utilization</div>
+                        </div><!-- end stat -->
+                    </div><!-- end stats  -->
+                	<a href="#" title="See More" class="right">See More</a>
+                </div><!-- end top detials -->
+            	<div class="view-wrap clear">
+            		<img src="img/view-details.png" width="100%" height="101" />
+                </div><!-- view -wrap -->
+            </div><!-- end modal body -->
+        </div><!-- end modal -->
+        
+        <div id="new-app-modal" class="modal">
+            <div id="new-app-header" class="clear">
+                <a class="close" title="close"><i class="fa fa-times-circle"></i></a>
+                <h3>New Application</h3>
+            </div>
+            <div id="new-app-body">
+                <input type="text" placeholder="Application Name">
+                <div>                
+                    <label>Template</label>
+                    <ul class="fake-select">
+                        <li><a data-control="time" data-value="6" class="control" href="javascript:void(0);">Blank</a>
+                            <ul>
+                                <li class="select"><a data-value="blank" href="#">Blank II</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div id="new-app-save-cancel">
+                    <a href="#" class="button cancel">Cancel</a>
+                    <a href="#" class="button">Save</a>
+                </div>
+            </div>
+        </div>
+        <!-- END MODAL OVERLAYS -->
+
+    </body>
+</html>

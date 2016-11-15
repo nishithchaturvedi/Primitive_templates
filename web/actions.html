@@ -1,0 +1,545 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Perspica | Actions</title>
+        
+        <!-- meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- dns prefetch -->
+        <link href="http://www.google-analytics.com" rel="dns-prefetch">
+        
+        <!-- icons -->
+		<link href="img/favicon.ico" rel="shortcut icon">
+		<link href="img/touch.png" rel="apple-touch-icon-precomposed">
+		
+        <!-- stylesheets -->
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/jquery.datepicker.css">
+        <link rel="stylesheet" href="css/style.css">
+        
+        <!-- font awesome css -->
+        <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+
+        <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <!-- load jQuery from Goolge CDN -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="js/svgforeverybody.min.js"></script>
+        
+    </head>
+    <body class="actions logged-in">
+        <header id="header" role="banner">
+        	<div class="inner clear nav">
+            	<a href="javascript:void(0);" class="nav-control left toggle" onClick="jQuery('body').toggleClass('open');"></a>
+                <a href="/" title="Home" class="logo left"><img src="img/logo.png" alt="the Tech" /></a>
+                <a href="javascript:void(0);" class="showMobile search-control right" onClick="jQuery('body').toggleClass('search');"></a>
+            </div><!-- end left -->
+            <form class="left form-item" action="index.html" method="get" id="global-search" name="global-search">
+                <div class="showLabels">
+                    <label for="search">Actions Here</label>
+                    <input type="search" name="search" id="search"/>
+                </div>
+                <button type="submit" class="search"><i class="fa fa-search"></i></button>
+            </form><!-- end form -->
+			<div class="inner right clear" id="profile-menu">
+                <div class="avatar left">               	
+                    <a href="profile.html" title="Profile"><img src="img/nelson.jpg" width="33px" alt="Scott" /></a>
+                    <span>Hello Scott</span>
+                </div><!-- end avatar -->
+                 <ul class="right toggleable" id="user-settings">
+                    <li><a class="settings toggle" href="javascript:void(0);"></a>
+                        <ul>
+                            <li><a href="#" title="Profile">My Profile</a></li>
+                            <li><a href="#" title="Preferences">Preferences</a></li>
+                            <li><a href="#" title="Administration">Help</a></li>
+                            <li><a href="#" title="Log Out" class="logout">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+        	</div><!-- end inner -->
+        </header><!-- end header -->
+        <nav class="toggleable">
+            <ul>
+                <li><a href="#" title="Topology" class="icon topology-icon">Topology</a></li>
+                <li class="hasChildren">
+                	<a href="#" title="Alerting" class="icon alert-icon">Alerting</a><span class="sub-toggle"></span>
+                    <ul>
+                    	<li><a href="#" title="Alerting">Alerting Overview</a></li>
+                        <li><a href="#" title="Alerting">Incidents</a></li>
+                        <li><a href="#" title="Alerting">Alarms</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" title="Dashboard" class="icon dashboard-icon">Dashboards</a></li>
+                <li><a href="#" title="Reports" class="icon reports-icon">Reports</a></li>
+                <li><a href="#" title="Planning" class="icon plan-icon">Planning</a></li>
+                <li><a href="#" title="KnowledgeBase" class="icon knowledge-icon">Knowledge Base</a></li>
+                <li><a href="#" title="Configuration" class="icon configuration-icon">Configuration</a></li>
+                <li><a href="#" title="Collaboration" class="icon collaboration-icon">Collaboration</a></li>
+                <li><a href="#" title="Help" class="icon help-icon">Help</a></li>
+            </ul>
+        </nav>
+        <div class="wrapper clear">
+        	<div class="page-top clear">
+                <div class="breadcrumbs left">
+                    <ul class="clear">
+                        <li><a href="/" title="Home">Home</a></li>
+                        <li>&nbsp;/&nbsp;&nbsp;</li>
+                        <li><a href="actions.html" title="Actions">Actions</a></li>
+                        <li>&nbsp;/&nbsp;&nbsp;</li>
+                        <li><span>Results</span></li>
+                    </ul>
+                </div><!-- end breadcrumbs -->
+                <ul class="header-actions right clear">
+                	<li><a href="#"><i class="fa fa-bookmark"></i></a></li>
+                    <li><a href="#"><i class="fa fa-file-pdf-o"></i></a></li>
+                    <li><a href="#"><i class="fa fa-share"></i></a></li>
+                    <li><a href="#"><i class="fa fa-comment"></i></a></li>
+                </ul>
+            </div><!-- end page-top -->
+        	<section id="actions" class="main clear">
+            	<div class="module clear">
+                    <ul class="module-actions">
+                        <li><a href="#" class="module-control"><i class="fa fa-share"></i></a>
+                            <ul>
+                                <li><a href="#" title="Add to Dashboard" data-action="dashboard">Add to a Dashboard...</a></li>
+                                <li><a href="#" title="Add to a Collaboration" data-action="collaborate">Add to a Collaboration...</a></li>
+                                <li><a href="#" title="Add to Report" data-action="report">Add to Report...</a></li>
+                                <li><a href="#" title="Make PDF" data-action="pdf">Make PDF</a></li>
+                                <li><a href="#" title="Email" data-action="Email">Email it</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="module-settings">
+                        <li><a href="#" class="module-control"><i class="fa fa-gear"></i></a>
+                            <ul>
+                                <li><a href="#" title="Edit Settings" data-action="settings">Edit Settings</a></li>
+                                <li><a href="#" title="Minimize" data-action="minimize">Minimize</a></li>
+                                <li><a href="#" title="Refresh" data-action="share">Refresh</a></li>
+                                <li><a href="#" title="Duplicate" data-action="duplicate">Duplicate</a></li>
+                                <li><a href="#" title="Remove" data-action="remove">Remove</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="search-filters left">
+                    	<h3>Filter Results</h3>
+                        <select name="status">
+                            <option>Status</option>
+                            <option value="1">Active</option>
+                            <option value="2">Inactive</option>
+                        </select>
+                        <select name="Type">
+                            <option>Type</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                        </select>
+                        <select name="croticality">
+                            <option>Author</option>
+                            <option value="1">Chris</option>
+                            <option value="2">Brett</option>
+                        </select>
+                        <div class="clear">
+                        	<a href="javascript:void(0);" title="Cancel" class="button cancel left">Reset</a>
+                            <a href="javascript:void(0);" title="Apply" class="button right">Apply</a>
+                        </div><!-- end clear -->
+                    </div><!-- end search filters -->
+                    <div class="search-results left clear">
+                    	<div class="search-tags clear">
+                            <div class="results-total right">345 Results</div><!-- end results total -->
+                            <a href="javascript:void(0);" id="add-action" title="Add Action" class="add-action button right mar-l-r">Add Action</a>
+                        </div><!-- end search-tags -->
+                        <div class="table-wrap actions-table left">
+                            <table class="table">
+                                <thead class="table-head">
+                                    <tr>
+                                        <th class="head t-cell">Name</th><!-- end head cell -->
+                                        <th class="head t-cell center">Active</th><!-- end head cell -->
+                                        <th class="head t-cell">Type</th><!-- end head cell -->
+                                        <th class="head t-cell">Description</th><!-- end head cell -->
+                                        <th class="head t-cell">Author</th><!-- end head cell -->
+                                        <th class="head t-cell">&nbsp;</th><!-- end head cell -->
+                                    </tr>
+                                </thead><!-- end table head -->
+                                <tbody class="table-body">
+                                    <tr class="t-row" data-type="sms">
+                                        <td class="t-cell">
+                                            <a href="javascript:void(0);" class="action-edit">Create Incident</a>
+                                        </td><!-- end t-cell -->
+                                        <td class="t-cell">
+                                            <div class="checkwrap">
+                                                <input type="checkbox" name="1" id="1" value="1" />
+                                                <label for="1"></label>
+                                            </div><!-- end checkwrap -->
+                                        </td><!-- end t-cell -->
+                                        <td class="t-cell">SMS</td><!-- end t-cell -->
+                                        <td class="t-cell">Run root cause analysis on correlated alarms</td><!-- end t-cell -->
+                                        <td class="t-cell">jhuard</td><!-- end t-cell -->
+                                        <td class="t-cell">
+                                            <div class="actions clear right">
+                                                <a href="javascript:void(0);" class="action-edit"><i class="fa fa-pencil"></i></a>
+                                                <a href="javascript:void(0);" class="action-remove"><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr><!-- end t-row -->
+                                    <tr class="t-row" data-type="email">
+                                        <td class="t-cell">
+                                            <a href="javascript:void(0);" class="action-edit">Email Frank</a>
+                                        </td><!-- end t-cell -->
+                                        <td class="t-cell">
+                                            <div class="checkwrap">
+                                                <input type="checkbox" name="1" id="2" value="1" checked="checked" />
+                                                <label for="2"></label>
+                                            </div><!-- end checkwrap -->
+                                        </td><!-- end t-cell -->
+                                        <td class="t-cell">Email</td><!-- end t-cell -->
+                                        <td class="t-cell">Send email to application admin</td><!-- end t-cell -->
+                                        <td class="t-cell">nishith</td><!-- end t-cell -->
+                                        <td class="t-cell">
+                                            <div class="actions clear right">
+                                                <a href="javascript:void(0);" class="action-edit"><i class="fa fa-pencil"></i></a>
+                                                <a href="javascript:void(0);" class="action-remove"><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr><!-- end t-row -->
+                                    <tr class="t-row" data-type="email">
+                                        <td class="t-cell">
+                                            <a href="javascript:void(0);" class="action-edit">Create Incident</a>
+                                        </td><!-- end t-cell -->
+                                        <td class="t-cell">
+                                            <div class="checkwrap">
+                                                <input type="checkbox" name="1" id="3" value="1" />
+                                                <label for="3"></label>
+                                            </div><!-- end checkwrap -->
+                                        </td><!-- end t-cell -->
+                                        <td class="t-cell">Perspica</td><!-- end t-cell -->
+                                        <td class="t-cell">Run root cause analysis on correlated alrams</td><!-- end t-cell -->
+                                        <td class="t-cell">jhuard</td><!-- end t-cell -->
+                                        <td class="t-cell">
+                                            <div class="actions clear right">
+                                                <a href="javascript:void(0);" class="action-edit"><i class="fa fa-pencil"></i></a>
+                                                <a href="javascript:void(0);" class="action-remove"><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr><!-- end t-row -->
+                                    <tr class="t-row" data-type="post">
+                                        <td class="t-cell">
+                                            <a href="javascript:void(0);" class="action-edit">Create Incident</a>
+                                        </td><!-- end t-cell -->
+                                        <td class="t-cell">
+                                            <div class="checkwrap">
+                                                <input type="checkbox" name="1" id="4" value="1" />
+                                                <label for="4"></label>
+                                            </div><!-- end checkwrap -->
+                                        </td><!-- end t-cell -->
+                                        <td class="t-cell">Post</td><!-- end t-cell -->
+                                        <td class="t-cell">Run root cause analysis on correlated alrams</td><!-- end t-cell -->
+                                        <td class="t-cell">jhuard</td><!-- end t-cell -->
+                                        <td class="t-cell">
+                                            <div class="actions clear right">
+                                                <a href="javascript:void(0);" class="action-edit"><i class="fa fa-pencil"></i></a>
+                                                <a href="javascript:void(0);" class="action-remove"><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr><!-- end t-row -->
+                                    
+                                </tbody><!-- end table body -->
+                            </table><!-- end table -->
+                        </div><!-- end table wrap -->
+                	</div><!-- end search results -->
+            	</div><!-- end module -->
+                <!-- Loading ICON
+                	 Possibly Used for Lazy loading of Actions results 
+                -->
+                <div id="loading-icon" style="display:none;"></div>
+        	</section><!-- end main -->
+        </div><!-- end wrapper -->
+        <div class="actions-panel">
+        	<ul>
+            	<li class="bookmark"><a href="#"><span>12</span><i class="fa fa-bookmark"></i></a></li>
+                <li class="alarms hasNew"><a href="#"><span>45</span><i class="fa fa-warning"></i></a>
+                	<ul>
+                    	<li><a href="#">Slow response time due to network condition</a></li>
+                        <li><a href="#" class="alarms">Queue size above SLA due to port failure</a></li>
+                    </ul>
+                </li>
+                <li class="archive"><a href="#"><span>5</span><i class="fa fa-archive"></i></a></li>
+                <li class="comments"><a href="#"><span>1</span><i class="fa fa-comment"></i></a></li>           
+            </ul>
+        </div><!-- end actions panel -->
+		<footer class="clear">
+        	
+        	<!-- Attach scripts -->
+            <script src="js/plugins.js"></script>
+            <script src="js/scripts.js"></script>
+            <script src="js/jquery.outside.js"></script>
+            <script src="js/jquery.modal.js"></script>
+            <script src="js/jquery-ui-timepicker-addon.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js" async ></script>
+            <script src="js/jquery.tablesorter.min.js"></script>
+            <script src="js/jquery.tablesorter.widgets.min.js"></script>
+            <script src="js/jquery.tablesorter.stickyHeader.js"></script>
+            
+            
+            <!-- attach CSS thats not needed on page load -->
+            <link rel="stylesheet" href="css/jquery-ui-timepicker-addon.min.css">
+            
+            
+            <script>
+				$(function() {
+					/* Not currently used */
+    				$('.modal').easyModal({
+						top: 'auto',
+						autoOpen: false,
+						overlayOpacity: 0.8,
+						overlayColor: "#000",
+						overlayClose: true,
+						closeOnEscape: true,
+                        onOpen: function(myModal){
+                            //$(myModal).append('Opened!');
+                            //Add some logic to pre-populate fields
+                            //console.log($(myModal));
+                        },
+                        updateZIndexOnOpen: false
+					});
+					
+					// Add Table Sort Functionality
+					$('table').tablesorter({
+						widthFixed : true,
+					
+						widgets: [ 'cssStickyHeaders' ],
+					
+						widgetOptions: {
+						  cssStickyHeaders_attachTo      : '.table-wrap',
+						  cssStickyHeaders_addCaption    : true
+						}
+					});
+					
+
+					
+				});
+				 $(document).ready( function(){
+					 
+					 // Initiate Select Method
+                	$("select").selectmenu();
+					
+					 $(window).resize( function(){
+						$("select").selectmenu("destroy").selectmenu();
+					});
+                    
+                    $('.action-edit, .add-action').on('click', function(){
+                    	hideModalBodyDivs();
+                    	//hide previously shown modal bodies
+                        clearModalHeader();
+                        //clear previously show header content
+
+                        var row = $(this).parents('tr');
+                        //Pre-populate modal fields with row specific data if .action-edit
+                        if( $(this).hasClass('action-edit') ){ 
+                			$("#modal-header").html("Edit Action");
+                            populateModalFields(row);
+                        }else{
+                        	$("#modal-header").html("New Action");
+                            //Reset the DropDown to choose
+                            $('#action-type').val("choose");
+                            $("#action-type").selectmenu("destroy").selectmenu();
+                        }
+                        //Trigger modal
+                        $('.modal').trigger('openModal');
+                    });
+
+                    var hideModalBodyDivs = function(){
+                    	$('#modal-body > div').hide();
+                    }
+
+                    var clearModalHeader = function(){
+                        $('#action-type option[value="choose"]').prop('selected', true)
+                        $('#action-name').val("")
+                        $('#action-description').val("")
+                        $("#active").prop("checked", false)
+                    }
+
+                    var populateModalFields = function(row){
+                        
+                        var actionType = row.data('type');                       
+                        var actionName = $(row.children()[0]).children().text();
+                        $('#action-name').val(actionName)
+                        //populate name
+                        var actionDesc = $(row.children()[3]).text();
+                        $('#action-description').val(actionDesc)
+                        //populate description
+                        $('#action-type option[value=' + actionType.toLowerCase() + ']').prop('selected', true);
+                        //populate type
+                        var actionActive = $(row.children()[1]).find("input");
+                        if($(actionActive).prop("checked")){
+                            $("#active").prop("checked", true)
+                        }
+                        
+                        showModalBody(actionType, function(){
+                           $("select").selectmenu("destroy").selectmenu(); 
+                        });
+                        //populate active
+                    }
+                    //populates modal fields when editing
+
+                    var showModalBody = function(actionType, callback){
+                        $('#' + actionType + '-body').show(400, 'swing', function(){
+                            callback(); 
+                        });
+                        
+                    };
+
+                    $('#action-type').on('change', function(){
+                            hideModalBodyDivs();
+                            var actionType = $(this).val();
+                            if(actionType != 'choose'){
+                                showModalBody(actionType, function(){
+                                    $("select").selectmenu("destroy").selectmenu();
+                                });
+                            }
+                        //change modal body upon selection of new action type
+                    });
+                    
+                    $('.action-remove').on('click', function(){
+                       // Define table row
+                       var row = $(this).parents('tr');
+                       //Confirm Deletion
+                       var response = confirm("Are you sure you want to delete?");
+                       if(response ===  true){
+                           //Delete row
+                           row.fadeOut(400, function(){
+                             row.remove();   
+                           });
+                       }
+                    });
+
+				 });				 
+				</script>	
+        	<!--- attach typekit account for custom fonts -->
+        	<script src="http://use.typekit.net/kws6hqw.js"></script>
+			<script>try{Typekit.load();}catch(e){}</script>
+            
+        	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        	<script>
+           /*(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview'); */
+        	</script>
+        </footer><!-- end footer -->
+        <!-- Code for jQuery Modal Overlay -->
+        <!-- Create additional <div>s with the class .modal
+        	 Give them a unique ID and use $('#ID').trigger('openModal') to
+             open the modal window.  $('#ID').trigger('closeModal') to close it.
+         -->
+  		<div id="actions-modal" class="modal">
+            <a href="#" class="close right" title="Close"><i class="fa fa-times-circle"></i></a>
+            <h2 id="modal-header">New Action</h2>
+    		<div class="modal-content clear">
+
+    			<div id="global-modal-head"> 
+    				<input type="text" placeholder="Action Name" name="action-name" id="action-name" />
+    				<input type="text" placeholder="Description" name="action-description" id="action-description" />
+
+                    <div class="modal-select-container">
+        				<label for="action-type">Type</label>
+        				<select class="modal-select jquerySelect" name="action-type" id="action-type" >
+        					<option value="choose">Choose...</option>
+        					<option value="email">Email</option>
+        					<option value="post">Post</option>
+        					<option value="sms">SMS</option>
+        				</select>
+                    </div>
+
+                    <div id="modal-active-check">
+    				    <input type="checkbox" name="active" id="active"/>
+    				    <label for="active">Active</label>
+                    </div>
+    			</div><!--end global-modal-head-->
+
+    			<div id="modal-body">
+    				<div id="email-body" style="display: none">
+                        <div class="modal-body-content">
+                            <div class="recipients-container">
+            					<label for="email-recipients" class="modal-body-label">Recipients</label>
+            					<textarea name="email-recipients" placeholder="somebody@domain.com, another@domain.com" class="modal-recipients"></textarea>
+            					<p class="modal-context">Enter email addresses separated by commas</p>
+        					</div>
+
+                            <div class="message-format-container modal-select-container">
+            					<label for="email-message-format" class="modal-body-label">Message Format</label>
+            					<select class="message-format" name="email-message-format" id="email-message-format">
+            						<option>Choose...</option>
+            						<option value="">Detailed: Event Subject, Criticallity and Summary with Link</option>
+                                    <option value="">Brief: Event Subject with Link</option>
+            					</select>
+                            </div>
+                        </div>
+    				</div><!--end email-body -->
+
+    				<div id="post-body" style="display: none">
+                        <div class="modal-body-content">
+                            <div class="post-row">
+            					<label for="post-to-url" class="modal-body-label">Post to</label>
+            					<input id="modal-url" name="post-to-url" type="text" placeholder="https://sub.domain.com/post?#channel" />
+            					<p class="modal-context">Enter exact URL to create post</p>
+                            </div>
+
+                            <div class="post-row">
+        						<label for="username" class="modal-body-label">Username</label>
+            					<input class="modal-login" name="username" type="text" placeholder="username1" />
+            					<p class="modal-context">Leave blank if authentication is not required</p>
+                            </div>
+
+                            <div class="post-row">
+            					<label for="password" class="modal-body-label">Password</label>
+            					<input class="modal-login" name="password" type="password" placeholder="passwordhere" />
+                            </div>
+
+                            <div class="message-format-container modal-select-container">
+            					<label for="post-message-format" class="modal-body-label">Message Format</label>
+            					<select class="message-format" name="post-message-format" id="post-message-format">
+            						<option>Choose...</option>
+            						<option value="">Detailed: Event Subject, Criticallity and Summary with Link</option>
+            						<option value="">Brief: Event Subject with Link</option>
+            					</select>
+                            </div>
+                        </div>
+    				</div><!--end post-body -->
+
+    				<div id="sms-body" style="display: none">
+                        <div class="modal-body-content">
+
+                            <div class="recipients-container">
+            					<label for="sms-recipients" class="modal-body-label">Recipients</label>
+            					<textarea name="sms-recipients" placeholder="(212) 555-1212, (408) 999-4545" class="modal-recipients"></textarea>
+            					<p class="modal-context">Enter mobile numbers with area codes separated by commas</p>
+                            </div>
+        					
+                            <div class="message-format-container modal-select-container">
+            					<label for="sms-message-format" class="modal-body-label">Message Format</label>
+            					<select class="message-format" name="sms-message-format" id="sms-message-format">
+            						<option>Choose...</option>
+            						<option value="">Detailed: Event Subject, Criticallity and Summary with Link</option>
+                                    <option value="">Brief: Event Subject with Link</option>
+            					</select>
+                            </div>
+                        </div>
+    				</div><!--end sms-body -->
+
+    			</div><!--end modal-body-->
+
+    			<div id="modal-footer">
+                    <input type="submit" value="Submit" name="submit" class="button right" />
+                    <a href="#" class="button cancel right">Cancel</a>
+    			</div><!--end save-->
+
+            </div><!-- end modal content -->
+  		</div><!-- end #recommendations -->
+  		<!-- end Modal Overlay -->
+    </body>
+</html>

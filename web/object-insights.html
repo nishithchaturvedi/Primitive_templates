@@ -1,0 +1,1349 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Perspica | Object Insights</title>
+        
+        <!-- meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- dns prefetch -->
+        <link href="http://www.google-analytics.com" rel="dns-prefetch">
+        
+        <!-- icons -->
+		<link href="img/favicon.ico" rel="shortcut icon">
+		<link href="img/touch.png" rel="apple-touch-icon-precomposed">
+		
+        <!-- stylesheets -->
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        
+        <!-- font awesome css -->
+        <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+        <!-- custom fontastic icons -->
+        <link href="https://file.myfontastic.com/Cq8RKf8qn52wR4imx9DKVU/icons.css" rel="stylesheet">
+
+        <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <!-- load jQuery from Goolge CDN -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    </head>
+    <body class="ps-object-insights logged-in">
+        <header id="header" role="banner">
+        	<div class="inner clear nav">
+            	<a href="javascript:void(0);" class="nav-control left toggle" onClick="jQuery('body').toggleClass('open');"></a>
+                <a href="/" title="Home" class="logo left"><img src="img/logo.png" alt="the Tech" /></a>
+                <a href="javascript:void(0);" class="showMobile search-control right" onClick="jQuery('body').toggleClass('search');"></a>
+            </div><!-- end left -->
+            <form class="left form-item" action="index.html" method="get" id="global-search" name="global-search">
+                <div class="showLabels">
+                    <label for="search">Search Here</label>
+                    <input type="search" name="search" id="search"/>
+                </div>
+                <button type="submit" class="search"><i class="fa fa-search"></i></button>
+            </form><!-- end form -->
+			<div class="inner right clear" id="profile-menu">
+                <div class="avatar left">               	
+                    <a href="profile.html" title="Profile"><img src="img/nelson.jpg" width="33px" alt="Scott" /></a>
+                    <span>Hello Scott</span>
+                </div><!-- end avatar -->
+                 <ul class="right toggleable" id="user-settings">
+                    <li><a class="settings toggle" href="javascript:void(0);"></a>
+                        <ul>
+                            <li><a href="#" title="Profile">My Profile</a></li>
+                            <li><a href="#" title="Preferences">Preferences</a></li>
+                            <li><a href="#" title="Administration">Help</a></li>
+                            <li><a href="#" title="Log Out" class="logout">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+        	</div><!-- end inner -->
+        </header><!-- end header -->
+        <nav class="toggleable">
+            <ul>
+                <li><a href="#" title="Topology" class="icon topology-icon">Topology</a></li>
+                <li class="hasChildren">
+                	<a href="#" title="Alerting" class="icon alert-icon">Alerting</a><span class="sub-toggle"></span>
+                    <ul>
+                    	<li><a href="#" title="Alerting">Alerting Overview</a></li>
+                        <li><a href="#" title="Alerting">Incidents</a></li>
+                        <li><a href="#" title="Alerting">Alarms</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" title="Dashboard" class="icon dashboard-icon">Dashboards</a></li>
+                <li><a href="#" title="Reports" class="icon reports-icon">Reports</a></li>
+                <li><a href="#" title="Planning" class="icon plan-icon">Planning</a></li>
+                <li><a href="#" title="KnowledgeBase" class="icon knowledge-icon">Knowledge Base</a></li>
+                <li><a href="#" title="Configuration" class="icon configuration-icon">Configuration</a></li>
+                <li><a href="#" title="Collaboration" class="icon collaboration-icon">Collaboration</a></li>
+                <li><a href="#" title="Help" class="icon help-icon">Help</a></li>
+            </ul>
+        </nav>
+        <div class="wrapper clear">
+        	<div class="page-top clear">
+                <div class="breadcrumbs left">
+                    <ul class="clear">
+                        <li><a href="/" title="Home">Home</a></li>
+                        <li>&nbsp;/&nbsp;&nbsp;</li>
+                        <li><a href="insights.html" title="Alerting">Insights</a></li>
+                        <li>&nbsp;/&nbsp;&nbsp;</li>
+                        <li><span>Object Insights</span></li>
+                    </ul>
+                </div><!-- end breadcrumbs -->
+                <a href="javascript:void(0);" class="right" id="toggleTiles" onClick="jQuery('body').toggleClass('tile-selector');"><span>TILES</span></a>
+                 <div class="date-picker right clear">
+                    <input type="text" class="left" value="" id="datepicker" name="datepicker">
+                    <label class="left" for="datepicker"><i class="fa fa-calendar"></i></label>
+                </div><!-- end date-picker -->
+                <ul class="header-actions right clear">
+                	<li><a href="#"><i class="fa fa-bookmark"></i></a></li>
+                    <li><a href="#"><i class="fa fa-file-pdf-o"></i></a></li>
+                    <li><a href="#"><i class="fa fa-share"></i></a></li>
+                    <li><a href="#"><i class="fa fa-comment"></i></a></li>
+                </ul>
+            </div><!-- end page-top -->
+            <div id="selectionTiles">
+                <div class="jcarousel dashboard">
+                    <ul>
+                        <li>
+                            <span class="instructions">Drag and Drop tiles onto your Dashboard. Configure with <i class="fa fa-gear"></i>.</span>
+                        </li>
+                        <li data-tile="problems" draggable="true" class="draggable" data-type="health">
+                            <a href="javascript:void(0);">
+                                <img src="img/health-tile.png" width="100" height="69" />
+                                <span>Problems</span>
+                            </a>	
+                        </li>
+                        <li data-tile="utilization" draggable="true" class="draggable" data-type="health">
+                            <a href="javascript:void(0);">
+                                <img src="img/health-tile.png" width="100" height="69" />
+                                <span>Utilization</span>
+                            </a>	
+                        </li>
+                        <li data-tile="top-alarming" draggable="true" class="draggable" data-type="alarm">
+                            <a href="javascript:void(0);">
+                                <img src="img/health-tile.png" width="100" height="69" />
+                                <span>Top Alarming</span>
+                            </a>	
+                        </li>
+                        <li data-tile="idle" draggable="true" class="draggable" data-type="recommendation">
+                            <a href="javascript:void(0);">
+                                <img src="img/health-tile.png" width="100" height="69" />
+                                <span>Idle</span>
+                            </a>	
+                        </li>
+                        <li data-tile="imbalanced" draggable="true" class="draggable" data-type="alarm">
+                            <a href="javascript:void(0);">
+                                <img src="img/health-tile.png" width="100" height="69" />
+                                <span>Imbalanced</span>
+                            </a>	
+                        </li>
+                        <li data-tile="host-caching" draggable="true" class="draggable" data-type="topology">
+                            <a href="javascript:void(0);">
+                                <img src="img/health-tile.png" width="100" height="69" />
+                                <span>Host Caching</span>
+                            </a>	
+                        </li>
+                        <li data-tile="search" draggable="true" class="draggable" data-type="health">
+                            <a href="javascript:void(0);">
+                                <img src="img/health-tile.png" width="100" height="69" />
+                                <span>Search</span>
+                            </a>	
+                        </li>
+                        <li data-tile="key-applications" draggable="true" class="draggable" data-type="recommendations">
+                            <a href="javascript:void(0);">
+                                <img src="img/health-tile.png" width="100" height="69" />
+                                <span>Key Applications</span>
+                            </a>	
+                        </li>
+                    </ul>
+                </div><!-- end carousel -->
+                <a href="#" class="arrow back jcarousel-prev"><i class="fa fa-angle-left"></i></a>
+                <a href="#" class="arrow forward jcarousel-next"><i class="fa fa-angle-right"></i></a>
+                <ul class="filter">
+                	<li><a href="javascript:void(0);" title="All" data-filter="all" class="current">All</a></li>
+                    <li><a href="javascript:void(0);" title="Alarms" data-filter="alarms">Alarms</a></li>
+                    <li><a href="javascript:void(0);" title="Health" data-filter="health">Health</a></li>
+                    <li><a href="javascript:void(0);" title="Recommendations" data-filter="recommendations">Recommendations</a></li>
+                    <li><a href="javascript:void(0);" title="Topology" data-filter="topology">Topology</a></li>
+                </ul>
+            </div><!-- end selection Tiles -->
+            <div class="ps-obj-insight-filters clear">
+                <div class="left clear">
+                    <label for="ps-search-tags">Filter:</label>
+                    <div class="right ps-input-wrap mar-l-r">
+                    <select id="ps-saved-searches" class="ps-select-menu" placeholder="Apply Saved Search">
+                        <option value="1">Saved Search 1</option>
+                        <option value="2">Saved Search 2</option>
+                        <option value="3">Saved Search 3</option>
+                    </select>
+                    </div><!-- end ps-input-wrap -->
+                </div><!-- end left -->
+                <div class="left clear">
+                    <div class="right ps-input-wrap">
+                        <i class="fa fa-search"></i>
+                        <input type="search" id="ps-search-tags" class="right ps-floated-input" placeholder="Add a tag"/>
+                    </div><!-- end ps-input-wrap -->
+                </div><!-- end left -->
+                <div class="search-tags left">
+                    <div class="tag left">Active <a href="#" class="removeTag"><i class="fa fa-times-circle"></i></a></div>
+                    <div class="tag left">Slow <a href="#" class="removeTag"><i class="fa fa-times-circle"></i></a></div>
+                </div><!-- end search-tags -->
+                <div class="time-wrapper right">
+                    <a href="javascript:void(0);" class="left time" data-change="prev" title="prev"><i class="fa fa-chevron-left"></i></a>
+                    <ul class="fake-select left time-range">
+                        <li><a data-value="12" class="control" href="javascript:void(0);">12 hrs</a>
+                            <ul>
+                                <li><a data-value="1" href="#">1 hr</a></li>
+                                <li><a data-value="2" href="#">2 hrs</a></li>
+                                <li><a data-value="6" href="#">6 hrs</a></li>
+                                <li class="selected"><a data-value="12" href="#">12 hrs</a></li>
+                                <li><a data-value="24" href="#">24 hrs</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <a href="javascript:void(0);" class="left time" data-change="next" title="next"><i class="fa fa-chevron-right"></i></a>
+                </div><!-- end time-wrapper -->
+                <!--<a href="javascript:void(0);" class="button right mar-l-r" id="add-tile">Add Tile</a>-->
+            </div><!-- end ps-obj-insight-filters -->
+        	<section id="dashboard-overview" class="main clear">
+                <div class="tile-container module-container clear" data-tiles="2">
+                	<div class="drag-target left" data-order="1">
+                        <div class="module problems-module clear" data-type="problems">
+                        	<h3>Top Chronic Problems</h3>
+                            <ul class="module-actions">
+                                <li><a href="#" class="module-control"><i class="fa fa-share"></i></a>
+                                    <ul>
+                                        <li><a href="#" title="Add to Dashboard" data-action="dashboard">Add to a Dashboard...</a></li>
+                                        <li><a href="#" title="Add to a Collaboration" data-action="collaborate">Add to a Collaboration...</a></li>
+                                        <li><a href="#" title="Add to Report" data-action="report">Add to Report...</a></li>
+                                        <li><a href="#" title="Make PDF" data-action="pdf">Make PDF</a></li>
+                                        <li><a href="#" title="Email" data-action="Email">Email it</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="module-settings">
+                                <li><a href="#" class="module-control"><i class="fa fa-gear"></i></a>
+                                    <ul>
+                                        <li><a href="#" title="Edit Settings" data-action="settings">Edit Settings</a></li>
+                                        <li><a href="#" title="Minimize" data-action="minimize">Minimize</a></li>
+                                        <li><a href="#" title="Refresh" data-action="share">Refresh</a></li>
+                                        <li><a href="#" title="Duplicate" data-action="duplicate">Duplicate</a></li>
+                                        <li><a href="#" title="Remove" data-action="remove">Remove</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="module-min">
+                                <ul class="module-tabs clear">
+                                    <li class="active"><a href="#" data-tab="1" title="Health">Health</a><span>4</span></li>
+                                    <li class=""><a href="#" data-tab="2" title="CPU">CPU</a><span>9</span></li>
+                                    <li><a href="#" data-tab="3" title="MEM">MEM</a></li>
+                                    <li><a href="#" data-tab="4" title="DISK I/O">DISK I/O</a></li>
+                                    <li><a href="#" data-tab="5" title="NET I/O">NET I/O</a></li>
+                                </ul>           
+                                <div class="tab-wrap">
+                                    <div data-tab="1" class="module-tab active">
+                                        <div class="table-wrap notifications-table">
+                                            <table class="table" data-sortlist="[[2]]">
+                                                <thead class="table-head">
+                                                    <tr>
+                                                        <th class="head t-cell">Object</th><!-- end head cell -->
+                                                        <th class="head t-cell">Health</th><!-- end head cell -->
+                                                        <th class="head t-cell" data-data-sortinitialorder="asc">Avg</th><!-- end head cell -->
+                                                        <th class="head t-cell">Now</th><!-- end head cell -->
+                                                        <th class="head t-cell">Most Frequent Cause</th><!-- end head cell -->
+                                                    </tr>
+                                                </thead><!-- end table head -->
+                                                <tbody class="table-body">
+                                                    <tr class="t-row">
+                                                        <td class="t-cell"><i class="ps-critical ps-icon ps-icon-loadbalancer"></i><a href="#">LB DallasNorth</a></td><!-- end t-cell -->
+                                                        <td class="t-cell">
+                                                            <img src="img/table-line-chart.png" alt=""/>
+                                                        </td><!-- end t-cell -->
+                                                        <td class="t-cell"><span class="ps-box ps-box-critical">26</span></td><!-- end t-cell -->
+                                                        <td class="t-cell"><span class="ps-box ps-box-urgent">41</span></td><!-- end t-cell -->
+                                                        <td class="t-cell">Balloon size too small</td><!-- end t-cell -->
+                                                    </tr><!-- end t-row -->
+                                                    <tr class="t-row">
+                                                        <td class="t-cell"><i class="ps-critical ps-icon ps-icon-application"></i><a href="#">Dealer Extranet</a></td><!-- end t-cell -->
+                                                        <td class="t-cell">
+                                                            <img src="img/table-line-chart.png" alt=""/>
+                                                        </td><!-- end t-cell -->
+                                                        <td class="t-cell"><span class="ps-box ps-box-critical">31</span></td><!-- end t-cell -->
+                                                        <td class="t-cell"><span class="ps-box ps-box-critical">12</span></td><!-- end t-cell -->
+                                                        <td class="t-cell">CPU Constrained</td><!-- end t-cell -->
+                                                    </tr><!-- end t-row --> 
+                                                    <tr class="t-row">
+                                                        <td class="t-cell"><i class="ps-icon ps-icon-vip"></i><a href="#">14.226.128.19</a></td><!-- end t-cell -->
+                                                        <td class="t-cell">
+                                                            <img src="img/table-line-chart.png" alt=""/>
+                                                        </td><!-- end t-cell -->
+                                                        <td class="t-cell"><span class="ps-box ps-box-critical">34</span></td><!-- end t-cell -->
+                                                        <td class="t-cell"><span class="ps-box">80</span></td><!-- end t-cell -->
+                                                        <td class="t-cell">Packet Loss</td><!-- end t-cell -->
+                                                    </tr><!-- end t-row --> 
+                                                    <tr class="t-row">
+                                                        <td class="t-cell"><i class="ps-warning ps-icon ps-icon-server"></i><a href="#">server12.host.com</a></td><!-- end t-cell -->
+                                                        <td class="t-cell">
+                                                            <img src="img/table-line-chart.png" alt=""/>
+                                                        </td><!-- end t-cell -->
+                                                        <td class="t-cell"><span class="ps-box ps-box-critical">35</span></td><!-- end t-cell -->
+                                                        <td class="t-cell"><span class="ps-box ps-box-warning">61</span></td><!-- end t-cell -->
+                                                        <td class="t-cell">Network Constrained</td><!-- end t-cell -->
+                                                    </tr><!-- end t-row --> 
+                                                    <tr class="t-row">
+                                                        <td class="t-cell"><i class="ps-critical ps-icon ps-icon-server"></i><a href="#">server9.host.com</a></td><!-- end t-cell -->
+                                                        <td class="t-cell">
+                                                            <img src="img/table-line-chart.png" alt=""/>
+                                                        </td><!-- end t-cell -->
+                                                        <td class="t-cell"><span class="ps-box ps-box-critical">37</span></td><!-- end t-cell -->
+                                                        <td class="t-cell"><span class="ps-box ps-box-urgent">39</span></td><!-- end t-cell -->
+                                                        <td class="t-cell">Host Contention</td><!-- end t-cell -->
+                                                    </tr><!-- end t-row -->                                                 
+                                                </tbody><!-- end table body -->
+                                            </table><!-- end table -->
+                                        </div><!-- end table wrap -->
+                                    </div><!-- end module tab -->
+                                    <div data-tab="2" class="module-tab"></div>
+                                    <div data-tab="3" class="module-tab"></div>
+                                    <div data-tab="4" class="module-tab"></div>
+                                    <div data-tab="5" class="module-tab"></div>
+                                </div><!-- end tab wrap -->
+                                <div class="module-footer clear center">
+                                    <a href="#" title="More Chronic Health Problems" class="left">More Chronic Health Problems</a>
+                                </div><!-- end module footer -->     
+                            </div><!-- end module min -->
+                        </div><!-- end module -->
+                    </div><!-- end drag target -->
+                    <div class="drag-target left" data-order="2">
+                        <div class="module utilization-module clear" data-type="utilization">
+                        	<h3>Server Utilization</h3>
+                            <ul class="module-actions">
+                                <li><a href="#" class="module-control"><i class="fa fa-share"></i></a>
+                                    <ul>
+                                        <li><a href="#" title="Add to Dashboard" data-action="dashboard">Add to a Dashboard...</a></li>
+                                        <li><a href="#" title="Add to a Collaboration" data-action="collaborate">Add to a Collaboration...</a></li>
+                                        <li><a href="#" title="Add to Report" data-action="report">Add to Report...</a></li>
+                                        <li><a href="#" title="Make PDF" data-action="pdf">Make PDF</a></li>
+                                        <li><a href="#" title="Email" data-action="Email">Email it</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="module-settings">
+                                <li><a href="#" class="module-control"><i class="fa fa-gear"></i></a>
+                                    <ul>
+                                        <li><a href="#" title="Edit Settings" data-action="settings">Edit Settings</a></li>
+                                        <li><a href="#" title="Minimize" data-action="minimize">Minimize</a></li>
+                                        <li><a href="#" title="Refresh" data-action="share">Refresh</a></li>
+                                        <li><a href="#" title="Duplicate" data-action="duplicate">Duplicate</a></li>
+                                        <li><a href="#" title="Remove" data-action="remove">Remove</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="module-min">
+                                <ul class="module-tabs clear">
+                                    <li class="active"><a href="#" data-tab="1" title="Health">Highest</a><span>4</span></li>
+                                    <li class=""><a href="#" data-tab="2" title="CPU">Lowest</a><span>9</span></li>
+                                </ul>           
+                                <div class="tab-wrap">
+                                    <div data-tab="1" class="module-tab active">
+                                        <div class="table-wrap">
+                                            <table class="table" data-sortlist="[[1,1]]">
+                                                <thead class="table-head">
+                                                    <tr>
+                                                        <th class="head t-cell">Object</th><!-- end head cell -->
+                                                        <th class="head t-cell">CPU</th><!-- end head cell -->
+                                                        <th class="head t-cell">Memory</th><!-- end head cell -->
+                                                        <th class="head t-cell">Disk I/O</th><!-- end head cell -->
+                                                        <th class="head t-cell">Net I/O</th><!-- end head cell -->
+                                                    </tr>
+                                                </thead><!-- end table head -->
+                                                <tbody class="table-body">
+                                                    <tr class="t-row">
+                                                        <td class="t-cell"><i class="ps-critical ps-icon ps-icon-loadbalancer"></i><a href="#">LB DallasNorth</a></td><!-- end t-cell -->
+                                                        <td class="t-cell ps-cell-box ps-level-a ps-light">99</td><!-- end t-cell -->
+                                                        <td class="t-cell ps-cell-box ps-level-b ps-light">95</td><!-- end t-cell -->
+                                                        <td class="t-cell ps-cell-box">n/a</td><!-- end t-cell -->
+                                                        <td class="t-cell ps-cell-box ps-level-k">45</td><!-- end t-cell -->
+                                                    </tr><!-- end t-row -->
+                                                    <tr class="t-row">
+                                                        <td class="t-cell"><i class="ps-critical ps-icon ps-icon-application"></i><a href="#">Dealer Extranet</a></td><!-- end t-cell -->
+                                                        <td class="t-cell ps-cell-box ps-level-a ps-light">98</td><!-- end t-cell -->
+                                                        <td class="t-cell ps-cell-box ps-level-h">67</td><!-- end t-cell -->
+                                                        <td class="t-cell ps-cell-box ps-level-l">26</td><!-- end t-cell -->
+                                                        <td class="t-cell ps-cell-box ps-level-m">12</td><!-- end t-cell -->
+                                                    </tr><!-- end t-row --> 
+                                                    <tr class="t-row">
+                                                        <td class="t-cell"><i class="ps-icon ps-icon-vip"></i><a href="#">14.226.128.19</a></td><!-- end t-cell -->
+                                                        <td class="t-cell ps-cell-box ps-level-a ps-light">98</td><!-- end t-cell -->
+                                                        <td class="t-cell ps-cell-box ps-level-b ps-light">86</td><!-- end t-cell -->
+                                                        <td class="t-cell ps-cell-box">51</td><!-- end t-cell -->
+                                                        <td class="t-cell ps-cell-box ps-level-g ps-light">79</td><!-- end t-cell -->
+                                                    </tr><!-- end t-row --> 
+                                                    <tr class="t-row">
+                                                        <td class="t-cell"><i class="ps-warning ps-icon ps-icon-server"></i><a href="#">server12.host.com</a></td><!-- end t-cell -->
+                                                        <td class="t-cell ps-cell-box ps-level-a ps-light">97</td><!-- end t-cell -->
+                                                        <td class="t-cell ps-cell-box ps-level-j">49</td><!-- end t-cell -->
+                                                        <td class="t-cell ps-cell-box ps-level-e ps-light">77</td><!-- end t-cell -->
+                                                        <td class="t-cell ps-cell-box ps-level-a ps-light">99</td><!-- end t-cell -->
+                                                    </tr><!-- end t-row --> 
+                                                    <tr class="t-row">
+                                                        <td class="t-cell"><i class="ps-critical ps-icon ps-icon-server"></i><a href="#">server9.host.com</a></td><!-- end t-cell -->
+                                                        <td class="t-cell ps-cell-box ps-level-a ps-light">97</td><!-- end t-cell -->
+                                                        <td class="t-cell ps-cell-box ps-level-b ps-light">91</td><!-- end t-cell -->
+                                                        <td class="t-cell ps-cell-box ps-level-c ps-light">84</td><!-- end t-cell -->
+                                                        <td class="t-cell ps-cell-box ps-level-i">53</td><!-- end t-cell -->
+                                                    </tr><!-- end t-row -->                                                 
+                                                </tbody><!-- end table body -->
+                                            </table><!-- end table -->
+                                        </div><!-- end table wrap -->
+                                    </div><!-- end module tab -->
+                                    <div data-tab="2" class="module-tab"></div>
+                                </div><!-- end tab wrap -->
+                                <div class="module-footer clear center">
+                                    <a href="#" title="More Objects with High CPU Utilization" class="left">More Objects with High CPU Utilization</a>
+                                </div><!-- end module footer -->     
+                            </div><!-- end module min -->
+                        </div><!-- end module -->
+                	</div><!-- end drag target -->
+                    <div class="drag-target left empty" data-order="3"></div><!-- end drag target -->                
+                </div><!-- end container tiles -->
+                <div class="tile-container module-container clear" data-tiles="3">
+                	<div class="drag-target left" data-order="1">
+                        <div class="module top-alarming-module clear" data-type="top-alarming">
+                        	<h3>Top Alarming</h3>
+                            <ul class="module-actions">
+                                <li><a href="#" class="module-control"><i class="fa fa-share"></i></a>
+                                    <ul>
+                                        <li><a href="#" title="Add to Dashboard" data-action="dashboard">Add to a Dashboard...</a></li>
+                                        <li><a href="#" title="Add to a Collaboration" data-action="collaborate">Add to a Collaboration...</a></li>
+                                        <li><a href="#" title="Add to Report" data-action="report">Add to Report...</a></li>
+                                        <li><a href="#" title="Make PDF" data-action="pdf">Make PDF</a></li>
+                                        <li><a href="#" title="Email" data-action="Email">Email it</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="module-settings">
+                                <li><a href="#" class="module-control"><i class="fa fa-gear"></i></a>
+                                    <ul>
+                                        <li><a href="#" title="Edit Settings" data-action="settings">Edit Settings</a></li>
+                                        <li><a href="#" title="Minimize" data-action="minimize">Minimize</a></li>
+                                        <li><a href="#" title="Refresh" data-action="share">Refresh</a></li>
+                                        <li><a href="#" title="Duplicate" data-action="duplicate">Duplicate</a></li>
+                                        <li><a href="#" title="Remove" data-action="remove">Remove</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="module-min">
+                                <ul class="module-tabs clear">
+                                    <li class="active"><a href="#" data-tab="1" title="Health">Causing</a><span>4</span></li>
+                                    <li class=""><a href="#" data-tab="2" title="CPU">Impacted</a><span>9</span></li>
+                                </ul>           
+                                <div class="tab-wrap">
+                                    <div data-tab="1" class="module-tab active">
+                                        <div class="table-wrap">
+                                            <table class="table small-table" data-sortlist="[[1,1]]">
+                                                <thead class="table-head">
+                                                    <tr>
+                                                        <th class="head t-cell">Object</th><!-- end head cell -->
+                                                        <th class="head t-cell">Alarms Caused</th><!-- end head cell -->
+                                                    </tr>
+                                                </thead><!-- end table head -->
+                                                <tbody class="table-body">
+                                                    <tr class="t-row">
+                                                        <td class="t-cell"><i class="ps-critical ps-icon ps-icon-loadbalancer"></i><a href="#">Loadbalancer 3</a></td><!-- end t-cell -->
+                                                        <td class="t-cell">
+                                                            671 
+                                                            <div class="ps-bar-chart">
+                                                                <span style="width:15%"></span>
+                                                                <span style="width:30%"></span>
+                                                                <span style="width:50%"></span>
+                                                            </div>
+                                                       </td><!-- end t-cell -->
+                                                    </tr><!-- end t-row -->
+                                                    <tr class="t-row">
+                                                        <td class="t-cell"><i class="ps-critical ps-icon ps-icon-application"></i><a href="#">Dealer Extranet</a></td><!-- end t-cell -->
+                                                        <td class="t-cell">
+                                                            553 
+                                                            <div class="ps-bar-chart">
+                                                                <span style="width:20%"></span>
+                                                                <span style="width:20%"></span>
+                                                                <span style="width:40%"></span>
+                                                            </div>
+                                                       </td><!-- end t-cell -->
+                                                    </tr><!-- end t-row --> 
+                                                    <tr class="t-row">
+                                                        <td class="t-cell"><i class="ps-icon ps-icon-vip"></i><a href="#">14.226.128.19</a></td><!-- end t-cell -->
+                                                        <td class="t-cell">
+                                                            319 
+                                                            <div class="ps-bar-chart">
+                                                                <span style="width:8%"></span>
+                                                                <span style="width:4%"></span>
+                                                                <span style="width:34%"></span>
+                                                            </div>
+                                                       </td><!-- end t-cell -->
+                                                    </tr><!-- end t-row --> 
+                                                    <tr class="t-row">
+                                                        <td class="t-cell"><i class="ps-warning ps-icon ps-icon-server"></i><a href="#">server12.host.com</a></td><!-- end t-cell -->
+                                                        <td class="t-cell">
+                                                            207 
+                                                            <div class="ps-bar-chart">
+                                                                <span style="width:4%"></span>
+                                                                <span style="width:6%"></span>
+                                                                <span style="width:26%"></span>
+                                                            </div>
+                                                       </td><!-- end t-cell -->
+                                                    </tr><!-- end t-row --> 
+                                                    <tr class="t-row">
+                                                        <td class="t-cell"><i class="ps-critical ps-icon ps-icon-server"></i><a href="#">server9.host.com</a></td><!-- end t-cell -->
+                                                        <td class="t-cell">
+                                                            201 
+                                                            <div class="ps-bar-chart">
+                                                                <span style="width:2%"></span>
+                                                                <span style="width:4%"></span>
+                                                                <span style="width:30%"></span>
+                                                            </div>
+                                                       </td><!-- end t-cell -->
+                                                    </tr><!-- end t-row -->                                                 
+                                                </tbody><!-- end table body -->
+                                            </table><!-- end table -->
+                                        </div><!-- end table wrap -->
+                                    </div><!-- end module tab -->
+                                    <div data-tab="2" class="module-tab"></div>
+                                </div><!-- end tab wrap -->
+                                <div class="module-footer clear center">
+                                    <a href="#" title="More Alarm Insights" class="left">More Alarm Insights</a>
+                                </div><!-- end module footer -->     
+                            </div><!-- end module min -->
+                        </div><!-- end module -->
+                    </div><!-- end drag target -->
+                    <div class="drag-target left" data-order="2">
+                        <div class="module clear imbalanced-module left" data-type="imbalanced">
+                            <h3>Cluster Imbalanced</h3>
+                            <ul class="module-actions">
+                                <li><a href="#" class="module-control"><i class="fa fa-share"></i></a>
+                                    <ul>
+                                        <li><a href="#" title="Add to Dashboard" data-action="dashboard">Add to a Dashboard...</a></li>
+                                        <li><a href="#" title="Add to a Collaboration" data-action="collaborate">Add to a Collaboration...</a></li>
+                                        <li><a href="#" title="Add to Report" data-action="report">Add to Report...</a></li>
+                                        <li><a href="#" title="Make PDF" data-action="pdf">Make PDF</a></li>
+                                        <li><a href="#" title="Email" data-action="Email">Email it</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="module-settings">
+                                <li><a href="#" class="module-control"><i class="fa fa-gear"></i></a>
+                                    <ul>
+                                        <li><a href="#" title="Edit Settings" data-action="settings">Edit Settings</a></li>
+                                        <li><a href="#" title="Minimize" data-action="minimize">Minimize</a></li>
+                                        <li><a href="#" title="Refresh" data-action="share">Refresh</a></li>
+                                        <li><a href="#" title="Duplicate" data-action="duplicate">Duplicate</a></li>
+                                        <li><a href="#" title="Remove" data-action="remove">Remove</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="module-min">
+                                <div class="module-body clear ps-no-pad">
+                                    <div class="table-wrap">
+                                        <table class="table small-table" data-sortlist="[[2,1]]">
+                                            <thead class="table-head">
+                                                <tr>
+                                                    <th class="head t-cell">Cluster</th><!-- end head cell -->
+                                                    <th class="head t-cell">Health</th><!-- end head cell -->
+                                                    <th class="head t-cell">Health Gap</th><!-- end head cell -->
+                                                </tr>
+                                            </thead><!-- end table head -->
+                                            <tbody class="table-body">
+                                                <tr class="t-row">
+                                                    <td class="t-cell"><i class="ps-warning ps-icon ps-icon-cluster"></i><a href="#">LAX 4 Cluster</a></td><!-- end t-cell -->
+                                                    <td class="t-cell"><span class="ps-box ps-box-warning">61</span></td><!-- end t-cell -->
+                                                    <td class="t-cell">77%</td><!-- end t-cell -->
+                                                </tr><!-- end t-row -->
+                                                <tr class="t-row">
+                                                    <td class="t-cell"><i class="ps-urgent ps-icon ps-icon-cluster"></i><a href="#">Fulfillment Cluster</a></td><!-- end t-cell -->
+                                                    <td class="t-cell"><span class="ps-box ps-box-urgent">45</span></td><!-- end t-cell -->
+                                                    <td class="t-cell">69%</td><!-- end t-cell -->
+                                                </tr><!-- end t-row --> 
+                                                <tr class="t-row">
+                                                    <td class="t-cell"><i class="ps-icon ps-icon-cluster"></i><a href="#">Omaha 2 Cluster</a></td><!-- end t-cell -->
+                                                    <td class="t-cell"><span class="ps-box">83</span></td><!-- end t-cell -->
+                                                    <td class="t-cell">65%</td><!-- end t-cell -->
+                                                </tr><!-- end t-row --> 
+                                                <tr class="t-row">
+                                                    <td class="t-cell"><i class="ps-warning ps-icon ps-icon-cluster"></i><a href="#">Omaha 3 Cluster</a></td><!-- end t-cell -->
+                                                    <td class="t-cell"><span class="ps-box ps-box-warning">50</span></td><!-- end t-cell -->
+                                                    <td class="t-cell">61%</td><!-- end t-cell -->
+                                                </tr><!-- end t-row --> 
+                                                <tr class="t-row">
+                                                    <td class="t-cell"><i class="ps-critical ps-icon ps-icon-cluster"></i><a href="#">Dallas North Cluster</a></td><!-- end t-cell -->
+                                                    <td class="t-cell"><span class="ps-box ps-box-urgent">41</span></td><!-- end t-cell -->
+                                                    <td class="t-cell">55%</td><!-- end t-cell -->
+                                                </tr><!-- end t-row -->                                                 
+                                            </tbody><!-- end table body -->
+                                        </table><!-- end table -->
+                                    </div><!-- end table wrap -->           	
+                                </div><!-- end module body -->
+                                <div class="module-footer clear center">
+                                    <a href="#" title="More Imbalanced" class="left">More Imbalanced</a>
+                                </div><!-- end module footer --> 
+                            </div><!-- end module min -->
+                        </div><!-- end module -->
+                    </div><!-- end drag target -->
+                    <div class="drag-target left" data-order="3">
+                        <div class="module clear host-caching-module left" data-type="host-caching">
+                            <h3>Host Caching Canidates</h3>
+                            <ul class="module-actions">
+                                <li><a href="#" class="module-control"><i class="fa fa-share"></i></a>
+                                    <ul>
+                                        <li><a href="#" title="Add to Dashboard" data-action="dashboard">Add to a Dashboard...</a></li>
+                                        <li><a href="#" title="Add to a Collaboration" data-action="collaborate">Add to a Collaboration...</a></li>
+                                        <li><a href="#" title="Add to Report" data-action="report">Add to Report...</a></li>
+                                        <li><a href="#" title="Make PDF" data-action="pdf">Make PDF</a></li>
+                                        <li><a href="#" title="Email" data-action="Email">Email it</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="module-settings">
+                                <li><a href="#" class="module-control"><i class="fa fa-gear"></i></a>
+                                    <ul>
+                                        <li><a href="#" title="Edit Settings" data-action="settings">Edit Settings</a></li>
+                                        <li><a href="#" title="Minimize" data-action="minimize">Minimize</a></li>
+                                        <li><a href="#" title="Refresh" data-action="share">Refresh</a></li>
+                                        <li><a href="#" title="Duplicate" data-action="duplicate">Duplicate</a></li>
+                                        <li><a href="#" title="Remove" data-action="remove">Remove</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="module-min">
+                                <div class="module-body host-caching clear ps-no-pad">
+                                    <div class="table-wrap">
+                                        <table class="table small-table" data-sortlist="[[1,1]]">
+                                            <thead class="table-head">
+                                                <tr>
+                                                    <th class="head t-cell">Object</th><!-- end head cell -->
+                                                    <th class="head t-cell">Cache Hits</th><!-- end head cell -->
+                                                    <th class="head t-cell">IOPs</th><!-- end head cell -->
+                                                </tr>
+                                            </thead><!-- end table head -->
+                                            <tbody class="table-body">
+                                                <tr class="t-row">
+                                                    <td class="t-cell"><i class="ps-icon ps-icon-virtualserver"></i><a href="#">vm12.mailcluster</a></td><!-- end t-cell -->
+                                                    <td class="t-cell">89.8%</td><!-- end t-cell -->
+                                                    <td class="t-cell">5.2 Mb/s</td><!-- end t-cell -->
+                                                </tr><!-- end t-row -->
+                                                <tr class="t-row">
+                                                    <td class="t-cell"><i class="ps-icon ps-icon-virtualserver"></i><a href="#">vm19.omahacluster</a></td><!-- end t-cell -->
+                                                    <td class="t-cell">84.2%</td><!-- end t-cell -->
+                                                    <td class="t-cell">1.2 Mb/s</td><!-- end t-cell -->
+                                                </tr><!-- end t-row --> 
+                                                <tr class="t-row">
+                                                    <td class="t-cell"><i class="ps-icon ps-icon-virtualserver"></i><a href="#">vm9.LAXcluster</a></td><!-- end t-cell -->
+                                                    <td class="t-cell">84.1%</td><!-- end t-cell -->
+                                                    <td class="t-cell">4.9 Mb/s</td><!-- end t-cell -->
+                                                </tr><!-- end t-row --> 
+                                                <tr class="t-row">
+                                                    <td class="t-cell"><i class="ps-icon ps-icon-virtualserver"></i><a href="#">vm4.mailcluster</a></td><!-- end t-cell -->
+                                                    <td class="t-cell">81.7%</td><!-- end t-cell -->
+                                                    <td class="t-cell">0.3 Mb/s</td><!-- end t-cell -->
+                                                </tr><!-- end t-row --> 
+                                                <tr class="t-row">
+                                                    <td class="t-cell"><i class="ps-icon ps-icon-virtualserver"></i><a href="#">vm11.dncluster</a></td><!-- end t-cell -->
+                                                    <td class="t-cell">79.2%</td><!-- end t-cell -->
+                                                    <td class="t-cell">10.9 Mb/s</td><!-- end t-cell -->
+                                                </tr><!-- end t-row -->                                                 
+                                            </tbody><!-- end table body -->
+                                        </table><!-- end table -->
+                                    </div><!-- end table wrap -->           	
+                                </div><!-- end module body -->
+                                <div class="module-footer clear center">
+                                    <a href="#" title="More Host Caching Canidates" class="left">More Host Caching Canidates</a>
+                                </div><!-- end module footer -->
+                            </div><!-- end module min -->
+                        </div><!-- end module -->
+                    </div><!-- end drag target -->
+                </div><!-- end container tiles -->  
+                <div class="tile-container module-container clear" data-tiles="3">
+                	<div class="drag-target left" data-order="1">
+                        <div class="module clear idle-module left" data-type="idle">
+                            <h3>Idle</h3>
+                            <ul class="module-actions">
+                                <li><a href="#" class="module-control"><i class="fa fa-share"></i></a>
+                                    <ul>
+                                        <li><a href="#" title="Add to Dashboard" data-action="dashboard">Add to a Dashboard...</a></li>
+                                        <li><a href="#" title="Add to a Collaboration" data-action="collaborate">Add to a Collaboration...</a></li>
+                                        <li><a href="#" title="Add to Report" data-action="report">Add to Report...</a></li>
+                                        <li><a href="#" title="Make PDF" data-action="pdf">Make PDF</a></li>
+                                        <li><a href="#" title="Email" data-action="Email">Email it</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="module-settings">
+                                <li><a href="#" class="module-control"><i class="fa fa-gear"></i></a>
+                                    <ul>
+                                        <li><a href="#" title="Edit Settings" data-action="settings">Edit Settings</a></li>
+                                        <li><a href="#" title="Minimize" data-action="minimize">Minimize</a></li>
+                                        <li><a href="#" title="Refresh" data-action="share">Refresh</a></li>
+                                        <li><a href="#" title="Duplicate" data-action="duplicate">Duplicate</a></li>
+                                        <li><a href="#" title="Remove" data-action="remove">Remove</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="module-min">
+                                <div class="module-body idle clear ps-no-pad">
+                                    <div class="table-wrap">
+                                        <table class="table small-table" data-sortlist="[1]]">
+                                            <thead class="table-head">
+                                                <tr>
+                                                    <th class="head t-cell">Object</th><!-- end head cell -->
+                                                    <th class="head t-cell">CPU Avg</th><!-- end head cell -->
+                                                    <th class="head t-cell">CPU Peak</th><!-- end head cell -->
+                                                </tr>
+                                            </thead><!-- end table head -->
+                                            <tbody class="table-body">
+                                                <tr class="t-row">
+                                                    <td class="t-cell"><i class="ps-icon ps-icon-virtualserver"></i><a href="#">vm12.mailcluster</a></td><!-- end t-cell -->
+                                                    <td class="t-cell">6.5%</td><!-- end t-cell -->
+                                                    <td class="t-cell">6.8%</td><!-- end t-cell -->
+                                                </tr><!-- end t-row -->
+                                                <tr class="t-row">
+                                                    <td class="t-cell"><i class="ps-icon ps-icon-virtualserver"></i><a href="#">vm19.omahacluster</a></td><!-- end t-cell -->
+                                                    <td class="t-cell">6.9%</td><!-- end t-cell -->
+                                                    <td class="t-cell">6.9%</td><!-- end t-cell -->
+                                                </tr><!-- end t-row --> 
+                                                <tr class="t-row">
+                                                    <td class="t-cell"><i class="ps-icon ps-icon-virtualserver"></i><a href="#">vm9.LAXcluster</a></td><!-- end t-cell -->
+                                                    <td class="t-cell">7.1%</td><!-- end t-cell -->
+                                                    <td class="t-cell">7.8%</td><!-- end t-cell -->
+                                                </tr><!-- end t-row --> 
+                                                <tr class="t-row">
+                                                    <td class="t-cell"><i class="ps-icon ps-icon-virtualserver"></i><a href="#">vm4.mailcluster</a></td><!-- end t-cell -->
+                                                    <td class="t-cell">7.3%</td><!-- end t-cell -->
+                                                    <td class="t-cell">7.8%</td><!-- end t-cell -->
+                                                </tr><!-- end t-row --> 
+                                                <tr class="t-row">
+                                                    <td class="t-cell"><i class="ps-icon ps-icon-virtualserver"></i><a href="#">vm11.dncluster</a></td><!-- end t-cell -->
+                                                    <td class="t-cell">7.6%</td><!-- end t-cell -->
+                                                    <td class="t-cell">8.2%</td><!-- end t-cell -->
+                                                </tr><!-- end t-row -->                                                 
+                                            </tbody><!-- end table body -->
+                                        </table><!-- end table -->
+                                    </div><!-- end table wrap -->           	
+                                </div><!-- end module body -->
+                                <div class="module-footer clear center">
+                                    <a href="#" title="More Idle Objects" class="left">More Idle Objects</a>
+                                </div><!-- end module footer -->
+                            </div><!-- end module min -->
+                        </div><!-- end module -->
+                    </div><!-- end drag target -->
+                    <div class="drag-target left" data-order="2">
+                        <div class="module clear search-module left" data-type="search">
+                            <h3>Custom Search</h3>
+                            <ul class="module-actions">
+                                <li><a href="#" class="module-control"><i class="fa fa-share"></i></a>
+                                    <ul>
+                                        <li><a href="#" title="Add to Dashboard" data-action="dashboard">Add to a Dashboard...</a></li>
+                                        <li><a href="#" title="Add to a Collaboration" data-action="collaborate">Add to a Collaboration...</a></li>
+                                        <li><a href="#" title="Add to Report" data-action="report">Add to Report...</a></li>
+                                        <li><a href="#" title="Make PDF" data-action="pdf">Make PDF</a></li>
+                                        <li><a href="#" title="Email" data-action="Email">Email it</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="module-settings">
+                                <li><a href="#" class="module-control"><i class="fa fa-gear"></i></a>
+                                    <ul>
+                                        <li><a href="#" title="Edit Settings" data-action="settings">Edit Settings</a></li>
+                                        <li><a href="#" title="Minimize" data-action="minimize">Minimize</a></li>
+                                        <li><a href="#" title="Refresh" data-action="share">Refresh</a></li>
+                                        <li><a href="#" title="Duplicate" data-action="duplicate">Duplicate</a></li>
+                                        <li><a href="#" title="Remove" data-action="remove">Remove</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="module-min">
+                                <div class="ps-module-search clear">
+                                    <label for="query">Query:</label>
+                                    <input type="search" id="query" placeholder="Enter Query" value="objects filter:tier<2 sort:anomaly_index/descending" />
+                                </div><!-- end ps-module-search -->
+                                <div class="module-body clear ps-no-pad">
+                                    <div class="table-wrap">
+                                        <table class="table small-table">
+                                            <thead class="table-head">
+                                                <tr>
+                                                    <th class="head t-cell">Object</th><!-- end head cell -->
+                                                    <th class="head t-cell">Anomally Index</th><!-- end head cell -->
+                                                </tr>
+                                            </thead><!-- end table head -->
+                                            <tbody class="table-body">
+                                                <tr class="t-row">
+                                                    <td class="t-cell"><i class="ps-urgent ps-icon ps-icon-loadbalancer"></i><a href="#">LAX 4 Cluster</a></td><!-- end t-cell -->
+                                                    <td class="t-cell ps-center"><span class="ps-box ps-box-critical">91</span></td><!-- end t-cell -->
+                                                </tr><!-- end t-row -->
+                                                <tr class="t-row">
+                                                    <td class="t-cell"><i class="ps-critical ps-icon ps-icon-application"></i><a href="#">Fulfillment Cluster</a></td><!-- end t-cell -->
+                                                    <td class="t-cell ps-center"><span class="ps-box ps-box-critical">87</span></td><!-- end t-cell -->
+                                                </tr><!-- end t-row --> 
+                                                <tr class="t-row">
+                                                    <td class="t-cell"><i class="ps-urgent ps-icon ps-icon-firewall"></i><a href="#">Omaha 2 Cluster</a></td><!-- end t-cell -->
+                                                    <td class="t-cell ps-center"><span class="ps-box ps-box-urgent">79</span></td><!-- end t-cell -->
+                                                </tr><!-- end t-row --> 
+                                                <tr class="t-row">
+                                                    <td class="t-cell"><i class="ps-icon ps-icon-server"></i><a href="#">Omaha 3 Cluster</a></td><!-- end t-cell -->
+                                                    <td class="t-cell ps-center"><span class="ps-box ps-box-urgent">77</span></td><!-- end t-cell -->
+                                                </tr><!-- end t-row --> 
+                                                <tr class="t-row">
+                                                    <td class="t-cell"><i class="ps-warning ps-icon ps-icon-server"></i><a href="#">Dallas North Cluster</a></td><!-- end t-cell -->
+                                                    <td class="t-cell ps-center"><span class="ps-box ps-box-warning">73</span></td><!-- end t-cell -->
+                                                </tr><!-- end t-row -->                                                 
+                                            </tbody><!-- end table body -->
+                                        </table><!-- end table -->
+                                    </div><!-- end table wrap -->           	
+                                </div><!-- end module body -->
+                                <div class="module-footer clear center">
+                                    <a href="#" title="More Results" class="left">More Results</a>
+                                </div><!-- end module footer --> 
+                            </div><!-- end module min -->
+                        </div><!-- end module -->
+                    </div><!-- end drag target -->
+                    <div class="drag-target left" data-order="3">
+                        <div class="module key-applications-module clear" data-type="key-applications">
+                        	<h3>Key Applications</h3>
+                            <ul class="module-actions">
+                                <li><a href="#" class="module-control"><i class="fa fa-share"></i></a>
+                                    <ul>
+                                        <li><a href="#" title="Add to Dashboard" data-action="dashboard">Add to a Dashboard...</a></li>
+                                        <li><a href="#" title="Add to a Collaboration" data-action="collaborate">Add to a Collaboration...</a></li>
+                                        <li><a href="#" title="Add to Report" data-action="report">Add to Report...</a></li>
+                                        <li><a href="#" title="Make PDF" data-action="pdf">Make PDF</a></li>
+                                        <li><a href="#" title="Email" data-action="Email">Email it</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="module-settings">
+                                <li><a href="#" class="module-control"><i class="fa fa-gear"></i></a>
+                                    <ul>
+                                        <li><a href="#" title="Edit Settings" data-action="settings">Edit Settings</a></li>
+                                        <li><a href="#" title="Minimize" data-action="minimize">Minimize</a></li>
+                                        <li><a href="#" title="Refresh" data-action="share">Refresh</a></li>
+                                        <li><a href="#" title="Duplicate" data-action="duplicate">Duplicate</a></li>
+                                        <li><a href="#" title="Remove" data-action="remove">Remove</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="module-min">
+                                <ul class="module-tabs clear">
+                                    <li class="active"><a href="#" data-tab="1" title="Health">Health</a><span>4</span></li>
+                                    <li class=""><a href="#" data-tab="2" title="CPU">CPU</a><span>9</span></li>
+                                    <li><a href="#" data-tab="3" title="MEM">MEM</a></li>
+                                    <li><a href="#" data-tab="4" title="DISK I/O">DISK I/O</a></li>
+                                    <li><a href="#" data-tab="5" title="NET I/O">NET I/O</a></li>
+                                </ul>           
+                                <div class="tab-wrap">
+                                    <div data-tab="1" class="module-tab active">
+                                        <div class="table-wrap">
+                                            <table class="table small-table" data-sortlist="[0]]">
+                                                <thead class="table-head">
+                                                    <tr>
+                                                        <th class="head t-cell">Application</th><!-- end head cell -->
+                                                        <th class="head t-cell" align="left">Avg</th><!-- end head cell -->
+                                                        <th class="head t-cell">Now</th><!-- end head cell -->
+                                                    </tr>
+                                                </thead><!-- end table head -->
+                                                <tbody class="table-body">
+                                                    <tr class="t-row">
+                                                        <td class="t-cell"><i class="ps-icon ps-icon-application"></i><a href="#">CRM National</a></td><!-- end t-cell -->
+                                                        <td class="t-cell"><span class="ps-box ps-box-warning">61</span></td><!-- end t-cell -->
+                                                        <td class="t-cell"><span class="ps-box ps-box-warning">61</span></td><!-- end t-cell -->
+                                                    </tr><!-- end t-row -->
+                                                    <tr class="t-row">
+                                                        <td class="t-cell"><i class="ps-warning ps-icon ps-icon-application"></i><a href="#">Dealer Extranet</a></td><!-- end t-cell -->
+                                                        <td class="t-cell"><span class="ps-box ps-box-urgent">45</span></td><!-- end t-cell -->
+                                                        <td class="t-cell"><span class="ps-box ps-box-urgent">45</span></td><!-- end t-cell -->
+                                                    </tr><!-- end t-row --> 
+                                                    <tr class="t-row">
+                                                        <td class="t-cell"><i class="ps-icon ps-icon-application"></i><a href="#">Inventory System</a></td><!-- end t-cell -->
+                                                        <td class="t-cell"><span class="ps-box">83</span></td><!-- end t-cell -->
+                                                        <td class="t-cell"><span class="ps-box">83</span></td><!-- end t-cell -->
+                                                    </tr><!-- end t-row --> 
+                                                    <tr class="t-row">
+                                                        <td class="t-cell"><i class="ps-icon ps-icon-application"></i><a href="#">Payroll</a></td><!-- end t-cell -->
+                                                        <td class="t-cell"><span class="ps-box ps-box-warning">50</span></td><!-- end t-cell -->
+                                                        <td class="t-cell"><span class="ps-box ps-box-warning">50</span></td><!-- end t-cell -->
+                                                    </tr><!-- end t-row --> 
+                                                    <tr class="t-row">
+                                                        <td class="t-cell"><i class="ps-icon ps-icon-application"></i><a href="#">SAP</a></td><!-- end t-cell -->
+                                                        <td class="t-cell"><span class="ps-box ps-box-urgent">41</span></td><!-- end t-cell -->
+                                                        <td class="t-cell"><span class="ps-box ps-box-urgent">41</span></td><!-- end t-cell -->
+                                                    </tr><!-- end t-row -->                                                 
+                                                </tbody><!-- end table body -->
+                                            </table><!-- end table -->
+                                        </div><!-- end table wrap -->
+                                    </div><!-- end module tab -->
+                                    <div data-tab="2" class="module-tab"></div>
+                                    <div data-tab="3" class="module-tab"></div>
+                                    <div data-tab="4" class="module-tab"></div>
+                                    <div data-tab="5" class="module-tab"></div>
+                                </div><!-- end tab wrap -->
+                                <div class="module-footer clear center">
+                                    <a href="#" title="More Applications" class="left">More Applications</a>
+                                </div><!-- end module footer -->     
+                            </div><!-- end module min -->
+                        </div><!-- end module -->
+                    </div><!-- end drag target -->
+                </div><!-- end container tiles --> 
+                <div class="tile-container module-container clear last" data-tiles="0">
+                	<div class="drag-target left empty" data-order="1"></div><!-- end drag target --> 
+                    <div class="drag-target left empty" data-order="2"></div><!-- end drag target --> 
+                    <div class="drag-target left empty" data-order="3"></div><!-- end drag target --> 
+                </div><!-- end last container -->        
+        	</section><!-- end main -->
+        </div><!-- end wrapper -->
+        <div class="actions-panel">
+        	<ul>
+            	<li class="bookmark"><a href="#"><span>12</span><i class="fa fa-bookmark"></i></a></li>
+                <li class="alarms hasNew"><a href="#"><span>45</span><i class="fa fa-warning"></i></a>
+                	<ul>
+                    	<li><a href="#">Slow response time due to network condition</a></li>
+                        <li><a href="#" class="alarms">Queue size above SLA due to port failure</a></li>
+                    </ul>
+                </li>
+                <li class="archive"><a href="#"><span>5</span><i class="fa fa-archive"></i></a></li>
+                <li class="comments"><a href="#"><span>1</span><i class="fa fa-comment"></i></a></li>           
+            </ul>
+        </div><!-- end actions panel -->
+		<footer class="clear">
+        	
+        	<!-- Attach scripts -->
+            <script src="js/plugins.js"></script>
+            <script src="js/scripts.js"></script>
+            <script src="js/jquery.outside.js"></script>
+            <script src="js/jquery-ui-timepicker-addon.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js" async ></script>
+            <script src="js/jquery.gridster.min.js"></script>
+            <script src="js/jquery.tablesorter.min.js"></script>
+            <script src="js/jquery.tablesorter.widgets.min.js"></script>
+            <script src="js/jquery.tablesorter.stickyHeader.js"></script>
+            
+            <!-- attach CSS thats not needed on page load -->
+            <link rel="stylesheet" href="css/jquery.datepicker.css">
+            <link rel="stylesheet" href="css/jquery-ui-timepicker-addon.min.css">
+            <link rel="stylesheet" href="css/jquery.gridster.min.css">
+            
+            <script>
+				$(function() {
+					/* Not currently used */
+    				$('.modal').easyModal({
+						top: 'auto',
+						autoOpen: false,
+						overlayOpacity: 0.5,
+						overlayColor: "#000",
+						overlayClose: true,
+						closeOnEscape: true
+					});
+
+					$('#datepicker').datetimepicker({
+						showOtherMonths: true,
+                        changeMonth: true, //Adds Month DD 
+                        changeYear: true, //Adds year DD
+						timeFormat: "hh:mm tt",
+						dayNamesMin: [ "Su", "M", "Tu", "W", "Th", "F", "Sa" ],
+						onSelect: function(datetimeText,datepickerInstance){ 
+							setHistoric(datetimeText, datepickerInstance);
+						}
+					});
+					
+					/** Initiate the jCarousel Plugin **/
+					var carousel = $('.jcarousel');
+				
+					carousel.swipe({
+						swipeLeft: function(event, direction, distance, duration, fingerCount) {   
+							carousel.jcarousel('scroll', '+=1');
+						},
+						swipeRight: function(event, direction, distance, duration, fingerCount) {
+							carousel.jcarousel('scroll', '-=1');
+						}
+					});
+					$('.jcarousel').jcarousel();
+					//Add on the prev/next buttons
+					$('.jcarousel-prev').jcarouselControl({
+						target: '-=1'
+					});
+				
+					$('.jcarousel-next').jcarouselControl({
+						target: '+=1'
+					});
+					
+				/*******  DRAG AND DROP Functions / jQuery UI **********/
+				/* Bind the draggable elements */
+				$('.draggable, .module').draggable({
+					 containment: '.wrapper',
+					 cursor: 'default',
+					 scroll: true,
+					 distance: 20,
+					 //handle: 'h3',
+					 snap: '.drag-target',
+					 helper: 'clone',
+					 opacity: 0.75,
+					 appendTo: '.wrapper',
+					 start: dragGo,
+					 stop: dragGo,
+				 });
+				 
+				 $('.drag-target').droppable({
+					drop: dropHere, 
+				 });
+				 
+				 function dragGo(){
+					 $('section').toggleClass('dragging');
+				 }
+				 
+				 function dropHere( event, ui){
+					 var target = $( event.target );
+					 var draggable = ui.draggable;
+					 //If draggable element has .draggable class, then its a NEW tile
+					 if(draggable.hasClass('draggable')){
+						 // Get the new Tile data/markup
+						 var data = draggable.data('tile');
+					     var html = getModuleMarkup(data);
+						 // Move to an empty spot
+						 if(target.hasClass('empty')){
+							 target.append(html).removeClass('empty');
+							 updateParentNumber(target.parents('.tile-container'),1);
+							 //Re-initialize draggable on new element
+							 $('.module').draggable({
+								 containment: '.wrapper',
+								 cursor: 'default',
+								 scroll: true,
+								 distance: 20,
+								 handle: 'h3',
+								 snap: '.drag-target',
+								 helper: 'clone',
+								 opacity: 0.75,
+								 appendTo: '.wrapper',
+								 start: dragGo,
+								 stop: dragGo,			 
+							 });
+						 } else {
+							//Add in the new markup
+							target.append(html);
+							//Save the targets markup!
+							var oldHTML = target.children('.module:first-child');
+							//Slide all the tiles over to the right!
+							shiftTilesRight(oldHTML, target); 
+						 }
+					 } else {
+						 //Simply move the EXISTING tile
+						 moveTile(target, draggable);
+					 }
+					//Check last row
+					checkLastRow(); 
+                    
+                    // Destroy and re-init new added table
+                    var newTable = target.find('table');
+                    newTable.trigger("destroy");
+                    //Init table within tile
+                    initTable(newTable);
+				 }
+				
+				 function moveTile(target, element){
+					//Define the containing parents
+					var targetParent = target.parents('.tile-container'); // Place its going to 
+					var dragParent = element.parents('.tile-container');
+					var dropParent = element.parents('.drag-target');  //Place its coming from
+					var draggableOrder = dropParent.data('order');
+					var dragParentTileNum = dragParent.data('tiles');
+					//If target is Empty, just drop the new element in
+					if(target.hasClass('empty')){
+						target.append(element).removeClass('empty');
+						//Update the Container Counts
+						updateParentNumber(targetParent,1);
+						updateParentNumber(dragParent,-1);
+						//Add empty class to previous parent
+						dropParent.addClass('empty');
+						//Reorder the tiles
+						reorderTiles(dragParent);
+					} else {//Only if the tile is moved!
+						if(!dropParent.is(target)){
+							// If they are in the same row
+							if(targetParent.is(dragParent)){
+								//If its The first tile moving to the 3rd, then shift left
+								if(dropParent.is(targetParent.find('.drag-target').eq(0)) && target.is(targetParent.find('.drag-target').eq(2))){
+									//Move the drag target to the end of the container
+									targetParent.append(dropParent);
+									
+								} else {
+									//Just swap the tiles for each other
+									//Add in the new markup
+									target.append(element);
+									//Save the targets markup!
+									var oldHTML = target.children('.module:first-child');
+									dropParent.append(oldHTML);
+								}
+							} else {
+								//Not in the same row
+								//Add in the new markup
+								target.append(element);
+								//Save the targets markup!
+								var oldHTML = target.children('.module:first-child');
+								//Update the Container Counts
+								updateParentNumber(dragParent,-1);
+								//Add Empty to the previous Tile
+								dropParent.addClass('empty');
+								//Slide all the tiles over to the right!
+								shiftTilesRight(oldHTML, target);	
+							}
+							//Reorder the tiles so empty is last
+							reorderTiles(dragParent);
+						} else {
+							//Do nothing
+							//console.log('same');
+						}
+						
+					}
+				}
+				/** Function to update the number of active tiles
+					in a .tile-container div
+					
+					@variable el - the jQuery container object
+					@variable number - the number to increase/decrease by
+				**/
+				function updateParentNumber(el, number){
+					
+					var old = el.attr('data-tiles');
+					var updated  = parseInt(old) + number;
+					el.attr('data-tiles', updated);
+				}
+				
+				/** Function to re-order tiles in a given row 
+					by placing the empty target at the end.
+				**/
+				function reorderTiles(container){
+					var empty = container.find('.empty');
+					container.append(empty);
+				}
+				
+				/* Get the correct markup for the new Module */
+				/* Just as an example, it simply CLONES the code from a
+				   matching module already on the Dashboard.
+				   
+				   @variable data - string, type of module
+				   returns the html of the module
+				   
+				**/
+				function getModuleMarkup(data){
+					return $('.module[data-type="'+data+'"]').parents('.drag-target').html();				
+				}
+				
+				/** Check the last row, and make sure theres always an
+					empty row to accept more tiles.  Add a new empty
+					row if the current  last row is NOT empty
+					@variable - no arguments
+				**/
+				function checkLastRow(){
+					var html = 
+						'<div class="tile-container module-container clear last" data-tiles="0">' +
+                			'<div class="drag-target left empty" data-order="1"></div><!-- end drag target -->' +
+                    		'<div class="drag-target left empty" data-order="2"></div><!-- end drag target -->' + 
+                    		'<div class="drag-target left empty" data-order="3"></div><!-- end drag target -->' + 
+                		'</div><!-- end last container -->';
+					  
+					if($('.tile-container:last').attr('data-tiles') != 0){
+						$('#dashboard-overview').append(html);
+						//Re-initialze drop targets
+						$('.drag-target').droppable({
+							drop: dropHere, 
+						});
+					}
+				}
+				
+				/** Function to shift the tiles to the right 
+					when trying to add a tile to an occupied spot
+				**/
+					
+				function shiftTilesRight(html, target){
+					var nextTarget;
+					var nextParent;
+					//Check last row
+					checkLastRow(); 
+					// Check to see if target is last in a row
+					if(target.is(":last-child")){
+						// Go to the next row
+						nextParent = target.parent().next();
+						nextTarget = nextParent.find('.drag-target:first-child');
+						
+					} else {
+						nextTarget = target.next();
+					}
+					// If the next target is empty, then just drop in the
+					// markup and end the recursive
+					if(nextTarget.hasClass('empty')){
+						nextTarget.html(html).removeClass('empty');
+						nextParent = nextTarget.parent();
+						updateParentNumber(nextParent, 1);
+						//Re-initialize draggable on new element
+						 $('.module').draggable({
+							 containment: '.wrapper',
+							 cursor: 'default',
+							 scroll: true,
+							 distance: 20,
+							 handle: 'h3',
+							 snap: '.drag-target',
+							 helper: 'clone',
+							 opacity: 0.75,
+							 appendTo: '.wrapper',
+							 start: dragGo,
+							 stop: dragGo,			 
+						 });
+					} else {
+						//Drop in it and try again!
+						var newHTML = nextTarget.html();
+						nextTarget.html(html);
+						shiftTilesRight(newHTML, nextTarget);			
+					}
+				}
+				
+				/** Function to check whether the time selected is in the past
+				    or not. If so, add a historical class to <body> element
+				**/
+				function setHistoric(date, instance){
+					var now  = new Date();
+					var date = new Date(date);
+					if(date < now){
+						$('body').addClass('historical');
+						console.log(date);
+					} else {
+						$('body').removeClass('historical');
+					}
+				}
+               
+				});
+				 $(document).ready( function(){
+                     
+                     // Initiate Select Method
+                	$(".ps-select-menu").selectmenu();
+					
+					 $(window).resize( function(){
+						$(".ps-select-menu").selectmenu("destroy").selectmenu();
+					  });
+                     
+                     /* Init table sorter */
+                     initTable($('table'));
+                     
+                     /** Set the Default Date to Todays Date **/
+                     $('#datepicker').datepicker('setDate', new Date());
+					
+					/* Bind filter tiles to <a> */
+					$("ul.filter a").on("click", function(){
+						var type = $(this).data('filter');
+						filterTiles(type, $(this));
+					});
+                    
+                    //Add tag on enter
+                    $('#ps-search-tags').on('keypress', function(event){
+                         
+                        //Grab the event code and see if its the enter key
+                        var keycode = (event.keyCode ? event.keyCode : event.which);
+                        if(keycode == '13'){
+                            addTag($(this).val());
+                            $(this).val('');	
+                        } 
+                     });
+                     
+                     // Open New Application Modal
+                     $('#add-tile').on('click', function(){
+                        $('#new-app-modal').trigger('openModal');
+                     })
+					 
+
+				 });
+                 
+                // Add Table Sort Functionality
+                //@parameter table - jQuery object
+                
+                function initTable(table){
+					table.tablesorter({
+						widthFixed : true,
+						widgets: [ 'cssStickyHeaders' ],
+						widgetOptions: {
+						  cssStickyHeaders_attachTo      : '.table-wrap',
+						  cssStickyHeaders_addCaption    : true
+						}
+					});
+                }
+                 /**
+                    Function to add a tag to the current filter/tag cloud 
+                    UI only, doesent actually filter anything
+                    
+                    @parameter tag - string, name of the tag
+                    
+                 **/
+                 function addTag(tag){
+                     var tagContainer = $('.search-tags');
+                     var html = '<div class="tag left">' +tag+
+                                    ' <a href="#" class="removeTag"><i class="fa fa-times-circle"></i></a>'+
+                                '</div>';
+                     tagContainer.append(html);
+                 }
+				 /** Function to filter the list of Tiles in the selector
+					based on category.
+					
+					@variable - type 
+					@variable - el, the element that was clicked
+				**/
+				
+				function filterTiles(type, el){
+					$('#selectionTiles a').removeClass('current');
+					//Hide all tiles that are not of the filter type
+					if(type == "all"){
+						//Show all tiles 
+						$('#selectionTiles li.draggable').show();
+					} else {
+						$('#selectionTiles li.draggable:not([data-type="'+type+'"])').hide();
+						$('#selectionTiles li.draggable[data-type="'+type+'"]').show();
+					}
+					el.addClass('current');
+				}
+				</script>	
+        	<!--- attach typekit account for custom fonts -->
+        	<script src="http://use.typekit.net/kws6hqw.js"></script>
+			<script>try{Typekit.load();}catch(e){}</script>
+            
+        	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        	<script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        	</script>
+        </footer><!-- end footer -->
+        
+         <div id="new-app-modal" class="modal">
+            <div id="new-app-header" class="clear">
+                <a class="close" title="close"><i class="fa fa-times-circle"></i></a>
+                <h3>Add Tile</h3>
+            </div>
+            <div id="new-app-body">
+                <input type="text" placeholder="Tile Name">
+                <div>                
+                    <label>Tile Type</label>
+                    <ul class="fake-select">
+                        <li><a data-control="time" data-value="6" class="control" href="javascript:void(0);">Blank</a>
+                            <ul>
+                                <li class="select"><a data-value="blank" href="#">Blank II</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div id="new-app-save-cancel">
+                    <a href="#" class="button cancel">Cancel</a>
+                    <a href="#" class="button">Save</a>
+                </div>
+            </div>
+        </div><!-- end modal -->
+        
+    </body>
+</html>

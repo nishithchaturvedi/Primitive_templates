@@ -1,0 +1,226 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Perspica</title>
+        
+        <!-- meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- dns prefetch -->
+        <link href="http://www.google-analytics.com" rel="dns-prefetch">
+        
+        <!-- icons -->
+		<link href="img/favicon.ico" rel="shortcut icon">
+		<link href="img/touch.png" rel="apple-touch-icon-precomposed">
+		
+        <!-- stylesheets -->
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        
+        <!-- font awesome css -->
+        <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+
+        <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <!-- load jQuery from Goolge CDN -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    </head>
+    <body class="home logged-in">
+        <header id="header" role="banner">
+        	<div class="inner clear nav">
+            	<a href="javascript:void(0);" class="nav-control left toggle" onClick="jQuery('body').toggleClass('open');"></a>
+                <a href="/" title="Home" class="logo left"><img src="img/logo.png" alt="the Tech" /></a>
+                <a href="javascript:void(0);" class="showMobile search-control right" onClick="jQuery('body').toggleClass('search');"></a>
+            </div><!-- end left -->
+            <form class="left form-item" action="index.html" method="get" id="global-search" name="global-search">
+                <div class="showLabels">
+                    <label for="search">Search Here</label>
+                    <input type="search" name="search" id="search"/>
+                </div>
+                <button type="submit" class="search"><i class="fa fa-search"></i></button>
+            </form><!-- end form -->
+			<div class="inner right clear" id="profile-menu">
+                <div class="avatar left">               	
+                    <a href="profile.html" title="Profile"><img src="img/nelson.jpg" width="33px" alt="Scott" /></a>
+                    <span>Hello Scott</span>
+                </div><!-- end avatar -->
+                 <ul class="right toggleable" id="user-settings">
+                    <li><a class="settings toggle" href="javascript:void(0);" onClick="jQuery('#user-settings').toggleClass('open');"></a>
+                        <ul>
+                            <li><a href="#" title="Profile">My Profile</a></li>
+                            <li><a href="#" title="Preferences">Preferences</a></li>
+                            <li><a href="#" title="Administration">Help</a></li>
+                            <li><a href="#" title="Log Out" class="logout">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+        	</div><!-- end inner -->
+        </header><!-- end header -->
+        <nav class="toggleable">
+            <ul>
+                <li><a href="#" title="Topology" class="icon topology-icon">Topology</a></li>
+                <li class="hasChildren">
+                	<a href="#" title="Alerting" class="icon alert-icon">Alerting</a><span class="sub-toggle"></span>
+                    <ul>
+                    	<li><a href="#" title="Alerting">Alerting Overview</a></li>
+                        <li><a href="#" title="Alerting">Incidents</a></li>
+                        <li><a href="#" title="Alerting">Alarms</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" title="Dashboard" class="icon dashboard-icon">Dashboards</a></li>
+                <li><a href="#" title="Reports" class="icon reports-icon">Reports</a></li>
+                <li><a href="#" title="Planning" class="icon plan-icon">Planning</a></li>
+                <li><a href="#" title="KnowledgeBase" class="icon knowledge-icon">Knowledge Base</a></li>
+                <li><a href="#" title="Configuration" class="icon configuration-icon">Configuration</a></li>
+                <li><a href="#" title="Collaboration" class="icon collaboration-icon">Collaboration</a></li>
+                <li><a href="#" title="Help" class="icon help-icon">Help</a></li>
+            </ul>
+        </nav>
+        <div class="wrapper clear">
+            <div class="breadcrumbs left">
+                <ul class="clear">
+                    <li><a href="/" title="Home">Home</a></li>
+                    <li>&nbsp;/&nbsp;&nbsp;</li>
+                    <li><span>Overview</span></li>
+                </ul>
+            </div><!-- end breadcrumbs -->
+            <div class="date-picker right clear">
+                <input type="text" class="left" value="" id="datepicker" name="datepicker">
+                <label class="left" for="datepicker"><i class="fa fa-calendar"></i></label>
+            </div><!-- end date-picker -->
+        	<section class="main clear">
+                 
+        	</section><!-- end main -->
+        </div><!-- end wrapper -->
+        <div class="actions-panel">
+        	<ul>
+            	<li class="bookmark"><a href="#"><span>12</span><i class="fa fa-bookmark"></i></a></li>
+                <li class="alarms hasNew"><a href="#"><span>45</span><i class="fa fa-warning"></i></a>
+                	<ul>
+                    	<li><a href="#">Slow response time due to network condition</a></li>
+                        <li><a href="#" class="alarms">Queue size above SLA due to port failure</a></li>
+                    </ul>
+                </li>
+                <li class="archive"><a href="#"><span>5</span><i class="fa fa-archive"></i></a></li>
+                <li class="comments"><a href="#"><span>1</span><i class="fa fa-comment"></i></a></li>           
+            </ul>
+        </div><!-- end actions panel -->
+		<footer class="clear">
+        	
+        	<!-- Attach scripts -->
+            <script src="js/plugins.js"></script>
+            <script src="js/scripts.js"></script>
+            <script src="js/jquery.outside.js"></script>
+            <script src="js/jquery-ui-timepicker-addon.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js" async ></script>
+            
+            <!-- attach CSS thats not needed on page load -->
+            <link rel="stylesheet" href="css/jquery.datepicker.css">
+            <link rel="stylesheet" href="css/jquery.jquery-ui-timepicker-addon.min.css">
+            
+            <script>
+				$(function() {
+    				$('.modal').easyModal({
+						top: 'auto',
+						autoOpen: false,
+						overlayOpacity: 0.5,
+						overlayColor: "#000",
+						overlayClose: true,
+						closeOnEscape: true
+					});
+				
+					$('.tool-tip').tooltipsy({
+						offset: [0, -5]
+					});
+				 
+				 // Iniate the datepicker
+					/*$( "#datepicker" ).datepicker({
+						showOtherMonths: true,
+						selectOtherMonths: true,
+						dayNamesMin: [ "S", "M", "T", "W", "T", "F", "S" ],
+					}); */
+					$('#datepicker').datetimepicker({
+						showOtherMonths: true,
+						timeFormat: "hh:mm tt"
+					});
+				});
+				 $(document).ready( function(){
+					 getScreenWidth();
+					//On click away from opened objects, close them
+					$('nav').on('mousedownoutside', function(event){
+						var target = $( event.target );
+						if(!target.hasClass('nav-control') && !$('body').hasClass('mobile')){
+							$('body.open').removeClass('open');
+						}
+					});
+					
+					//On click away from opened objects, close them
+					$('#user-settings').on('mousedownoutside', function(event){
+						var target = $( event.target );
+						if(!target.hasClass('settings') && !$('body').hasClass('mobile')){
+							$(this).removeClass('open');
+						}
+					});
+					
+					//Sub Nav toggle
+					$('.sub-toggle').on('click', function(){
+						$(this).toggleClass('expanded').siblings('ul').slideToggle(400);
+					});
+					
+					// Action Menu (Half Circles)
+					$('.actions-panel > ul > li').on('click', function(){
+						//$('.actions-panel li.active').removeClass('active').find('ul').hide();
+						$(this).toggleClass('active').removeClass('hasNew').find('ul').toggle();
+						
+					});
+					
+					//On click away from Action Menu, hide menu
+					$('.actions-panel li').on('mousedownoutside', function(event){
+						var target = $( event.target );
+						$('.actions-panel li.active').removeClass('active').find('ul').hide();
+					});
+				 });
+				 
+				 function getScreenWidth(){
+					var width = $('body').width();
+					// Add class mobile to body 
+					if(width < 769){
+						$('body').addClass('mobile');
+					}
+				 }
+				</script>	
+        	<!--- attach typekit account for custom fonts -->
+        	<script src="http://use.typekit.net/kws6hqw.js"></script>
+			<script>try{Typekit.load();}catch(e){}</script>
+            
+        	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        	<script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        	</script>
+        </footer><!-- end footer -->
+        
+        <!-- Code for jQuery Modal Overlay -->
+        <!-- Create additional <div>s with the class .modal
+        	 Give them a unique ID and use $('#ID').trigger('openModal') to
+             open the modal window.  $('#ID').trigger('closeModal') to close it.
+         -->
+  		<div id="login" class="modal">
+  			<div class="clear modalHeader">
+            	<h2 class="left">Log In</h2>
+            	<a href="#" class="close right" title="Close"><i class="fa fa-times"></i></a>
+            </div><!-- end clear -->
+    		<div class="content">
+
+            </div><!-- end content -->
+  		</div><!-- end #login -->
+  		<!-- end Modal Overlay -->
+    </body>
+</html>

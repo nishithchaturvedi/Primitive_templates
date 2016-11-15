@@ -1,0 +1,724 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Perspica | New Application</title>
+        
+        <!-- meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- dns prefetch -->
+        <link href="http://www.google-analytics.com" rel="dns-prefetch">
+        
+        <!-- icons -->
+		<link href="img/favicon.ico" rel="shortcut icon">
+		<link href="img/touch.png" rel="apple-touch-icon-precomposed">
+		
+        <!-- stylesheets -->
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        
+        <!-- font awesome css -->
+        <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+
+        <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <!-- load jQuery from Goolge CDN -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    </head>
+    <body class="metric-detail logged-in">
+        <header id="header" role="banner">
+        	<div class="inner clear nav">
+            	<a href="javascript:void(0);" class="nav-control left toggle" onClick="jQuery('body').toggleClass('open');"></a>
+                <a href="/" title="Home" class="logo left"><img src="img/logo.png" alt="the Tech" /></a>
+                <a href="javascript:void(0);" class="showMobile search-control right" onClick="jQuery('body').toggleClass('search');"></a>
+            </div><!-- end left -->
+            <form class="left form-item" action="index.html" method="get" id="global-search" name="global-search">
+                <div class="showLabels">
+                    <label for="search">Search Here</label>
+                    <input type="search" name="search" id="search"/>
+                </div>
+                <button type="submit" class="search"><i class="fa fa-search"></i></button>
+            </form><!-- end form -->
+			<div class="inner right clear" id="profile-menu">
+                <div class="avatar left">               	
+                    <a href="profile.html" title="Profile"><img src="img/nelson.jpg" width="33px" alt="Scott" /></a>
+                    <span>Hello Scott</span>
+                </div><!-- end avatar -->
+                 <ul class="right toggleable" id="user-settings">
+                    <li><a class="settings toggle" href="javascript:void(0);"></a>
+                        <ul>
+                            <li><a href="#" title="Profile">My Profile</a></li>
+                            <li><a href="#" title="Preferences">Preferences</a></li>
+                            <li><a href="#" title="Administration">Help</a></li>
+                            <li><a href="#" title="Log Out" class="logout">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+        	</div><!-- end inner -->
+        </header><!-- end header -->
+        <nav class="toggleable">
+            <ul>
+                <li><a href="#" title="Topology" class="icon topology-icon">Topology</a></li>
+                <li class="hasChildren">
+                	<a href="#" title="Alerting" class="icon alert-icon">Alerting</a><span class="sub-toggle"></span>
+                    <ul>
+                    	<li><a href="#" title="Alerting">Alerting Overview</a></li>
+                        <li><a href="#" title="Alerting">Incidents</a></li>
+                        <li><a href="#" title="Alerting">Alarms</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" title="Dashboard" class="icon dashboard-icon">Dashboards</a></li>
+                <li><a href="#" title="Reports" class="icon reports-icon">Reports</a></li>
+                <li><a href="#" title="Planning" class="icon plan-icon">Planning</a></li>
+                <li><a href="#" title="KnowledgeBase" class="icon knowledge-icon">Knowledge Base</a></li>
+                <li><a href="#" title="Configuration" class="icon configuration-icon">Configuration</a></li>
+                <li><a href="#" title="Collaboration" class="icon collaboration-icon">Collaboration</a></li>
+                <li><a href="#" title="Help" class="icon help-icon">Help</a></li>
+            </ul>
+        </nav>
+        <div class="wrapper clear">
+        	<div class="page-top clear">
+                <div class="breadcrumbs left">
+                    <ul class="clear">
+                        <li><a href="/" title="Home">Home</a></li>
+                        <li>&nbsp;/&nbsp;&nbsp;</li>
+                        <li><a href="#" title="Topology">Applications</a></li>
+                        <li>&nbsp;/&nbsp;&nbsp;</li>
+                        <li><span>New Application</span></li>
+                    </ul>
+                </div><!-- end breadcrumbs -->
+            </div><!-- end page-top -->
+        	<section class="main clear">
+                <div class="module clear">
+                    <div id="module-header" class="clear">
+                        <input type="text" class="left" value="Chris' Application"/>
+                        <a class="button right">Add Group <i class="fa fa-square-o"></i></a>
+                    </div> <!-- end module header -->
+                    <div class="wrap canvas-wrap clear">
+                        <div id="canvas" class="clear">
+                            <div class="group-container clear">
+                                <div class="left left-connector circle-connector">
+                                    <span class="fa fa-circle-o left"></span>
+                                </div>
+                                <div class="group-main clear">
+                                    <div class="group-head clear">
+                                        <input type="text" name="group-name" placeholder="My Group" class="left" />
+                                        <a class="remove-group"><i class="fa fa-times-circle-o right"></i></a>
+                                    </div> <!-- end group-head -->
+                                    <div class="group-add clear">
+                                        <p class="left">2 Objects</p>
+                                        <ul class="right ddMenu layerMenu">
+                                            <li><a href="javascript:void(0);" class="add-object showDD"><i class="fa fa-plus-circle"></i> Add</a>
+                                                <ul id="select-objects" class="list left-pointer">
+                                                    <div class="listTitle">Select Objects</div>
+                                                    <li>
+                                                        <div class="list-options clear">
+                                                            <div class="metric-selector">
+                                                                <div class="head clear">
+                                                                    <a href="javascript:void(0);" class="left top-folder"><i class="fa fa-chevron-up"></i>TOP</a>
+                                                                    <div class="form-item right">
+                                                                        <label for="mSearch"><i class="fa fa-search"></i></label>
+                                                                        <input type="text" name="mSearch" id="mSearch" placeholder="Search" class="autocomplete" val="" />
+                                                                    </div><!--end form item -->
+                                                                </div><!--end head -->
+                                                                <div class="body">
+                                                                    <a href="javascript:void(0);" class="folder-back"><i class="fa fa-chevron-circle-left"></i><span></span></a>
+                                                                    <div class="level-wrap">
+                                                                        <div class="inner" data-level="1">
+                                                                            <div class="level parent" data-level="1">
+                                                                                <ul class="type">
+                                                                                    <li><a href="#" data-name="Load Balancers">Load Balancers (34)</a></li>
+                                                                                    <li><a href="#" data-name="Servers">Servers (315)</a></li>
+                                                                                    <li><a href="#" data-name="Virtual Servers">Virtual Servers (24)</a></li>
+                                                                                    <li><a href="#" data-name="Databases">Databases (105)</a></li>    
+                                                                                </ul>
+                                                                            </div><!--end level -->
+                                                                            <div class="level parent" data-level="2">
+                                                                                <ul class="sub-type">
+                                                                                    <li><a href="#" data-name="Server 1">Server 1</a></li>
+                                                                                    <li><a href="#" data-name="Server 2">Server 2</a></li>
+                                                                                    <li><a href="#" data-name="Server 3">Server 3</a></li>
+                                                                                    <li><a href="#" data-name="Server 4">Server 4</a></li>    
+                                                                                </ul>
+                                                                            </div><!--end level -->
+                                                                            <div class="level last-level" data-level="3">
+                                                                                <ul class="metric">
+                                                                                    <li><a href="#" data-name="CPU Usage">CPU Usage</a></li>
+                                                                                    <li><a href="#" data-name="Memory Usage">Memory Usage</a></li>
+                                                                                    <li><a href="#" data-name="PID">PID</a></li>
+                                                                                    <li><a href="#" data-name="Processes Running"># Processes Running</a></li> 
+                                                                                    <li><a href="#" data-name="Blocked Processes"># Blocked Processes</a></li>
+                                                                                    <li><a href="#" data-name="Processes Waiting"># Processes Waiting</a></li>
+                                                                                    <li><a href="#" data-name="Memory Utilization by Process">Memory % Utilization by Process</a></li>
+                                                                                    <li><a href="#" data-name="CPU Utililzation by Process">CPU % Utilization by Process</a></li>    
+                                                                                </ul>
+                                                                            </div><!--end level -->
+                                                                        </div><!-- end inner -->                                    
+                                                                    </div><!--end level wrap -->
+                                                                    <div class="clear action-buttons">
+                                                                        <a class="button cancel left" href="javascript:void(0);">Cancel</a>
+                                                                        <a class="button right addMetrics" href="javascript:void(0);" id="addMetrics">Add <span>0</span> Objects(s)</a>
+                                                                    </div>
+                                                                </div><!--end body -->
+                                                            </div><!--end metric selector -->
+                                                        </div><!-- end list options -->
+                                                    </li>
+                                                </ul> <!-- end list -->
+                                            </li>
+                                        </ul>
+                                    </div> <!-- end group-add -->
+                                    <ul class="group-objects">
+                                        <li>
+                                            <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                <use xlink:href="svgs/icons.svg#icon-server"/>
+                                            </svg>
+                                            <span>Server 1204</span>
+                                            <a><i class="fa fa-times-circle-o right"></i></a> 
+                                        </li>
+                                        <li>
+                                            <svg class="icon24 left" role="img" viewBox="0 0 1024 1024">
+                                                <use xlink:href="svgs/icons.svg#icon-server"/>
+                                            </svg>
+                                            <span>This server has a very long name</span>
+                                            <a><i class="fa fa-times-circle-o right"></i></a>
+                                        </li>
+                                    </ul> <!-- end group-objects -->
+                                </div> <!-- end group-main -->
+                                <div class="right right-connector circle-connector">
+                                    <span class="fa fa-circle-o right"></span>
+                                </div>
+                            </div> <!-- end group container -->
+                        </div> <!-- end canvas -->
+                        <div id="canvas-footer" class="clear">
+                            <p class="left cf-controls">Active Policies</p>
+                            <div class="layer-box left cf-controls">
+                                <span class="name">Default</span>
+                                <a><i class="fa fa-times-circle-o"></i></a>
+                                <ul class="layer-options ddMenu clear">
+                                    <li><a class="showDD"><i class="fa fa-chevron-circle-down"></i></a>
+                                        <ul class="checkList">
+                                            <li>
+                                                <input name="pol-1" id="pol-1" type="checkbox" />
+                                                <label for="pol-1">Policy 1</label>
+                                            </li>
+                                            <li>
+                                                <input name="pol-2" id="pol-2" type="checkbox" />
+                                                <label for="pol-2">Policy 2</label>
+                                            </li>
+                                        </ul> <!-- end checklist -->
+                                    </li>
+                                </ul> <!-- end ddMenu -->
+                            </div><!-- end layer box -->
+                            <div class="layer-box left cf-controls">
+                                <span class="name">Another Policy</span>
+                                <a class="has-tooltip dark" data-toggle="tooltip" data-placement="top" title="<i class='fa fa-exclamation-triangle'></i> No Objects found with 2 metrics in this policy"><i class="fa fa-exclamation-triangle"></i></a>
+                                <a><i class="fa fa-times-circle-o"></i></a>
+                                <ul class="layer-options ddMenu clear">
+                                    <li><a class="showDD"><i class="fa fa-chevron-circle-down"></i></a>
+                                        <ul class="checkList">
+                                            <li>
+                                                <input name="pol-1c" id="pol-1c" type="checkbox" />
+                                                <label for="pol-1c">Policy 1</label>
+                                            </li>
+                                            <li>
+                                                <input name="pol-2c" id="pol-2c" type="checkbox" />
+                                                <label for="pol-2c">Policy 2</label>
+                                            </li>
+                                        </ul> <!-- end checklist -->
+                                    </li>
+                                </ul> <!-- end ddMenu -->
+                            </div><!-- end layer box -->
+                            <ul class="ddMenu layerMenu cf-controls">
+                                <li><a id="add-policy" href="javascript:void(0);" class="showDD"><i class="fa fa-plus-circle"></i> Add Policy</a>
+                                    <ul id="add-policy-container" class="list bottom-arrow">
+                                        <li>
+                                            <div id="add-policy-head">
+                                                <strong>Add Policy</strong>
+                                                <ul class="clear">
+                                                    <li class="checkwrap">
+                                                        <input type="radio" name="policy-type" id="existing" checked="checked"/>
+                                                        <label for="existing">Choose Existing</label>
+                                                    </li>
+                                                    <li class="checkwrap">
+                                                        <input type="radio" name="policy-type" id="new"/>
+                                                        <label for="new">Make New</label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div id="add-policy-body" class="clear">
+                                                <div class="clear" id="choose-existing-body">
+                                                    <ul id="policy-list" class="left scrollable">
+                                                        <a href="javascript:void(0);" data-type="policy1"><li>Policy 1</li></a>
+                                                        <a href="javascript:void(0);" data-type="policy2"><li>Policy 2</li></a>
+                                                        <a href="javascript:void(0);" data-type="policy3"><li>Policy 3</li></a>
+                                                        <a href="javascript:void(0);" data-type="policy4"><li>Policy 4</li></a>
+                                                        <a href="javascript:void(0);" data-type="policy5"><li>Policy 5</li></a>
+                                                    </ul> <!-- end policy-list -->
+                                                    <ul id="policy-description-container" class="right">
+                                                        <li class="policy-description" data-type="policy1">
+                                                            <ul>
+                                                                <li><strong>Policy 1</strong></li>
+                                                                <li>Run at <strong>All Times (24/7)</strong></li>
+                                                                <li>Evaluate every <strong>5</strong> minutes</li>
+                                                                <li>Trigger after <strong>30</strong> minutes</li>
+                                                                <li>Action: <strong>create incident</strong> with severity <strong>critical</strong></li>
+                                                                <br/>
+                                                                <li>Condition:
+                                                                    <ul>
+                                                                        <li>All objects: Memory Used &gt; 90%</li>
+                                                                        <li><strong>and</strong> All Objects: CPU Used &gt; 90% </li>
+                                                                        <li><strong>or</strong> Any Object: CPU Used &gt; 98%</li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </li> <!-- end policy-description -->
+                                                        <li class="policy-description" data-type="policy2">
+                                                            <ul>
+                                                                <li><strong>Policy 2</strong></li>
+                                                                <li>Run at <strong>All Times (24/7)</strong></li>
+                                                                <li>Evaluate every <strong>5</strong> minutes</li>
+                                                                <li>Trigger after <strong>30</strong> minutes</li>
+                                                                <li>Action: <strong>create incident</strong> with severity <strong>critical</strong></li>
+                                                                <br/>
+                                                                <li>Condition:
+                                                                    <ul>
+                                                                        <li>All objects: Memory Used &gt; 90%</li>
+                                                                        <li><strong>and</strong> All Objects: CPU Used &gt; 90% </li>
+                                                                        <li><strong>or</strong> Any Object: CPU Used &gt; 98%</li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </li> <!-- end policy-description -->
+                                                        <li class="policy-description" data-type="policy3">
+                                                            <ul>
+                                                                <li><strong>Policy 3</strong></li>
+                                                                <li>Run at <strong>All Times (24/7)</strong></li>
+                                                                <li>Evaluate every <strong>5</strong> minutes</li>
+                                                                <li>Trigger after <strong>30</strong> minutes</li>
+                                                                <li>Action: <strong>create incident</strong> with severity <strong>critical</strong></li>
+                                                                <br/>
+                                                                <li>Condition:
+                                                                    <ul>
+                                                                        <li>All objects: Memory Used &gt; 90%</li>
+                                                                        <li><strong>and</strong> All Objects: CPU Used &gt; 90% </li>
+                                                                        <li><strong>or</strong> Any Object: CPU Used &gt; 98%</li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </li> <!-- end policy-description -->
+                                                        <li class="policy-description" data-type="policy4">
+                                                            <ul>
+                                                                <li><strong>Policy 4</strong></li>
+                                                                <li>Run at <strong>All Times (24/7)</strong></li>
+                                                                <li>Evaluate every <strong>5</strong> minutes</li>
+                                                                <li>Trigger after <strong>30</strong> minutes</li>
+                                                                <li>Action: <strong>create incident</strong> with severity <strong>critical</strong></li>
+                                                                <br/>
+                                                                <li>Condition:
+                                                                    <ul>
+                                                                        <li>All objects: Memory Used &gt; 90%</li>
+                                                                        <li><strong>and</strong> All Objects: CPU Used &gt; 90% </li>
+                                                                        <li><strong>or</strong> Any Object: CPU Used &gt; 98%</li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </li> <!-- end policy-description -->
+                                                        <li class="policy-description" data-type="policy5">
+                                                            <ul>
+                                                                <li><strong>Policy 5</strong></li>
+                                                                <li>Run at <strong>All Times (24/7)</strong></li>
+                                                                <li>Evaluate every <strong>5</strong> minutes</li>
+                                                                <li>Trigger after <strong>30</strong> minutes</li>
+                                                                <li>Action: <strong>create incident</strong> with severity <strong>critical</strong></li>
+                                                                <br/>
+                                                                <li>Condition:
+                                                                    <ul>
+                                                                        <li>All objects: Memory Used &gt; 90%</li>
+                                                                        <li><strong>and</strong> All Objects: CPU Used &gt; 90% </li>
+                                                                        <li><strong>or</strong> Any Object: CPU Used &gt; 98%</li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </li> <!-- end policy-description -->
+                                                    </ul>
+                                                </div> <!-- end choose-existing-body -->
+                                                <div id="make-new-body" class="clear">
+                                                    <ul id="meta-policy" class="left">
+                                                        <li><input type="text" placeholder="Policy Name" /></li>
+                                                        <li>
+                                                            <p class="inline-block">Run</p>
+                                                            <div class="layer-box inline-block">
+                                                                <span class="name">All Times (24/7)</span>
+                                                                <ul class="layer-options ddMenu">
+                                                                    <li><a class="showDD"><i class="fa fa-chevron-circle-down"></i></a>
+                                                                        <ul class="checkList">
+                                                                            <li>
+                                                                                <input name="time-select" id="pol" type="radio" />
+                                                                                <label for="pol">All Times (24/7)</label>
+                                                                            </li>
+                                                                            <li>
+                                                                                <input name="time-select" id="pol-a" type="radio" />
+                                                                                <label for="pol-a">Other time</label>
+                                                                            </li>
+                                                                        </ul> <!-- end checklist -->
+                                                                    </li>
+                                                                </ul> <!-- end ddMenu -->
+                                                            </div><!-- end layer box -->
+                                                        </li>
+                                                        <li class="meta-li">Check every <input class="num-input" type="text"> min</li>
+                                                        <li class="meta-li">Trigger after <input class="num-input" type="text"> min failing</li>
+                                                        <li>
+                                                            <p class="inline-block">Action</p>
+                                                            <div class="layer-box inline-block">
+                                                                <span class="name">Create Incident</span>
+                                                                <ul class="layer-options ddMenu">
+                                                                    <li><a class="showDD"><i class="fa fa-chevron-circle-down"></i></a>
+                                                                        <ul class="checkList">
+                                                                            <li>
+                                                                                <input name="create-inc" type="checkbox" id="create-inc" />
+                                                                                <label for="create-inc">Create Incident</label>
+                                                                            </li>
+                                                                            <li>
+                                                                                <input name="post-bugzilla" type="checkbox" id="post-bugzilla"/>
+                                                                                <label for="post-bugzilla">Post to Bugzilla</label>
+                                                                            </li>
+                                                                        </ul> <!-- end checklist -->
+                                                                    </li>
+                                                                </ul> <!-- end ddMenu -->
+                                                            </div><!-- end layer box -->
+                                                        </li>
+                                                        <li>
+                                                            <p class="inline-block">Severity</p>
+                                                            <div class="layer-box inline-block">
+                                                                <span class="name">Critical</span>
+                                                                <ul class="layer-options ddMenu">
+                                                                    <li><a class="showDD"><i class="fa fa-chevron-circle-down"></i></a>
+                                                                        <ul class="checkList">
+                                                                            <li>
+                                                                                <input name="criticality" id="critical" type="radio" />
+                                                                                <label for="critical">Critical</label>
+                                                                            </li>
+                                                                            <li>
+                                                                                <input name="criticality" id="high" type="radio" />
+                                                                                <label for="high">High</label>
+                                                                            </li>
+                                                                            <li>
+                                                                                <input name="criticality" id="medium" type="radio" />
+                                                                                <label for="medium">Medium</label>
+                                                                            </li>
+                                                                            <li>
+                                                                                <input name="criticality" id="low" type="radio" />
+                                                                                <label for="low">Low</label>
+                                                                            </li>
+                                                                        </ul> <!-- end checklist -->
+                                                                    </li>
+                                                                </ul> <!-- end ddMenu -->
+                                                            </div><!-- end layer box -->
+                                                        </li>
+                                                    </ul>
+                                                    <ul id="clause-builder" class="right">
+                                                        <li>Build the condition required for your policy to trigger action:</li>
+                                                        <li>
+                                                            <ul class="clear">
+                                                                <li class="left clear big-width">
+                                                                    <div class="layer-box left">
+                                                                        <span class="name">All Objects: Memory Used</span>
+                                                                        <ul class="layer-options ddMenu right">
+                                                                            <li><a class="showDD"><i class="fa fa-chevron-circle-down"></i></a>
+                                                                                <ul class="checkList">
+                                                                                    <li>
+                                                                                        <input name="pol-0" id="pol-0" type="checkbox" />
+                                                                                        <label for="pol-0">All Objects: Memory Used</label>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <input name="pol-0" id="pol-0a" type="checkbox" />
+                                                                                        <label for="pol-0a">Other Option</label>
+                                                                                    </li>
+                                                                                </ul> <!-- end checklist -->
+                                                                            </li>
+                                                                        </ul> <!-- end ddMenu -->
+                                                                    </div><!-- end layer box -->
+                                                                </li>
+                                                                <li class="left clear sm-width">
+                                                                    <div class="layer-box left">
+                                                                        <span class="name"> &gt; </span>
+                                                                        <ul class="layer-options ddMenu">
+                                                                            <li><a class="showDD"><i class="fa fa-chevron-circle-down"></i></a>
+                                                                                <ul class="checkList">
+                                                                                    <li>
+                                                                                        <input name="operators" id="greater-0" type="radio" />
+                                                                                        <label for="greater-0"> &gt; </label>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <input name="operators" id="less-0" type="radio" />
+                                                                                        <label for="less-0"> &lt; </label>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <input name="operators" id="greater-equal-0" type="radio" />
+                                                                                        <label for="greater-equal-0"> &gt;= </label>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <input name="operators" id="less-than-0" type="radio" />
+                                                                                        <label for="less-than-0"> &lt;= </label>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <input name="operators" id="not-equal-0" type="radio" />
+                                                                                        <label for="not-equal-0"> ≠ </label>
+                                                                                    </li>
+                                                                                </ul> <!-- end checklist -->
+                                                                            </li>
+                                                                        </ul> <!-- end ddMenu -->
+                                                                    </div><!-- end layer box -->
+                                                                </li>
+                                                                <li class="left"><input class="num-input" type="text" /></li>
+                                                                <li class="fa fa-times-circle-o left"></li>
+                                                            </ul>
+                                                        </li>
+                                                        <hr/>
+                                                        <li class="clause">
+                                                            <ul class="clear">
+                                                                <li class="left clear sm-width">
+                                                                    <div class="layer-box left">
+                                                                        <span class="name">And</span>
+                                                                        <ul class="layer-options ddMenu">
+                                                                            <li><a class="showDD"><i class="fa fa-chevron-circle-down"></i></a>
+                                                                                <ul class="checkList">
+                                                                                    <li>
+                                                                                        <input name="andor" id="and-1" type="radio" />
+                                                                                        <label for="and-1">And</label>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <input name="andor" id="or-1" type="radio" />
+                                                                                        <label for="or-1">Or</label>
+                                                                                    </li>
+                                                                                </ul> <!-- end checklist -->
+                                                                            </li>
+                                                                        </ul> <!-- end ddMenu -->
+                                                                    </div><!-- end layer box -->
+                                                                </li>
+                                                                <li class="left clear big-width">
+                                                                    <div class="layer-box left">
+                                                                        <span class="name">Select Metric</span>
+                                                                        <ul class="layer-options ddMenu right">
+                                                                            <li><a class="showDD"><i class="fa fa-chevron-circle-down"></i></a>
+                                                                                <ul class="checkList">
+                                                                                    <li>
+                                                                                        <input name="pol-4" id="pol-3" type="checkbox" />
+                                                                                        <label for="pol-3">Policy 1</label>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <input name="pol-4" id="pol-4" type="checkbox" />
+                                                                                        <label for="pol-4">Policy 2</label>
+                                                                                    </li>
+                                                                                </ul> <!-- end checklist -->
+                                                                            </li>
+                                                                        </ul> <!-- end ddMenu -->
+                                                                    </div><!-- end layer box -->
+                                                                </li>
+                                                                <li class="left clear sm-width">
+                                                                    <div class="layer-box left">
+                                                                        <span class="name"> &gt; </span>
+                                                                        <ul class="layer-options ddMenu">
+                                                                            <li><a class="showDD"><i class="fa fa-chevron-circle-down"></i></a>
+                                                                                <ul class="checkList">
+                                                                                    <li>
+                                                                                        <input name="operators" id="greater-1" type="radio" />
+                                                                                        <label for="greater-1"> &gt; </label>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <input name="operators" id="less-1" type="radio" />
+                                                                                        <label for="less-1"> &lt; </label>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <input name="operators" id="greater-equal-1" type="radio" />
+                                                                                        <label for="greater-equal-1"> &gt;= </label>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <input name="operators" id="less-than-1" type="radio" />
+                                                                                        <label for="less-than-1"> &lt;= </label>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <input name="operators" id="not-equal-1" type="radio" />
+                                                                                        <label for="not-equal-"> ≠ </label>
+                                                                                    </li>
+                                                                                </ul> <!-- end checklist -->
+                                                                            </li>
+                                                                        </ul> <!-- end ddMenu -->
+                                                                    </div><!-- end layer box -->
+                                                                </li>
+                                                                <li class="left"><input class="num-input" type="text"></li>
+                                                                <li class="fa fa-times-circle-o left remove"></li>
+                                                            </ul>
+                                                        </li>
+                                                        <a id="add-clause" href="javascript:void(0);"><i class="fa fa-plus-circle"></i> Add Clause</a>
+                                                    </ul>
+                                                    
+                                                </div> <!--end make-new-body -->
+                                            </div> <!-- end add-policy-body -->
+                                            <div id="add-policy-footer" class="clear">
+                                                <div class="right">
+                                                    <a href="#" class="button cancel no-top-margin">Cancel</a>
+                                                    <a href="#" class="button no-top-margin" id="add-policy-conf">Add Policy</a>
+                                                </div> <!-- end right (save/cancel) -->
+                                            </div> <!-- end add-policy-footer -->
+                                        </li>
+                                    </ul><!-- end add-policy-container -->
+                                </li>
+                            </ul>
+                        </div> <!-- end canvas footer -->
+                    </div> <!-- end wrap -->
+                    <div id="module-footer" class="clear">
+                        <div id="template-checkbox">
+                            <input id="app-template" name="app-template" type="checkbox"/>
+                            <label for="app-template">Also Save as Application Template</label>
+                        </div> <!-- end left (checkbox) -->
+                        <div class="right">
+                            <a href="#" class="button cancel">Cancel</a>
+                            <a href="#" class="button" id="new-app-save">Save Application</a>
+                        </div> <!-- end right (save/cancel) -->
+                    </div> <!-- end module-footer -->
+                </div> <!-- end module -->
+            </section>
+        </div><!-- end wrapper -->
+        <div class="actions-panel">
+        	<ul>
+            	<li class="bookmark"><a href="#"><span>12</span><i class="fa fa-bookmark"></i></a></li>
+                <li class="alarms hasNew"><a href="#"><span>45</span><i class="fa fa-warning"></i></a>
+                	<ul>
+                    	<li><a href="#">Slow response time due to network condition</a></li>
+                        <li><a href="#" class="alarms">Queue size above SLA due to port failure</a></li>
+                    </ul>
+                </li>
+                <li class="archive"><a href="#"><span>5</span><i class="fa fa-archive"></i></a></li>
+                <li class="comments"><a href="#"><span>1</span><i class="fa fa-comment"></i></a></li>           
+            </ul>
+        </div><!-- end actions panel -->
+		<footer class="clear">
+        	
+        	<!-- Attach scripts -->
+            <script src="js/plugins.js"></script>
+            <script src="js/scripts.js"></script>
+            <script src="js/jquery.outside.js"></script>
+            <script src="js/jquery-ui-timepicker-addon.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js" async ></script>
+            <script src="js/jquery.gridster.min.js"></script>
+            <script src="js/bootstrap.tooltip.min.js"></script>
+            
+            <!-- attach CSS thats not needed on page load -->
+            <link rel="stylesheet" href="css/jquery.datepicker.css">
+            <link rel="stylesheet" href="css/jquery-ui-timepicker-addon.min.css">
+            <link rel="stylesheet" href="css/jquery.gridster.min.css">
+            
+            <script>
+				$(function() {
+					/* Not currently used */
+    				$('.modal').easyModal({
+						top: 'auto',
+						autoOpen: false,
+						overlayOpacity: 0.5,
+						overlayColor: "#000",
+						overlayClose: true,
+						closeOnEscape: true
+					});
+
+					$('.datepicker').datetimepicker({
+						showOtherMonths: true,
+						timeFormat: "hh:mm tt",
+						dayNamesMin: [ "Su", "M", "Tu", "W", "Th", "F", "Sa" ]
+					});
+					
+					/** DEMO for auto complete of Search field **/
+					 var availableTags = [
+							"Memory Usage",
+							"CPU Usage",
+							"PID",
+							];
+					$( ".autocomplete" ).autocomplete({
+						source: availableTags
+					});
+					
+				});
+				 $(document).ready( function(){
+                    //hide policy descriptions
+                    $(".policy-description").hide();
+                    //show correct policy description
+                    $("#policy-list").on('click', 'a', function(){
+                        $(".policy-description").hide();
+                        var policy = $(this).attr('data-type');
+                        $('.policy-description[data-type='+ policy +']').show();
+                    });
+
+                    //set default view for add policy modal
+                    $('#existing').prop("checked", true);
+                    $('#make-new-body').hide();
+                    //toggle between make new policy and choose existing
+                    $('input[name="policy-type"]').change(function(){
+                        if($(this).attr('id') == "new"){
+                            $('#choose-existing-body').hide();
+                            $('#make-new-body').show();
+                        }else{
+                            $('#make-new-body').hide();
+                            $('#choose-existing-body').show();
+                        }
+                    });
+
+                    // Add new conditions
+                    $('#add-clause').on('click', function(){
+                        $(".clause").first().clone().insertBefore($(this));
+
+                    });
+                    
+                    //Remove conditions
+                    $('#clause-builder').on('click', 'li.remove', function(){
+                        $(this).parents('li.clause').remove();
+                    });
+                    
+                    /* Initalaize Bootstrap Tip */
+                    $('body').tooltip({
+                        delay: { "show": 700, "hide": 100 },
+                        trigger: 'hover',
+                        selector: '[data-toggle="tooltip"]',
+                        container: 'body',
+                        html: true
+                    });
+
+				 });
+				 
+
+				</script>	
+        	<!--- attach typekit account for custom fonts -->
+        	<script src="http://use.typekit.net/kws6hqw.js"></script>
+			<script>try{Typekit.load();}catch(e){}</script>
+            
+        	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        	<script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        	</script>
+        </footer><!-- end footer -->
+        
+        <!-- Code for jQuery Modal Overlay -->
+        <!-- Create additional <div>s with the class .modal
+        	 Give them a unique ID and use $('#ID').trigger('openModal') to
+             open the modal window.  $('#ID').trigger('closeModal') to close it.
+         -->
+  		<div id="login" class="modal">
+  			<div class="clear modalHeader">
+            	<h2 class="left">Log In</h2>
+            	<a href="#" class="close right" title="Close"><i class="fa fa-times"></i></a>
+            </div><!-- end clear -->
+    		<div class="content">
+
+            </div><!-- end content -->
+  		</div><!-- end #login -->
+  		<!-- end Modal Overlay -->
+
+    </body>
+</html>

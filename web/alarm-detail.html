@@ -1,0 +1,1370 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Perspica | Alarm Detail</title>
+        
+        <!-- meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- dns prefetch -->
+        <link href="http://www.google-analytics.com" rel="dns-prefetch">
+        
+        <!-- icons -->
+		<link href="img/favicon.ico" rel="shortcut icon">
+		<link href="img/touch.png" rel="apple-touch-icon-precomposed">
+		
+        <!-- stylesheets -->
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        
+        <!-- font awesome css -->
+        <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+
+        <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <!-- load jQuery from Goolge CDN -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    </head>
+    <body class="alarm-detail logged-in">
+        <header id="header" role="banner">
+        	<div class="inner clear nav">
+            	<a href="javascript:void(0);" class="nav-control left toggle" onClick="jQuery('body').toggleClass('open');"></a>
+                <a href="/" title="Home" class="logo left"><img src="img/logo.png" alt="the Tech" /></a>
+                <a href="javascript:void(0);" class="showMobile search-control right" onClick="jQuery('body').toggleClass('search');"></a>
+            </div><!-- end left -->
+            <form class="left form-item" action="index.html" method="get" id="global-search" name="global-search">
+                <div class="showLabels">
+                    <label for="search">Search Here</label>
+                    <input type="search" name="search" id="search"/>
+                </div>
+                <button type="submit" class="search"><i class="fa fa-search"></i></button>
+            </form><!-- end form -->
+			<div class="inner right clear" id="profile-menu">
+                <div class="avatar left">               	
+                    <a href="profile.html" title="Profile"><img src="img/nelson.jpg" width="33px" alt="Scott" /></a>
+                    <span>Hello Scott</span>
+                </div><!-- end avatar -->
+                 <ul class="right toggleable" id="user-settings">
+                    <li><a class="settings toggle" href="javascript:void(0);"></a>
+                        <ul>
+                            <li><a href="#" title="Profile">My Profile</a></li>
+                            <li><a href="#" title="Preferences">Preferences</a></li>
+                            <li><a href="#" title="Administration">Help</a></li>
+                            <li><a href="#" title="Log Out" class="logout">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+        	</div><!-- end inner -->
+        </header><!-- end header -->
+        <nav class="toggleable">
+            <ul>
+                <li><a href="#" title="Topology" class="icon topology-icon">Topology</a></li>
+                <li class="hasChildren">
+                	<a href="#" title="Alerting" class="icon alert-icon">Alerting</a><span class="sub-toggle"></span>
+                    <ul>
+                    	<li><a href="#" title="Alerting">Alerting Overview</a></li>
+                        <li><a href="#" title="Alerting">Incidents</a></li>
+                        <li><a href="#" title="Alerting">Alarms</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" title="Dashboard" class="icon dashboard-icon">Dashboards</a></li>
+                <li><a href="#" title="Reports" class="icon reports-icon">Reports</a></li>
+                <li><a href="#" title="Planning" class="icon plan-icon">Planning</a></li>
+                <li><a href="#" title="KnowledgeBase" class="icon knowledge-icon">Knowledge Base</a></li>
+                <li><a href="#" title="Configuration" class="icon configuration-icon">Configuration</a></li>
+                <li><a href="#" title="Collaboration" class="icon collaboration-icon">Collaboration</a></li>
+                <li><a href="#" title="Help" class="icon help-icon">Help</a></li>
+            </ul>
+        </nav>
+        <div class="wrapper clear">
+        	<div class="page-top clear">
+                <div class="breadcrumbs left">
+                    <ul class="clear">
+                        <li><a href="/" title="Home">Home</a></li>
+                        <li>&nbsp;/&nbsp;&nbsp;</li>
+                        <li><a href="alerting.html" title="Alerting">Alerting</a></li>
+                        <li>&nbsp;/&nbsp;&nbsp;</li>
+                        <li><span>Alarm Detail</span></li>
+                    </ul>
+                </div><!-- end breadcrumbs -->
+                <ul class="header-actions right clear">
+                	<li><a href="#"><i class="fa fa-bookmark"></i></a></li>
+                    <li><a href="#"><i class="fa fa-file-pdf-o"></i></a></li>
+                    <li><a href="#"><i class="fa fa-share"></i></a></li>
+                    <li><a href="#"><i class="fa fa-comment"></i></a></li>
+                </ul>
+            </div><!-- end page-top -->
+        	<section id="alarm-detail" class="main clear">
+            	<div class="module overview-status clear">
+                	<div class="stats left clear">
+                		<div class="stat left icon-case">
+                        	<span class="value">Inventory System</span>
+                            <span class="label">Object Alarming</span>
+                        </div>
+                        <div class="stat left">
+                        	<span class="value">Port Failure</span>
+                            <span class="label">Cause</span>
+                        </div>
+                        <div class="stat left">
+                        	<span class="value high">OPEN</span>
+                            <span class="label">Status:</span>
+                        </div>
+                        <div class="stat left">
+                        	<span class="value">Inventory System (+5 others)</span>
+                            <span class="label">Objects Impacted</span>
+                        </div>
+                    </div><!--end stats -->
+                    <div class="stats right clear">
+                    	<div class="stat left icon-clock">
+                        	<span class="value">56 min</span>
+                            <span class="label">Duration</span>
+                        </div>
+                        <div class="stat left">
+                        	<span class="value">3:57p</span>
+                            <span class="label">Start Time</span>
+                        </div>
+                        <div class="stat left">
+                        	<span class="value">4:53p</span>
+                            <span class="label">End Time</span>
+                        </div>
+                    </div><!-- end stats -->
+                    <a href="javascript:void(0);" class="mobileToggleHeight showMobile" onClick="jQuery(this).parent().toggleClass('expanded');"></a>
+                </div><!-- end module -->
+                <div class="module-group">
+                    <div class="module header-module">
+                        <a href="#recommendations" class="module-recommendations open-modal" rel="">2 Recommendations</a>
+                        <ul class="module-actions">
+                            <li><a href="#" class="module-control"><i class="fa fa-share"></i></a>
+                                <ul>
+                                    <li><a href="#" title="Add to Dashboard" data-action="dashboard">Add to a Dashboard...</a></li>
+                                    <li><a href="#" title="Add to a Collaboration" data-action="collaborate">Add to a Collaboration...</a></li>
+                                    <li><a href="#" title="Add to Report" data-action="report">Add to Report...</a></li>
+                                    <li><a href="#" title="Make PDF" data-action="pdf">Make PDF</a></li>
+                                    <li><a href="#" title="Email" data-action="Email">Email it</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="module-settings">
+                            <li><a href="#" class="module-control"><i class="fa fa-gear"></i></a>
+                                <ul>
+                                    <li><a href="#" title="Edit Settings" data-action="settings">Edit Settings</a></li>
+                                    <li><a href="#" title="Minimize" data-action="minimize">Minimize</a></li>
+                                    <li><a href="#" title="Refresh" data-action="share">Refresh</a></li>
+                                    <li><a href="#" title="Duplicate" data-action="duplicate">Duplicate</a></li>
+                                    <li><a href="#" title="Remove" data-action="remove">Remove</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="clear">
+                            <div class="alarm high left"><span></span><span></span><span></span></div><!-- end alarm -->
+                            <h3 class="left">Slow response time due to network congestion</h3>
+                        </div>
+                        <p>A user process on the Inventory System application server which is no longer supporting a client session is in a runaway state. If left in place the runaway process will eventually consume 100% CPU, preventing that CPU from supporting other processes</p>	
+                    </div><!-- end header module --> 
+                    <div class="module clear">
+                        <h3>Timeline</h3>
+                        <ul class="module-actions">
+                            <li><a href="#" class="module-control"><i class="fa fa-share"></i></a>
+                                <ul>
+                                    <li><a href="#" title="Add to Dashboard" data-action="dashboard">Add to a Dashboard...</a></li>
+                                    <li><a href="#" title="Add to a Collaboration" data-action="collaborate">Add to a Collaboration...</a></li>
+                                    <li><a href="#" title="Add to Report" data-action="report">Add to Report...</a></li>
+                                    <li><a href="#" title="Make PDF" data-action="pdf">Make PDF</a></li>
+                                    <li><a href="#" title="Email" data-action="Email">Email it</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="module-settings">
+                            <li><a href="#" class="module-control"><i class="fa fa-gear"></i></a>
+                                <ul>
+                                    <li><a href="#" title="Edit Settings" data-action="settings">Edit Settings</a></li>
+                                    <li><a href="#" title="Minimize" data-action="minimize">Minimize</a></li>
+                                    <li><a href="#" title="Refresh" data-action="share">Refresh</a></li>
+                                    <li><a href="#" title="Duplicate" data-action="duplicate">Duplicate</a></li>
+                                    <li><a href="#" title="Remove" data-action="remove">Remove</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="graph-wrap">
+                            <img src="img/timeline.png" height="89" width="100%"/>
+                        </div><!-- end graph wrap -->
+                    </div><!-- end module -->
+                    <div class="module clear">
+                        <h3>Health</h3>
+                        <ul class="module-actions">
+                            <li><a href="#" class="module-control"><i class="fa fa-share"></i></a>
+                                <ul>
+                                    <li><a href="#" title="Add to Dashboard" data-action="dashboard">Add to a Dashboard...</a></li>
+                                    <li><a href="#" title="Add to a Collaboration" data-action="collaborate">Add to a Collaboration...</a></li>
+                                    <li><a href="#" title="Add to Report" data-action="report">Add to Report...</a></li>
+                                    <li><a href="#" title="Make PDF" data-action="pdf">Make PDF</a></li>
+                                    <li><a href="#" title="Email" data-action="Email">Email it</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="module-settings">
+                            <li><a href="#" class="module-control"><i class="fa fa-gear"></i></a>
+                                <ul>
+                                    <li><a href="#" title="Edit Settings" data-action="settings">Edit Settings</a></li>
+                                    <li><a href="#" title="Minimize" data-action="minimize">Minimize</a></li>
+                                    <li><a href="#" title="Refresh" data-action="share">Refresh</a></li>
+                                    <li><a href="#" title="Duplicate" data-action="duplicate">Duplicate</a></li>
+                                    <li><a href="#" title="Remove" data-action="remove">Remove</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="graph-wrap">
+                            <img src="img/health-graph-alarm.png" height="92" width="100%"/>
+                        </div><!-- end graph wrap -->
+                    </div><!-- end module -->
+                    <div class="module clear hasTabs hasSelectTabs">
+                        <h3 class="left">Topology</h3>
+                         <ul class="fake-select left">
+                            <li><a href="javascript:void(0);" class="control" data-value="4">Logical Network</a>
+                                <ul>
+                                	<div class="module-tabs">
+                                        <li><a href="#" data-tab="1">Administrative</a></li>
+                                        <li><a href="#" data-tab="2">Applications</a></li>
+                                        <li><a href="#" data-tab="3">Geographic</a></li>
+                                        <li class="selected"><a href="#" data-tab="4">Logical Network</a></li>
+                                        <li><a href="#" data-tab="5">Logical Storage</a></li>
+                                        <li><a href="#" data-tab="6">Physical Network</a></li>
+                                        <li><a href="#" data-tab="7">Physical Storage</a></li>
+                                    </div>
+                                </ul>
+                            </li>
+                        </ul>                   
+                        <ul class="module-actions">
+                            <li><a href="#" class="module-control"><i class="fa fa-share"></i></a>
+                                <ul>
+                                    <li><a href="#" title="Add to Dashboard" data-action="dashboard">Add to a Dashboard...</a></li>
+                                    <li><a href="#" title="Add to a Collaboration" data-action="collaborate">Add to a Collaboration...</a></li>
+                                    <li><a href="#" title="Add to Report" data-action="report">Add to Report...</a></li>
+                                    <li><a href="#" title="Make PDF" data-action="pdf">Make PDF</a></li>
+                                    <li><a href="#" title="Email" data-action="Email">Email it</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="module-settings">
+                            <li><a href="#" class="module-control"><i class="fa fa-gear"></i></a>
+                                <ul>
+                                    <li><a href="#" title="Edit Settings" data-action="settings">Edit Settings</a></li>
+                                    <li><a href="#" title="Minimize" data-action="minimize">Minimize</a></li>
+                                    <li><a href="#" title="Refresh" data-action="share">Refresh</a></li>
+                                    <li><a href="#" title="Duplicate" data-action="duplicate">Duplicate</a></li>
+                                    <li><a href="#" title="Remove" data-action="remove">Remove</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="module-min">
+                            <div class="tab-wrap">
+                            	<div data-tab="1" class="module-tab">
+                                </div>
+                                <div data-tab="2" class="module-tab">
+                                </div>
+                                <div data-tab="3" class="module-tab">
+                                </div>
+                                <div data-tab="4" class="module-tab active hasToggle">
+                                    <ul class="view-toggle">
+                                        <li><a href="#" title="table" data-toggle="1"><i class="fa fa-list"></i></a></li>
+                                        <li class="active"><a href="#" title="chart" data-toggle="2"><i class="fa fa-sitemap"></i></a></li>
+                                    </ul><!-- end view toggle -->
+                                    <div class="toggle-tab" data-toggle="1">
+                                        Table?
+                                    </div><!-- end toggle tab -->
+                                    <div class="toggle-tab active chart" data-toggle="2">
+                                        <img src="img/tree-map.png" />
+                                    </div><!-- end toggle tab -->                          
+                                </div>
+                                <div data-tab="5" class="module-tab">
+                                </div>
+                                <div data-tab="6" class="module-tab">
+                                </div>
+                                <div data-tab="7" class="module-tab">
+                                </div>
+                            </div><!-- end tab wrap -->
+                        </div><!-- end module min -->
+                    </div><!-- end module -->
+                    <div class="module clear">
+                        <h3 class="no-padding">Main Deviating Metrics</h3>
+                        <div class="mini-module relative hasImpact">
+                            <ul class="module-actions">
+                                <li><a href="#" class="module-control"><i class="fa fa-share"></i></a>
+                                    <ul>
+                                        <li><a href="#" title="Add to Dashboard" data-action="dashboard">Add to a Dashboard...</a></li>
+                                        <li><a href="#" title="Add to a Collaboration" data-action="collaborate">Add to a Collaboration...</a></li>
+                                        <li><a href="#" title="Add to Report" data-action="report">Add to Report...</a></li>
+                                        <li><a href="#" title="Make PDF" data-action="pdf">Make PDF</a></li>
+                                        <li><a href="#" title="Email" data-action="Email">Email it</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="module-settings">
+                                <li><a href="#" class="module-control"><i class="fa fa-gear"></i></a>
+                                    <ul>
+                                        <li><a href="#" title="Edit Settings" data-action="settings">Edit Settings</a></li>
+                                        <li><a href="#" title="Minimize" data-action="minimize">Minimize</a></li>
+                                        <li><a href="#" title="Refresh" data-action="share">Refresh</a></li>
+                                        <li><a href="#" title="Duplicate" data-action="duplicate">Duplicate</a></li>
+                                        <li><a href="#" title="Remove" data-action="remove">Remove</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="title left">cpu.usage.percent:Overall</div>
+                            <div class="impact-wrap">
+                            	Impact Level:
+                                <div class="impact"><span style="width:80%;"></span></div>
+                            </div><!-- end impact-wrap -->
+                            <div class="graph-wrap">
+                                <img src="img/main-cpu-usage.png" height="91" width="100%"/>
+                            </div><!-- end graph wrap -->
+                        </div><!-- mini-module -->
+                        <div class="mini-module relative hasImpact">
+                            <ul class="module-actions">
+                                <li><a href="#" class="module-control"><i class="fa fa-share"></i></a>
+                                    <ul>
+                                        <li><a href="#" title="Add to Dashboard" data-action="dashboard">Add to a Dashboard...</a></li>
+                                        <li><a href="#" title="Add to a Collaboration" data-action="collaborate">Add to a Collaboration...</a></li>
+                                        <li><a href="#" title="Add to Report" data-action="report">Add to Report...</a></li>
+                                        <li><a href="#" title="Make PDF" data-action="pdf">Make PDF</a></li>
+                                        <li><a href="#" title="Email" data-action="Email">Email it</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="module-settings">
+                                <li><a href="#" class="module-control"><i class="fa fa-gear"></i></a>
+                                    <ul>
+                                        <li><a href="#" title="Edit Settings" data-action="settings">Edit Settings</a></li>
+                                        <li><a href="#" title="Minimize" data-action="minimize">Minimize</a></li>
+                                        <li><a href="#" title="Refresh" data-action="share">Refresh</a></li>
+                                        <li><a href="#" title="Duplicate" data-action="duplicate">Duplicate</a></li>
+                                        <li><a href="#" title="Remove" data-action="remove">Remove</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="title left">memory.usage.percent:Overall</div>
+                            <div class="impact-wrap">
+                            	Impact Level:
+                                <div class="impact"><span style="width:60%;"></span></div>
+                            </div><!-- end impact-wrap -->
+                            <div class="graph-wrap">
+                                <img src="img/main-memory-usage.png" height="113" width="100%"/>
+                            </div><!-- end graph wrap -->
+                        </div><!-- mini-module -->
+                        <a href="#" title="Examine all of these deviating metrics in detail">Examine all of these deviating metrics in detail</a>
+                    </div><!-- end module -->
+                    <div class="module-footer clear">
+                        <a href="#anomaly-sig" class="open-modal" title="View anomaly signature" onClick="scrollToTop();">View anomaly signature</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="#" class="" title="Create anomaly signature from this incident">Create anomaly signature from this incident</a>
+                    </div><!-- end module footer -->
+            	</div><!-- end module group -->           
+        	</section><!-- end main -->
+        </div><!-- end wrapper -->
+        <div class="actions-panel">
+        	<ul>
+            	<li class="bookmark"><a href="#"><span>12</span><i class="fa fa-bookmark"></i></a></li>
+                <li class="alarms hasNew"><a href="#"><span>45</span><i class="fa fa-warning"></i></a>
+                	<ul>
+                    	<li><a href="#">Slow response time due to network condition</a></li>
+                        <li><a href="#" class="alarms">Queue size above SLA due to port failure</a></li>
+                    </ul>
+                </li>
+                <li class="archive"><a href="#"><span>5</span><i class="fa fa-archive"></i></a></li>
+                <li class="comments"><a href="#"><span>1</span><i class="fa fa-comment"></i></a></li>           
+            </ul>
+        </div><!-- end actions panel -->
+		<footer class="clear">
+        	
+        	<!-- Attach scripts -->
+            <script src="js/plugins.js"></script>
+            <script src="js/scripts.js"></script>
+            <script src="js/jquery.outside.js"></script>
+            <script src="js/jquery.modal.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js" async ></script>
+            <script src="js/jquery.tablesorter.min.js"></script>
+            <script src="js/jquery.tablesorter.widgets.min.js"></script>
+            <script src="js/jquery.tablesorter.stickyHeader.js"></script>
+            
+            <!-- Non Dependendant CSS-->
+            <link rel="stylesheet" href="css/jrating.css">
+            
+            
+            <script>
+				$(function() {
+					/* Not currently used */
+    				$('.modal').easyModal({
+						top: 'auto',
+						autoOpen: false,
+						overlayOpacity: 0.8,
+						overlayColor: "#000",
+						overlayClose: true,
+						closeOnEscape: true,
+						updateZIndexOnOpen: false
+					});
+					
+					// Add Table Sort Functionality
+					$('table').tablesorter({
+						widthFixed : true,
+					
+						widgets: [ 'cssStickyHeaders' ],
+					
+						widgetOptions: {
+						  cssStickyHeaders_attachTo      : '.table-wrap',
+						  cssStickyHeaders_addCaption    : true
+						}
+					});
+				});
+				 $(document).ready( function(){
+					 
+					 $(".rater").jRating({
+						 step:true,
+						 type:'small',
+						 length : 5, // nb of stars
+						 smallStarsPath: 'img/stars.png',
+						 bigStarsPath: 'img/stars.png',
+						 showRateInfo: false,
+						 onSuccess : function(){
+						   
+						 }
+					   });
+					   
+					   $(".rater-done").jRating({
+						 step:true,
+						 type:'small',
+						 length : 5, // nb of stars
+						 smallStarsPath: 'img/stars.png',
+						 bigStarsPath: 'img/stars.png',
+						 showRateInfo: false,
+						 isDisabled: true,
+						 nbRates:0, //Already Rated it!
+						 onSuccess : function(){
+						   
+						 }
+					   });
+					 
+					 //Remove modal tables on .remove click
+					 $('.modal .remove').on('click', function(){
+						$(this).parents('.signature-table').fadeOut(500, function(){
+							$(this).remove();
+						});
+					 });
+					 
+					 // Add Accordion-like functionality to the Term Picker menu
+					 $('.listTitle').on('click', function(){
+						 var parent = $(this).parent('ul');
+						 	//Remove previous opened item
+							if(!$(this).hasClass('expanded')){
+								parent.children('.listTitle.expanded').removeClass('expanded').next('li').slideUp(500);
+								$(this).addClass('expanded').next('li').slideDown(500);
+							} else {
+								$(this).removeClass('expanded').next('li').slideUp(500);
+							}
+					 });
+					 
+					 //* Allow Drag and Drop of terms into textarea
+					 $('ul.list > li a').draggable({
+						 revert: true,
+						 containment: '#anomaly-sig',
+						 helper: 'clone',
+						 appendTo: '#anomaly-sig',
+						 cursor: 'move',
+						 
+						 });
+					//* Make Entire List Movable
+					 $('ul.list').draggable();
+						
+					$("textarea, .drag-tag").droppable({
+						drop: function (event, ui) {
+							//Only drop if its not entire list
+							if(!$(ui.draggable).hasClass('list')){
+								var target = $( event.target );
+								 console.log(target);
+								if(target.hasClass('drag-tag')){
+									var html = '<div class="tag left">' + 
+											   '<svg viewBox="0 0 1024 1024" role="img" class="icon24 unknown">' +
+													'<use xlink:href="svgs/icons.svg#icon-application"/>' +
+											   '</svg>' +
+											   $(ui.draggable).data('name')+'<a class="removeTag" href="#"><i class="fa fa-times-circle"></i></a>' +
+											   '</div>';
+											   console.log(html);
+									target.append(html);
+								} else {
+									var value = this.value;
+									this.value =  value+' '+$(ui.draggable).data('name');
+								}
+							}
+						}
+					});
+
+				 });				 
+				</script>	
+        	<!--- attach typekit account for custom fonts -->
+        	<script src="http://use.typekit.net/kws6hqw.js"></script>
+			<script>try{Typekit.load();}catch(e){}</script>
+            
+        	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        	<script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        	</script>
+        </footer><!-- end footer -->
+        
+        <!-- Code for jQuery Modal Overlay -->
+        <!-- Create additional <div>s with the class .modal
+        	 Give them a unique ID and use $('#ID').trigger('openModal') to
+             open the modal window.  $('#ID').trigger('closeModal') to close it.
+         -->
+  		<div id="recommendations" class="modal">
+            <a href="#" class="close right" title="Close"><i class="fa fa-times-circle"></i></a>
+            <h2 class="icon-lightbulb">Top Recommendations</h2>
+    		<div class="modal-content clear">
+            	<div class="recos clear">
+                	<div class="reco-top clear">
+                        <div class="left title"><strong>01.</strong> Manually reboot the Inventory System application</div>
+                        <div class="rating-wrap right clear">
+                        	<div class="rating left">
+                                <div class="score score-done clear">
+                                    <div class="rater-done dark" data-average="20" data-id="1"></div>
+                                    <div class="score-meta clear">
+                                    Avg. Rating (23 Reviews)
+                                    </div><!-- end score meta -->
+                                </div><!-- end score inner -->
+                            </div><!-- end rating -->  
+                            <div class="rating left">       
+                                <div class="score inner left clear">
+                                    <div class="rater dark" data-average="0" data-id="2"></div>
+                                    <div class="score-meta clear">
+                                        Your Rating
+                                    </div><!-- end score meta -->
+                                </div><!-- end score inner -->
+                            </div><!--end rating -->
+                        </div><!-- end rating-wrap -->
+                    </div><!--end reco top -->
+                    <div class="recos-bottom clear">
+                    	<p class="left">The runaway process must be recognized and manually killed or it will continue to consume 100% CPU. This requires human intervention.</p>
+                        <a href="#" class="button right disabled">Take Action</a>
+                        <a href="#" class="clear">See recommendation details</a>
+                    </div><!--end recos bottom -->
+                </div><!-- end recos -->
+                <div class="recos clear">
+                	<div class="reco-top clear">
+                        <div class="left title"><strong>02.</strong> Examine Active Network Connections</div>
+                        <div class="rating-wrap right clear">
+                        	<div class="rating left">
+                                <div class="score score-done clear">
+                                    <div class="rater-done dark" data-average="12" data-id="1"></div>
+                                    <div class="score-meta clear">
+                                    Avg. Rating (23 Reviews)
+                                    </div><!-- end score meta -->
+                                </div><!-- end score inner -->
+                            </div><!-- end rating -->  
+                            <div class="rating left">       
+                                <div class="score inner left clear">
+                                    <div class="rater dark" data-average="0" data-id="2"></div>
+                                    <div class="score-meta clear">
+                                        Your Rating
+                                    </div><!-- end score meta -->
+                                </div><!-- end score inner -->
+                            </div><!--end rating -->
+                        </div><!-- end rating-wrap -->
+                    </div><!--end reco top -->
+                    <div class="recos-bottom clear">
+                    	<p class="left">Examine the active network connections between the Inventory System application's web server and the database server.</p>
+                        <a href="#" class="button right">Open Topology</a>
+                        <a href="#" class="clear">See recommendation details</a>
+                    </div><!--end recos bottom -->
+                </div><!-- end recos -->
+            </div><!-- end modal content -->
+  		</div><!-- end #recommendations -->
+        
+        
+        <div id="anomaly-sig" class="modal">
+            <a href="#" class="close right" title="Close"><i class="fa fa-times-circle"></i></a>
+            <h2>Edit Anomaly Signature</h2>
+    		<div class="modal-content clear">
+                <div class="form-item">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title" value="Slow response time due to network congestion"/>
+                </div><!-- end form item -->
+                <div class="form-item">
+                    <label for="description">Description</label>
+                    <textarea name="description" id="description">High network traffic is limiting bandwidth between [Main Object]'s web server and database. Response time is now above SLA.</textarea>
+                </div><!-- end form item -->
+                <div class="form-item clear">
+                    <label for="importance" class="left">Importance</label>
+                    <ul class="fake-select left" id="importance">
+                        <li><a href="javascript:void(0);" class="control" data-value="10">10 (most important)</a>
+                            <ul>
+                                <div class="module-tabs">
+                                    <li><a href="#" data-tab="1">1 (least important)</a></li>
+                                    <li><a href="#" data-tab="2">2</a></li>
+                                    <li><a href="#" data-tab="3">3</a></li>
+                                    <li><a href="#" data-tab="4">4</a></li>
+                                    <li><a href="#" data-tab="5">5</a></li>
+                                    <li><a href="#" data-tab="6">6</a></li>
+                                    <li><a href="#" data-tab="7">7</a></li>
+                                    <li><a href="#" data-tab="8">8</a></li>
+                                    <li><a href="#" data-tab="9">9</a></li>
+                                    <li class="selected"><a href="#" data-tab="10">10 (most important)</a></li>
+                                </div>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- end form item -->
+                <div class="form-item clear">
+                    <label class="left">Applicable Objects/Types:</label>
+                    <ul class="left ddMenu layerMenu terms">
+                        <li><a class="showDD" href="javascript:void(0);"><i class="fa fa-plus-circle"></i> <span>Choose</span></a>
+                            <ul class="list">
+                                <a href="javascript:void(0);" class="listTitle expanded"><i class="fa fa-caret-right"></i> Objects</a>
+                                <li style="display:block">
+                                    <div class="list-options clear">
+                                        <div class="metric-selector">
+                                            <div class="head clear">
+                                                <a href="javascript:void(0);" class="left top-folder"><i class="fa fa-chevron-up"></i>TOP</a>
+                                                <div class="form-item right">
+                                                    <label for="mSearch"><i class="fa fa-search"></i></label>
+                                                    <input type="text" name="mSearch" id="mSearch" placeholder="Search" class="autocomplete" val="" />
+                                                </div><!--end form item -->
+                                            </div><!--end head -->
+                                            <div class="body">
+                                                <a href="javascript:void(0);" class="folder-back"><i class="fa fa-chevron-circle-left"></i><span></span></a>
+                                                <div class="level-wrap">
+                                                    <div class="inner" data-level="1">
+                                                        <div class="level parent" data-level="1">
+                                                            <ul class="type">
+                                                                <li><a href="#" data-name="Load Balancers">Load Balancers (34)</a></li>
+                                                                <li><a href="#" data-name="Servers">Servers (315)</a></li>
+                                                                <li><a href="#" data-name="Virtual Servers">Virtual Servers (24)</a></li>
+                                                                <li><a href="#" data-name="Databases">Databases (105)</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                        <div class="level parent" data-level="2">
+                                                            <ul class="sub-type">
+                                                            	<li><a href="#" data-name="Meta Metrics">Meta Metrics</a></li>
+                                                                <li><a href="#" data-name="Server 1">Server 1</a></li>
+                                                                <li><a href="#" data-name="Server 2">Server 2</a></li>
+                                                                <li><a href="#" data-name="Server 3">Server 3</a></li>
+                                                                <li><a href="#" data-name="Server 4">Server 4</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                        <div class="level last-level" data-level="3">
+                                                            <ul class="metric">
+                                                            	<li><a href="#" data-name="Meta Metrics">Meta Metrics</a></li>
+                                                                <li><a href="#" data-name="CPU Usage">CPU Usage</a></li>
+                                                                <li><a href="#" data-name="Memory Usage">Memory Usage</a></li>
+                                                                <li><a href="#" data-name="PID">PID</a></li>
+                                                                <li><a href="#" data-name="Processes Running"># Processes Running</a></li> 
+                                                                <li><a href="#" data-name="Blocked Processes"># Blocked Processes</a></li>
+                                                                <li><a href="#" data-name="Processes Waiting"># Processes Waiting</a></li>
+                                                                <li><a href="#" data-name="Memory Utilization by Process">Memory % Utilization by Process</a></li>
+                                                                <li><a href="#" data-name="CPU Utililzation by Process">CPU % Utilization by Process</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                    </div><!-- end inner -->                                  	
+                                                </div><!--end level wrap -->
+                                            </div><!--end body -->
+                                        </div><!--end metric selector -->
+                                    </div><!-- end list options -->
+                                </li>
+                                <a href="javascript:void(0);" class="listTitle"><i class="fa fa-caret-right"></i> Types</a>
+                                <li>
+                                    <div class="list-options clear">
+                                        <div class="metric-selector">
+                                            <div class="head clear">
+                                                <a href="javascript:void(0);" class="left top-folder"><i class="fa fa-chevron-up"></i>TOP</a>
+                                                <div class="form-item right">
+                                                    <label for="mSearch"><i class="fa fa-search"></i></label>
+                                                    <input type="text" name="mSearch" id="mSearch" placeholder="Search" class="autocomplete" val="" />
+                                                </div><!--end form item -->
+                                            </div><!--end head -->
+                                            <div class="body">
+                                                <a href="javascript:void(0);" class="folder-back"><i class="fa fa-chevron-circle-left"></i><span></span></a>
+                                                <div class="level-wrap">
+                                                    <div class="inner" data-level="1">
+                                                        <div class="level parent" data-level="1">
+                                                            <ul class="type">
+                                                                <li><a href="#" data-name="Load Balancers">Load Balancers (34)</a></li>
+                                                                <li><a href="#" data-name="Servers">Servers (315)</a></li>
+                                                                <li><a href="#" data-name="Virtual Servers">Virtual Servers (24)</a></li>
+                                                                <li><a href="#" data-name="Databases">Databases (105)</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                        <div class="level parent" data-level="2">
+                                                            <ul class="sub-type">
+                                                            	<li><a href="#" data-name="Meta Metrics">Meta Metrics</a></li>
+                                                                <li><a href="#" data-name="Server 1">Server 1</a></li>
+                                                                <li><a href="#" data-name="Server 2">Server 2</a></li>
+                                                                <li><a href="#" data-name="Server 3">Server 3</a></li>
+                                                                <li><a href="#" data-name="Server 4">Server 4</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                        <div class="level last-level" data-level="3">
+                                                            <ul class="metric">
+                                                            	<li><a href="#" data-name="Meta Metrics">Meta Metrics</a></li>
+                                                                <li><a href="#" data-name="CPU Usage">CPU Usage</a></li>
+                                                                <li><a href="#" data-name="Memory Usage">Memory Usage</a></li>
+                                                                <li><a href="#" data-name="PID">PID</a></li>
+                                                                <li><a href="#" data-name="Processes Running"># Processes Running</a></li> 
+                                                                <li><a href="#" data-name="Blocked Processes"># Blocked Processes</a></li>
+                                                                <li><a href="#" data-name="Processes Waiting"># Processes Waiting</a></li>
+                                                                <li><a href="#" data-name="Memory Utilization by Process">Memory % Utilization by Process</a></li>
+                                                                <li><a href="#" data-name="CPU Utililzation by Process">CPU % Utilization by Process</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                    </div><!-- end inner -->                                  	
+                                                </div><!--end level wrap -->
+                                            </div><!--end body -->
+                                        </div><!--end metric selector -->
+                                    </div><!-- end list options -->
+                                </li>
+                               <!-- <div class="clear action-buttons">
+                                    <a class="button cancel left" href="javascript:void(0);">Cancel</a>
+                                    <a class="button right addMetrics" href="javascript:void(0);" id="addMetrics">Add <span>0</span> Term(s)</a>
+                                </div> -->
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="search-tags drag-tag clear">
+                        <div class="tag left">
+                        	<svg class="icon24 unknown" role="img" viewBox="0 0 1024 1024">
+                        		<use xlink:href="svgs/icons.svg#icon-application"/>
+                        	</svg>
+                        	Inventory System <a href="#" class="removeTag"><i class="fa fa-times-circle"></i></a>
+                        </div>
+                        <div class="tag left">
+                        	<svg class="icon24 unknown" role="img" viewBox="0 0 1024 1024">
+                        		<use xlink:href="svgs/icons.svg#icon-application"/>
+                        	</svg>
+                        	SAP <a href="#" class="removeTag"><i class="fa fa-times-circle"></i></a>
+                        </div>
+                        <div class="tag left">
+                        	<svg class="icon24 unknown" role="img" viewBox="0 0 1024 1024">
+                        		<use xlink:href="svgs/icons.svg#icon-application"/>
+                        	</svg>
+                        	Timetrack <a href="#" class="removeTag"><i class="fa fa-times-circle"></i></a>
+                        </div>
+                    </div><!-- end search-tags -->
+                </div><!-- end form-item -->
+                <div class="form-item">
+                    <label for="conditions" class="left">Conditions</label>
+                    <ul class="right ddMenu layerMenu terms">
+                        <li><a class="showDD" href="javascript:void(0);">Look Up Terms</a>
+                            <ul class="list">
+                                <a href="javascript:void(0);" class="listTitle expanded"><i class="fa fa-caret-right"></i> Metric</a>
+                                <li style="display:block">
+                                    <div class="list-options clear">
+                                        <div class="metric-selector">
+                                            <div class="head clear">
+                                                <a href="javascript:void(0);" class="left top-folder"><i class="fa fa-chevron-up"></i>TOP</a>
+                                                <div class="form-item right">
+                                                    <label for="mSearch"><i class="fa fa-search"></i></label>
+                                                    <input type="text" name="mSearch" id="mSearch" placeholder="Search" class="autocomplete" val="" />
+                                                </div><!--end form item -->
+                                            </div><!--end head -->
+                                            <div class="body">
+                                                <a href="javascript:void(0);" class="folder-back"><i class="fa fa-chevron-circle-left"></i><span></span></a>
+                                                <div class="level-wrap">
+                                                    <div class="inner" data-level="1">
+                                                        <div class="level parent" data-level="1">
+                                                            <ul class="type">
+                                                                <li><a href="#" data-name="Load Balancers">Load Balancers (34)</a></li>
+                                                                <li><a href="#" data-name="Servers">Servers (315)</a></li>
+                                                                <li><a href="#" data-name="Virtual Servers">Virtual Servers (24)</a></li>
+                                                                <li><a href="#" data-name="Databases">Databases (105)</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                        <div class="level parent" data-level="2">
+                                                            <ul class="sub-type">
+                                                            	<li><a href="#" data-name="Meta Metrics">Meta Metrics</a></li>
+                                                                <li><a href="#" data-name="Server 1">Server 1</a></li>
+                                                                <li><a href="#" data-name="Server 2">Server 2</a></li>
+                                                                <li><a href="#" data-name="Server 3">Server 3</a></li>
+                                                                <li><a href="#" data-name="Server 4">Server 4</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                        <div class="level last-level" data-level="3">
+                                                            <ul class="metric">
+                                                            	<li><a href="#" data-name="Meta Metrics">Meta Metrics</a></li>
+                                                                <li><a href="#" data-name="CPU Usage">CPU Usage</a></li>
+                                                                <li><a href="#" data-name="Memory Usage">Memory Usage</a></li>
+                                                                <li><a href="#" data-name="PID">PID</a></li>
+                                                                <li><a href="#" data-name="Processes Running"># Processes Running</a></li> 
+                                                                <li><a href="#" data-name="Blocked Processes"># Blocked Processes</a></li>
+                                                                <li><a href="#" data-name="Processes Waiting"># Processes Waiting</a></li>
+                                                                <li><a href="#" data-name="Memory Utilization by Process">Memory % Utilization by Process</a></li>
+                                                                <li><a href="#" data-name="CPU Utililzation by Process">CPU % Utilization by Process</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                    </div><!-- end inner -->                                  	
+                                                </div><!--end level wrap -->
+                                            </div><!--end body -->
+                                        </div><!--end metric selector -->
+                                    </div><!-- end list options -->
+                                </li>
+                                <a href="javascript:void(0);" class="listTitle"><i class="fa fa-caret-right"></i> Properties</a>
+                                <li>
+                                    <div class="list-options clear">
+                                        <div class="metric-selector">
+                                            <div class="head clear">
+                                                <a href="javascript:void(0);" class="left top-folder"><i class="fa fa-chevron-up"></i>TOP</a>
+                                                <div class="form-item right">
+                                                    <label for="mSearch"><i class="fa fa-search"></i></label>
+                                                    <input type="text" name="mSearch" id="mSearch" placeholder="Search" class="autocomplete" val="" />
+                                                </div><!--end form item -->
+                                            </div><!--end head -->
+                                            <div class="body">
+                                                <a href="javascript:void(0);" class="folder-back"><i class="fa fa-chevron-circle-left"></i><span></span></a>
+                                                <div class="level-wrap">
+                                                    <div class="inner" data-level="1">
+                                                        <div class="level parent" data-level="1">
+                                                            <ul class="type">
+                                                                <li><a href="#" data-name="Load Balancers">Load Balancers (34)</a></li>
+                                                                <li><a href="#" data-name="Servers">Servers (315)</a></li>
+                                                                <li><a href="#" data-name="Virtual Servers">Virtual Servers (24)</a></li>
+                                                                <li><a href="#" data-name="Databases">Databases (105)</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                        <div class="level parent" data-level="2">
+                                                            <ul class="sub-type">
+                                                            	<li><a href="#" data-name="Meta Metrics">Meta Metrics</a></li>
+                                                                <li><a href="#" data-name="Server 1">Server 1</a></li>
+                                                                <li><a href="#" data-name="Server 2">Server 2</a></li>
+                                                                <li><a href="#" data-name="Server 3">Server 3</a></li>
+                                                                <li><a href="#" data-name="Server 4">Server 4</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                        <div class="level last-level" data-level="3">
+                                                            <ul class="metric">
+                                                            	<li><a href="#" data-name="Meta Metrics">Meta Metrics</a></li>
+                                                                <li><a href="#" data-name="CPU Usage">CPU Usage</a></li>
+                                                                <li><a href="#" data-name="Memory Usage">Memory Usage</a></li>
+                                                                <li><a href="#" data-name="PID">PID</a></li>
+                                                                <li><a href="#" data-name="Processes Running"># Processes Running</a></li> 
+                                                                <li><a href="#" data-name="Blocked Processes"># Blocked Processes</a></li>
+                                                                <li><a href="#" data-name="Processes Waiting"># Processes Waiting</a></li>
+                                                                <li><a href="#" data-name="Memory Utilization by Process">Memory % Utilization by Process</a></li>
+                                                                <li><a href="#" data-name="CPU Utililzation by Process">CPU % Utilization by Process</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                    </div><!-- end inner -->                                  	
+                                                </div><!--end level wrap -->
+                                            </div><!--end body -->
+                                        </div><!--end metric selector -->
+                                    </div><!-- end list options -->
+                                </li>
+                                <a href="javascript:void(0);" class="listTitle"><i class="fa fa-caret-right"></i> Objects</a>
+                                <li>
+                                    <div class="list-options clear">
+                                        <div class="metric-selector">
+                                            <div class="head clear">
+                                                <a href="javascript:void(0);" class="left top-folder"><i class="fa fa-chevron-up"></i>TOP</a>
+                                                <div class="form-item right">
+                                                    <label for="mSearch"><i class="fa fa-search"></i></label>
+                                                    <input type="text" name="mSearch" id="mSearch" placeholder="Search" class="autocomplete" val="" />
+                                                </div><!--end form item -->
+                                            </div><!--end head -->
+                                            <div class="body">
+                                                <a href="javascript:void(0);" class="folder-back"><i class="fa fa-chevron-circle-left"></i><span></span></a>
+                                                <div class="level-wrap">
+                                                    <div class="inner" data-level="1">
+                                                        <div class="level parent" data-level="1">
+                                                            <ul class="type">
+                                                                <li><a href="#" data-name="Load Balancers">Load Balancers (34)</a></li>
+                                                                <li><a href="#" data-name="Servers">Servers (315)</a></li>
+                                                                <li><a href="#" data-name="Virtual Servers">Virtual Servers (24)</a></li>
+                                                                <li><a href="#" data-name="Databases">Databases (105)</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                        <div class="level parent" data-level="2">
+                                                            <ul class="sub-type">
+                                                            	<li><a href="#" data-name="Meta Metrics">Meta Metrics</a></li>
+                                                                <li><a href="#" data-name="Server 1">Server 1</a></li>
+                                                                <li><a href="#" data-name="Server 2">Server 2</a></li>
+                                                                <li><a href="#" data-name="Server 3">Server 3</a></li>
+                                                                <li><a href="#" data-name="Server 4">Server 4</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                        <div class="level last-level" data-level="3">
+                                                            <ul class="metric">
+                                                            	<li><a href="#" data-name="Meta Metrics">Meta Metrics</a></li>
+                                                                <li><a href="#" data-name="CPU Usage">CPU Usage</a></li>
+                                                                <li><a href="#" data-name="Memory Usage">Memory Usage</a></li>
+                                                                <li><a href="#" data-name="PID">PID</a></li>
+                                                                <li><a href="#" data-name="Processes Running"># Processes Running</a></li> 
+                                                                <li><a href="#" data-name="Blocked Processes"># Blocked Processes</a></li>
+                                                                <li><a href="#" data-name="Processes Waiting"># Processes Waiting</a></li>
+                                                                <li><a href="#" data-name="Memory Utilization by Process">Memory % Utilization by Process</a></li>
+                                                                <li><a href="#" data-name="CPU Utililzation by Process">CPU % Utilization by Process</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                    </div><!-- end inner -->                                  	
+                                                </div><!--end level wrap -->
+                                            </div><!--end body -->
+                                        </div><!--end metric selector -->
+                                    </div><!-- end list options -->
+                                </li>
+                                <a href="javascript:void(0);" class="listTitle"><i class="fa fa-caret-right"></i> Anomalies</a>
+                                <li>
+                                    <div class="list-options clear">
+                                        <div class="metric-selector">
+                                            <div class="head clear">
+                                                <a href="javascript:void(0);" class="left top-folder"><i class="fa fa-chevron-up"></i>TOP</a>
+                                                <div class="form-item right">
+                                                    <label for="mSearch"><i class="fa fa-search"></i></label>
+                                                    <input type="text" name="mSearch" id="mSearch" placeholder="Search" class="autocomplete" val="" />
+                                                </div><!--end form item -->
+                                            </div><!--end head -->
+                                            <div class="body">
+                                                <a href="javascript:void(0);" class="folder-back"><i class="fa fa-chevron-circle-left"></i><span></span></a>
+                                                <div class="level-wrap">
+                                                    <div class="inner" data-level="1">
+                                                        <div class="level parent" data-level="1">
+                                                            <ul class="type">
+                                                                <li><a href="#" data-name="Load Balancers">Load Balancers (34)</a></li>
+                                                                <li><a href="#" data-name="Servers">Servers (315)</a></li>
+                                                                <li><a href="#" data-name="Virtual Servers">Virtual Servers (24)</a></li>
+                                                                <li><a href="#" data-name="Databases">Databases (105)</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                        <div class="level parent" data-level="2">
+                                                            <ul class="sub-type">
+                                                            	<li><a href="#" data-name="Meta Metrics">Meta Metrics</a></li>
+                                                                <li><a href="#" data-name="Server 1">Server 1</a></li>
+                                                                <li><a href="#" data-name="Server 2">Server 2</a></li>
+                                                                <li><a href="#" data-name="Server 3">Server 3</a></li>
+                                                                <li><a href="#" data-name="Server 4">Server 4</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                        <div class="level last-level" data-level="3">
+                                                            <ul class="metric">
+                                                            	<li><a href="#" data-name="Meta Metrics">Meta Metrics</a></li>
+                                                                <li><a href="#" data-name="CPU Usage">CPU Usage</a></li>
+                                                                <li><a href="#" data-name="Memory Usage">Memory Usage</a></li>
+                                                                <li><a href="#" data-name="PID">PID</a></li>
+                                                                <li><a href="#" data-name="Processes Running"># Processes Running</a></li> 
+                                                                <li><a href="#" data-name="Blocked Processes"># Blocked Processes</a></li>
+                                                                <li><a href="#" data-name="Processes Waiting"># Processes Waiting</a></li>
+                                                                <li><a href="#" data-name="Memory Utilization by Process">Memory % Utilization by Process</a></li>
+                                                                <li><a href="#" data-name="CPU Utililzation by Process">CPU % Utilization by Process</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                    </div><!-- end inner -->                                  	
+                                                </div><!--end level wrap -->
+                                            </div><!--end body -->
+                                        </div><!--end metric selector -->
+                                    </div><!-- end list options -->
+                                </li>
+                                <a href="javascript:void(0);" class="listTitle"><i class="fa fa-caret-right"></i> Operators</a>
+                                <li>
+                                    <div class="list-options clear">
+                                        <div class="metric-selector">
+                                            <div class="head clear">
+                                                <a href="javascript:void(0);" class="left top-folder"><i class="fa fa-chevron-up"></i>TOP</a>
+                                                <div class="form-item right">
+                                                    <label for="mSearch"><i class="fa fa-search"></i></label>
+                                                    <input type="text" name="mSearch" id="mSearch" placeholder="Search" class="autocomplete" val="" />
+                                                </div><!--end form item -->
+                                            </div><!--end head -->
+                                            <div class="body">
+                                                <a href="javascript:void(0);" class="folder-back"><i class="fa fa-chevron-circle-left"></i><span></span></a>
+                                                <div class="level-wrap">
+                                                    <div class="inner" data-level="1">
+                                                        <div class="level parent" data-level="1">
+                                                            <ul class="type">
+                                                                <li><a href="#" data-name="Load Balancers">Load Balancers (34)</a></li>
+                                                                <li><a href="#" data-name="Servers">Servers (315)</a></li>
+                                                                <li><a href="#" data-name="Virtual Servers">Virtual Servers (24)</a></li>
+                                                                <li><a href="#" data-name="Databases">Databases (105)</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                        <div class="level parent" data-level="2">
+                                                            <ul class="sub-type">
+                                                            	<li><a href="#" data-name="Meta Metrics">Meta Metrics</a></li>
+                                                                <li><a href="#" data-name="Server 1">Server 1</a></li>
+                                                                <li><a href="#" data-name="Server 2">Server 2</a></li>
+                                                                <li><a href="#" data-name="Server 3">Server 3</a></li>
+                                                                <li><a href="#" data-name="Server 4">Server 4</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                        <div class="level last-level" data-level="3">
+                                                            <ul class="metric">
+                                                            	<li><a href="#" data-name="Meta Metrics">Meta Metrics</a></li>
+                                                                <li><a href="#" data-name="CPU Usage">CPU Usage</a></li>
+                                                                <li><a href="#" data-name="Memory Usage">Memory Usage</a></li>
+                                                                <li><a href="#" data-name="PID">PID</a></li>
+                                                                <li><a href="#" data-name="Processes Running"># Processes Running</a></li> 
+                                                                <li><a href="#" data-name="Blocked Processes"># Blocked Processes</a></li>
+                                                                <li><a href="#" data-name="Processes Waiting"># Processes Waiting</a></li>
+                                                                <li><a href="#" data-name="Memory Utilization by Process">Memory % Utilization by Process</a></li>
+                                                                <li><a href="#" data-name="CPU Utililzation by Process">CPU % Utilization by Process</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                    </div><!-- end inner -->                                  	
+                                                </div><!--end level wrap -->
+                                            </div><!--end body -->
+                                        </div><!--end metric selector -->
+                                    </div><!-- end list options -->
+                                </li>
+                                <!--<div class="clear action-buttons">
+                                    <a class="button cancel left" href="javascript:void(0);">Cancel</a>
+                                    <a class="button right addMetrics" href="javascript:void(0);" id="addMetrics">Add <span>0</span> Term(s)</a>
+                                </div> -->
+                            </ul>
+                        </li>
+                    </ul>
+                    <textarea name="conditions" id="conditions" class="clear"><application:[mainObject] | tier:WebServer | metric:RequestTime_ms> : 
+    <hardThresholdViolation =true> AND <application:[mainObject] | tier:Network | 
+    metric:NetworkIO_%> : <anomaly = true></textarea>
+                </div><!-- end form item -->
+                <div class="form-item">
+                    <label for="problem" class="left">Explanation of Problem</label>
+                    <ul class="right ddMenu layerMenu terms">
+                        <li><a class="showDD" href="javascript:void(0);">Look Up Terms</a>
+                            <ul class="list">
+                                <a href="javascript:void(0);" class="listTitle expanded"><i class="fa fa-caret-right"></i> Metric</a>
+                                <li style="display:block">
+                                    <div class="list-options clear">
+                                        <div class="metric-selector">
+                                            <div class="head clear">
+                                                <a href="javascript:void(0);" class="left top-folder"><i class="fa fa-chevron-up"></i>TOP</a>
+                                                <div class="form-item right">
+                                                    <label for="mSearch"><i class="fa fa-search"></i></label>
+                                                    <input type="text" name="mSearch" id="mSearch" placeholder="Search" class="autocomplete" val="" />
+                                                </div><!--end form item -->
+                                            </div><!--end head -->
+                                            <div class="body">
+                                                <a href="javascript:void(0);" class="folder-back"><i class="fa fa-chevron-circle-left"></i><span></span></a>
+                                                <div class="level-wrap">
+                                                    <div class="inner" data-level="1">
+                                                        <div class="level parent" data-level="1">
+                                                            <ul class="type">
+                                                                <li><a href="#" data-name="Load Balancers">Load Balancers (34)</a></li>
+                                                                <li><a href="#" data-name="Servers">Servers (315)</a></li>
+                                                                <li><a href="#" data-name="Virtual Servers">Virtual Servers (24)</a></li>
+                                                                <li><a href="#" data-name="Databases">Databases (105)</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                        <div class="level parent" data-level="2">
+                                                            <ul class="sub-type">
+                                                            	<li><a href="#" data-name="Meta Metrics">Meta Metrics</a></li>
+                                                                <li><a href="#" data-name="Server 1">Server 1</a></li>
+                                                                <li><a href="#" data-name="Server 2">Server 2</a></li>
+                                                                <li><a href="#" data-name="Server 3">Server 3</a></li>
+                                                                <li><a href="#" data-name="Server 4">Server 4</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                        <div class="level last-level" data-level="3">
+                                                            <ul class="metric">
+                                                            	<li><a href="#" data-name="Meta Metrics">Meta Metrics</a></li>
+                                                                <li><a href="#" data-name="CPU Usage">CPU Usage</a></li>
+                                                                <li><a href="#" data-name="Memory Usage">Memory Usage</a></li>
+                                                                <li><a href="#" data-name="PID">PID</a></li>
+                                                                <li><a href="#" data-name="Processes Running"># Processes Running</a></li> 
+                                                                <li><a href="#" data-name="Blocked Processes"># Blocked Processes</a></li>
+                                                                <li><a href="#" data-name="Processes Waiting"># Processes Waiting</a></li>
+                                                                <li><a href="#" data-name="Memory Utilization by Process">Memory % Utilization by Process</a></li>
+                                                                <li><a href="#" data-name="CPU Utililzation by Process">CPU % Utilization by Process</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                    </div><!-- end inner -->                                  	
+                                                </div><!--end level wrap -->
+                                            </div><!--end body -->
+                                        </div><!--end metric selector -->
+                                    </div><!-- end list options -->
+                                </li>
+                                <a href="javascript:void(0);" class="listTitle"><i class="fa fa-caret-right"></i> Properties</a>
+                                <li>
+                                    <div class="list-options clear">
+                                        <div class="metric-selector">
+                                            <div class="head clear">
+                                                <a href="javascript:void(0);" class="left top-folder"><i class="fa fa-chevron-up"></i>TOP</a>
+                                                <div class="form-item right">
+                                                    <label for="mSearch"><i class="fa fa-search"></i></label>
+                                                    <input type="text" name="mSearch" id="mSearch" placeholder="Search" class="autocomplete" val="" />
+                                                </div><!--end form item -->
+                                            </div><!--end head -->
+                                            <div class="body">
+                                                <a href="javascript:void(0);" class="folder-back"><i class="fa fa-chevron-circle-left"></i><span></span></a>
+                                                <div class="level-wrap">
+                                                    <div class="inner" data-level="1">
+                                                        <div class="level parent" data-level="1">
+                                                            <ul class="type">
+                                                                <li><a href="#" data-name="Load Balancers">Load Balancers (34)</a></li>
+                                                                <li><a href="#" data-name="Servers">Servers (315)</a></li>
+                                                                <li><a href="#" data-name="Virtual Servers">Virtual Servers (24)</a></li>
+                                                                <li><a href="#" data-name="Databases">Databases (105)</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                        <div class="level parent" data-level="2">
+                                                            <ul class="sub-type">
+                                                            	<li><a href="#" data-name="Meta Metrics">Meta Metrics</a></li>
+                                                                <li><a href="#" data-name="Server 1">Server 1</a></li>
+                                                                <li><a href="#" data-name="Server 2">Server 2</a></li>
+                                                                <li><a href="#" data-name="Server 3">Server 3</a></li>
+                                                                <li><a href="#" data-name="Server 4">Server 4</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                        <div class="level last-level" data-level="3">
+                                                            <ul class="metric">
+                                                            	<li><a href="#" data-name="Meta Metrics">Meta Metrics</a></li>
+                                                                <li><a href="#" data-name="CPU Usage">CPU Usage</a></li>
+                                                                <li><a href="#" data-name="Memory Usage">Memory Usage</a></li>
+                                                                <li><a href="#" data-name="PID">PID</a></li>
+                                                                <li><a href="#" data-name="Processes Running"># Processes Running</a></li> 
+                                                                <li><a href="#" data-name="Blocked Processes"># Blocked Processes</a></li>
+                                                                <li><a href="#" data-name="Processes Waiting"># Processes Waiting</a></li>
+                                                                <li><a href="#" data-name="Memory Utilization by Process">Memory % Utilization by Process</a></li>
+                                                                <li><a href="#" data-name="CPU Utililzation by Process">CPU % Utilization by Process</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                    </div><!-- end inner -->                                  	
+                                                </div><!--end level wrap -->
+                                            </div><!--end body -->
+                                        </div><!--end metric selector -->
+                                    </div><!-- end list options -->
+                                </li>
+                                <a href="javascript:void(0);" class="listTitle"><i class="fa fa-caret-right"></i> Objects</a>
+                                <li>
+                                    <div class="list-options clear">
+                                        <div class="metric-selector">
+                                            <div class="head clear">
+                                                <a href="javascript:void(0);" class="left top-folder"><i class="fa fa-chevron-up"></i>TOP</a>
+                                                <div class="form-item right">
+                                                    <label for="mSearch"><i class="fa fa-search"></i></label>
+                                                    <input type="text" name="mSearch" id="mSearch" placeholder="Search" class="autocomplete" val="" />
+                                                </div><!--end form item -->
+                                            </div><!--end head -->
+                                            <div class="body">
+                                                <a href="javascript:void(0);" class="folder-back"><i class="fa fa-chevron-circle-left"></i><span></span></a>
+                                                <div class="level-wrap">
+                                                    <div class="inner" data-level="1">
+                                                        <div class="level parent" data-level="1">
+                                                            <ul class="type">
+                                                                <li><a href="#" data-name="Load Balancers">Load Balancers (34)</a></li>
+                                                                <li><a href="#" data-name="Servers">Servers (315)</a></li>
+                                                                <li><a href="#" data-name="Virtual Servers">Virtual Servers (24)</a></li>
+                                                                <li><a href="#" data-name="Databases">Databases (105)</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                        <div class="level parent" data-level="2">
+                                                            <ul class="sub-type">
+                                                            	<li><a href="#" data-name="Meta Metrics">Meta Metrics</a></li>
+                                                                <li><a href="#" data-name="Server 1">Server 1</a></li>
+                                                                <li><a href="#" data-name="Server 2">Server 2</a></li>
+                                                                <li><a href="#" data-name="Server 3">Server 3</a></li>
+                                                                <li><a href="#" data-name="Server 4">Server 4</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                        <div class="level last-level" data-level="3">
+                                                            <ul class="metric">
+                                                            	<li><a href="#" data-name="Meta Metrics">Meta Metrics</a></li>
+                                                                <li><a href="#" data-name="CPU Usage">CPU Usage</a></li>
+                                                                <li><a href="#" data-name="Memory Usage">Memory Usage</a></li>
+                                                                <li><a href="#" data-name="PID">PID</a></li>
+                                                                <li><a href="#" data-name="Processes Running"># Processes Running</a></li> 
+                                                                <li><a href="#" data-name="Blocked Processes"># Blocked Processes</a></li>
+                                                                <li><a href="#" data-name="Processes Waiting"># Processes Waiting</a></li>
+                                                                <li><a href="#" data-name="Memory Utilization by Process">Memory % Utilization by Process</a></li>
+                                                                <li><a href="#" data-name="CPU Utililzation by Process">CPU % Utilization by Process</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                    </div><!-- end inner -->                                  	
+                                                </div><!--end level wrap -->
+                                            </div><!--end body -->
+                                        </div><!--end metric selector -->
+                                    </div><!-- end list options -->
+                                </li>
+                                <a href="javascript:void(0);" class="listTitle"><i class="fa fa-caret-right"></i> Anomalies</a>
+                                <li>
+                                    <div class="list-options clear">
+                                        <div class="metric-selector">
+                                            <div class="head clear">
+                                                <a href="javascript:void(0);" class="left top-folder"><i class="fa fa-chevron-up"></i>TOP</a>
+                                                <div class="form-item right">
+                                                    <label for="mSearch"><i class="fa fa-search"></i></label>
+                                                    <input type="text" name="mSearch" id="mSearch" placeholder="Search" class="autocomplete" val="" />
+                                                </div><!--end form item -->
+                                            </div><!--end head -->
+                                            <div class="body">
+                                                <a href="javascript:void(0);" class="folder-back"><i class="fa fa-chevron-circle-left"></i><span></span></a>
+                                                <div class="level-wrap">
+                                                    <div class="inner" data-level="1">
+                                                        <div class="level parent" data-level="1">
+                                                            <ul class="type">
+                                                                <li><a href="#" data-name="Load Balancers">Load Balancers (34)</a></li>
+                                                                <li><a href="#" data-name="Servers">Servers (315)</a></li>
+                                                                <li><a href="#" data-name="Virtual Servers">Virtual Servers (24)</a></li>
+                                                                <li><a href="#" data-name="Databases">Databases (105)</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                        <div class="level parent" data-level="2">
+                                                            <ul class="sub-type">
+                                                            	<li><a href="#" data-name="Meta Metrics">Meta Metrics</a></li>
+                                                                <li><a href="#" data-name="Server 1">Server 1</a></li>
+                                                                <li><a href="#" data-name="Server 2">Server 2</a></li>
+                                                                <li><a href="#" data-name="Server 3">Server 3</a></li>
+                                                                <li><a href="#" data-name="Server 4">Server 4</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                        <div class="level last-level" data-level="3">
+                                                            <ul class="metric">
+                                                            	<li><a href="#" data-name="Meta Metrics">Meta Metrics</a></li>
+                                                                <li><a href="#" data-name="CPU Usage">CPU Usage</a></li>
+                                                                <li><a href="#" data-name="Memory Usage">Memory Usage</a></li>
+                                                                <li><a href="#" data-name="PID">PID</a></li>
+                                                                <li><a href="#" data-name="Processes Running"># Processes Running</a></li> 
+                                                                <li><a href="#" data-name="Blocked Processes"># Blocked Processes</a></li>
+                                                                <li><a href="#" data-name="Processes Waiting"># Processes Waiting</a></li>
+                                                                <li><a href="#" data-name="Memory Utilization by Process">Memory % Utilization by Process</a></li>
+                                                                <li><a href="#" data-name="CPU Utililzation by Process">CPU % Utilization by Process</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                    </div><!-- end inner -->                                  	
+                                                </div><!--end level wrap -->
+                                            </div><!--end body -->
+                                        </div><!--end metric selector -->
+                                    </div><!-- end list options -->
+                                </li>
+                                <a href="javascript:void(0);" class="listTitle"><i class="fa fa-caret-right"></i> Operators</a>
+                                <li>
+                                    <div class="list-options clear">
+                                        <div class="metric-selector">
+                                            <div class="head clear">
+                                                <a href="javascript:void(0);" class="left top-folder"><i class="fa fa-chevron-up"></i>TOP</a>
+                                                <div class="form-item right">
+                                                    <label for="mSearch"><i class="fa fa-search"></i></label>
+                                                    <input type="text" name="mSearch" id="mSearch" placeholder="Search" class="autocomplete" val="" />
+                                                </div><!--end form item -->
+                                            </div><!--end head -->
+                                            <div class="body">
+                                                <a href="javascript:void(0);" class="folder-back"><i class="fa fa-chevron-circle-left"></i><span></span></a>
+                                                <div class="level-wrap">
+                                                    <div class="inner" data-level="1">
+                                                        <div class="level parent" data-level="1">
+                                                            <ul class="type">
+                                                                <li><a href="#" data-name="Load Balancers">Load Balancers (34)</a></li>
+                                                                <li><a href="#" data-name="Servers">Servers (315)</a></li>
+                                                                <li><a href="#" data-name="Virtual Servers">Virtual Servers (24)</a></li>
+                                                                <li><a href="#" data-name="Databases">Databases (105)</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                        <div class="level parent" data-level="2">
+                                                            <ul class="sub-type">
+                                                            	<li><a href="#" data-name="Meta Metrics">Meta Metrics</a></li>
+                                                                <li><a href="#" data-name="Server 1">Server 1</a></li>
+                                                                <li><a href="#" data-name="Server 2">Server 2</a></li>
+                                                                <li><a href="#" data-name="Server 3">Server 3</a></li>
+                                                                <li><a href="#" data-name="Server 4">Server 4</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                        <div class="level last-level" data-level="3">
+                                                            <ul class="metric">
+                                                            	<li><a href="#" data-name="Meta Metrics">Meta Metrics</a></li>
+                                                                <li><a href="#" data-name="CPU Usage">CPU Usage</a></li>
+                                                                <li><a href="#" data-name="Memory Usage">Memory Usage</a></li>
+                                                                <li><a href="#" data-name="PID">PID</a></li>
+                                                                <li><a href="#" data-name="Processes Running"># Processes Running</a></li> 
+                                                                <li><a href="#" data-name="Blocked Processes"># Blocked Processes</a></li>
+                                                                <li><a href="#" data-name="Processes Waiting"># Processes Waiting</a></li>
+                                                                <li><a href="#" data-name="Memory Utilization by Process">Memory % Utilization by Process</a></li>
+                                                                <li><a href="#" data-name="CPU Utililzation by Process">CPU % Utilization by Process</a></li>    
+                                                            </ul>
+                                                        </div><!--end level -->
+                                                    </div><!-- end inner -->                                  	
+                                                </div><!--end level wrap -->
+                                            </div><!--end body -->
+                                        </div><!--end metric selector -->
+                                    </div><!-- end list options -->
+                                </li>
+                                <!--<div class="clear action-buttons">
+                                    <a class="button cancel left" href="javascript:void(0);">Cancel</a>
+                                    <a class="button right addMetrics" href="javascript:void(0);" id="addMetrics">Add <span>0</span> Term(s)</a>
+                                </div> -->
+                            </ul>
+                        </li>
+                    </ul>
+                    <textarea name="problem" id="problem" class="clear">Longer description about why this anomaly is happening from an editorial standpoint.  It can even be a longer description about why this anomaly is happening and keeps happening from an editorial standpoint. Longer description about why this anomaly is happening from an editorial standpoint. Longer description about why this anomaly is happening from an editorial standpoint. </textarea>
+                </div><!-- end form item -->
+                <div class="signature-table">
+                    <h2 class="icon-lightbulb">Recommendations (1) <a href="javascript:void(0);"><i class="fa fa-plus-circle"></i> <span>Add</span></a></h2>
+                    <div class="header clear">
+                        <div class="left">Rating</div>
+                        <div class="left">Recommendation</div>
+                        <div class="left">Action</div>
+                    </div><!-- end header -->
+                    <div class="body clear">
+                        <div class="left">
+                            <div class="rating left">
+                                    <div class="score score-done clear">
+                                        <div class="rater-done dark" data-average="12" data-id="1"></div>
+                                    </div><!-- end score inner -->
+                                </div><!-- end rating --> 
+                            </div>
+                        <div class="left">
+                        	<h3>Recommendation title here</h3>
+                            Description shows here that could be a little longer, maybe gets truncated but you can... <a href="#" title="See more">see more</a>
+                        </div>
+                        <div class="left clear">
+                            <a href="#" class="button left">Take Action</a>
+                            <div class="actions clear right">
+                                <a href="javascript:void(0);" class="edit"><i class="fa fa-pencil"></i></a>
+                                <a href="javascript:void(0);" class="remove"><i class="fa fa-times-circle"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- end signature table -->
+                <div class="signature-table two-col">
+                    <h2>Automations (1) <a href="javascript:void(0);"><i class="fa fa-plus-circle"></i> <span>Add</span></a></h2>
+                    <div class="header clear">
+                        <div class="left">Action</div>
+                        <div class="left">Execute</div>
+                    </div><!-- end header -->
+                    <div class="body clear">
+                        <div class="left">
+                            Restart Main Object
+                        </div>
+                        <div class="left">
+                            After 8 Alarm Cycles
+                            <div class="actions clear right">
+                                <a href="javascript:void(0);" class="edit"><i class="fa fa-pencil"></i></a>
+                                <a href="javascript:void(0);" class="remove"><i class="fa fa-times-circle"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- end signature table -->
+          	</div><!-- end modal content -->
+            <div class="modal-footer">
+                <div class="form-item clear">
+                    <div class="checkwrap left">
+                        <input type="checkbox" name="enable" id="enable" onChange="$('#enabled').toggleClass('disabled');" checked="checked" />
+                        <label for="enable">Enabled</label>
+                    </div><!-- end check wrap -->
+                    <ul class="fake-select left" id="enabled">
+                        <li><a href="javascript:void(0);" class="control" data-value="1">Always Enabled (24/7)</a>
+                            <ul>
+                                <div class="module-tabs">
+                                    <li><a href="#" data-tab="1">Always Enabled (24/7)</a></li>
+                                    <li><a href="#" data-tab="2">Sometimes</a></li>
+                                    <li><a href="#" data-tab="3">Seldsom</a></li>
+                                </div>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- end form item -->
+                <div class="form-actions clear">
+                    <a href="#" class="button right">Save</a>
+                    <a href="#" class="button cancel right">Cancel</a>
+                </div><!-- end form-item -->
+        	</div><!-- end modal footer -->
+  		</div><!-- end #recommendations -->
+  		<!-- end Modal Overlay -->
+    </body>
+</html>

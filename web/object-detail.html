@@ -1,0 +1,560 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Perspica</title>
+        
+        <!-- meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- dns prefetch -->
+        <link href="http://www.google-analytics.com" rel="dns-prefetch">
+        
+        <!-- icons -->
+		<link href="img/favicon.ico" rel="shortcut icon">
+		<link href="img/touch.png" rel="apple-touch-icon-precomposed">
+		
+        <!-- stylesheets -->
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        
+        <!-- font awesome css -->
+        <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+
+        <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <!-- load jQuery from Goolge CDN -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    </head>
+    <body class="object-detail logged-in">
+        <header id="header" role="banner">
+        	<div class="inner clear nav">
+            	<a href="javascript:void(0);" class="nav-control left toggle" onClick="jQuery('body').toggleClass('open');"></a>
+                <a href="/" title="Home" class="logo left"><img src="img/logo.png" alt="the Tech" /></a>
+                <a href="javascript:void(0);" class="showMobile search-control right" onClick="jQuery('body').toggleClass('search');"></a>
+            </div><!-- end left -->
+            <form class="left form-item" action="index.html" method="get" id="global-search" name="global-search">
+                <div class="showLabels">
+                    <label for="search">Search Here</label>
+                    <input type="search" name="search" id="search"/>
+                </div>
+                <button type="submit" class="search"><i class="fa fa-search"></i></button>
+            </form><!-- end form -->
+			<div class="inner right clear" id="profile-menu">
+                <div class="avatar left">               	
+                    <a href="profile.html" title="Profile"><img src="img/nelson.jpg" width="33px" alt="Scott" /></a>
+                    <span>Hello Scott</span>
+                </div><!-- end avatar -->
+                 <ul class="right toggleable" id="user-settings">
+                    <li><a class="settings toggle" href="javascript:void(0);"></a>
+                        <ul>
+                            <li><a href="#" title="Profile">My Profile</a></li>
+                            <li><a href="#" title="Preferences">Preferences</a></li>
+                            <li><a href="#" title="Administration">Help</a></li>
+                            <li><a href="#" title="Log Out" class="logout">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+        	</div><!-- end inner -->
+        </header><!-- end header -->
+        <nav class="toggleable">
+            <ul>
+                <li><a href="#" title="Topology" class="icon topology-icon">Topology</a></li>
+                <li class="hasChildren">
+                	<a href="#" title="Alerting" class="icon alert-icon">Alerting</a><span class="sub-toggle"></span>
+                    <ul>
+                    	<li><a href="#" title="Alerting">Alerting Overview</a></li>
+                        <li><a href="#" title="Alerting">Incidents</a></li>
+                        <li><a href="#" title="Alerting">Alarms</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" title="Dashboard" class="icon dashboard-icon">Dashboards</a></li>
+                <li><a href="#" title="Reports" class="icon reports-icon">Reports</a></li>
+                <li><a href="#" title="Planning" class="icon plan-icon">Planning</a></li>
+                <li><a href="#" title="KnowledgeBase" class="icon knowledge-icon">Knowledge Base</a></li>
+                <li><a href="#" title="Configuration" class="icon configuration-icon">Configuration</a></li>
+                <li><a href="#" title="Collaboration" class="icon collaboration-icon">Collaboration</a></li>
+                <li><a href="#" title="Help" class="icon help-icon">Help</a></li>
+            </ul>
+        </nav>
+        <div class="wrapper clear">
+        	<div class="page-top clear">
+                <div class="breadcrumbs left">
+                    <ul class="clear">
+                        <li><a href="/" title="Home">Home</a></li>
+                        <li>&nbsp;/&nbsp;&nbsp;</li>
+                        <li><a href="#" title="Topology">Topology</a></li>
+                        <li>&nbsp;/&nbsp;&nbsp;</li>
+                        <li><span>Object Detail</span></li>
+                    </ul>
+                </div><!-- end breadcrumbs -->
+                <div class="date-picker right clear">
+                    <input type="text" class="left" value="" id="datepicker" name="datepicker">
+                    <label class="left" for="datepicker"><i class="fa fa-calendar"></i></label>
+                </div><!-- end date-picker -->
+                <ul class="header-actions right clear">
+                	<li><a href="#"><i class="fa fa-bookmark"></i></a></li>
+                    <li><a href="#"><i class="fa fa-file-pdf-o"></i></a></li>
+                    <li><a href="#"><i class="fa fa-share"></i></a></li>
+                    <li><a href="#"><i class="fa fa-comment"></i></a></li>
+                </ul>
+            </div><!-- end page-top -->
+        	<section id="object-detail" class="main clear">
+            	<div class="module overview-status clear">
+                	<div class="left clear left-side">
+                    	<img src="img/topology-icon.png" class="left" />
+                        <div class="left clear overview-titles">
+                            <h1>Load Balancer 1</h1>
+                            <h6>LOAD BALANCER</h6>
+                        </div><!-- end left -->
+                        <div class="alarm high left">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <i>Critical</i>
+                    	</div>
+                    </div><!-- end left-side -->
+                    <div class="right clear right-side">
+                    	<div class="graph-wrap left">
+                    		<img src="img/health-graph.png" height="67" />
+                        </div><!-- end graph wrap -->
+                        <div class="widget right">
+                            <div class="health-box medium large">
+                                <span class="data">28</span>
+                                <span class="label">Health</span>
+                            </div>                 
+                    	</div><!-- end widget -left -->
+                    </div>
+                </div><!-- end module -->
+                 <div class="left-side-modules left">
+                    <div class="module clear">
+                    	<h3>Topology</h3>
+                        <ul class="module-actions">
+                            <li><a href="#" class="module-control"><i class="fa fa-share"></i></a>
+                                <ul>
+                                	<li><a href="#" title="Add to Dashboard" data-action="dashboard">Add to a Dashboard...</a></li>
+                                    <li><a href="#" title="Add to a Collaboration" data-action="collaborate">Add to a Collaboration...</a></li>
+                                    <li><a href="#" title="Add to Report" data-action="report">Add to Report...</a></li>
+                                    <li><a href="#" title="Make PDF" data-action="pdf">Make PDF</a></li>
+                                    <li><a href="#" title="Email" data-action="Email">Email it</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="module-settings">
+                            <li><a href="#" class="module-control"><i class="fa fa-gear"></i></a>
+                                <ul>
+                                    <li><a href="#" title="Edit Settings" data-action="settings">Edit Settings</a></li>
+                                    <li><a href="#" title="Minimize" data-action="minimize">Minimize</a></li>
+                                    <li><a href="#" title="Refresh" data-action="share">Refresh</a></li>
+                                    <li><a href="#" title="Duplicate" data-action="duplicate">Duplicate</a></li>
+                                    <li><a href="#" title="Remove" data-action="remove">Remove</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="module-min">
+                            <ul class="module-tabs clear">
+                                <li class="active"><a href="#" data-tab="1" title="graph">Logical</a></li>
+                                <li><a href="#" data-tab="2" title="table">Physical</a></li>
+                            </ul>
+                            <div class="tab-wrap">
+                                <div data-tab="1" class="module-tab active hasToggle">
+                                    <ul class="view-toggle">
+                                        <li><a href="#" title="table" data-toggle="1"><i class="fa fa-list"></i></a></li>
+                                        <li class="active"><a href="#" title="chart" data-toggle="2"><i class="fa fa-sitemap"></i></a></li>
+                                    </ul><!-- end view toggle -->
+                                    <div class="toggle-tab" data-toggle="1">
+                                        Table?
+                                    </div><!-- end toggle tab -->
+                                    <div class="toggle-tab active chart" data-toggle="2">
+                                        <img src="img/topology-logical.png" />
+                                    </div><!-- end toggle tab -->
+                                
+                                </div>
+                                <div data-tab="2" class="module-tab">
+                                </div>
+                            </div><!-- end tab wrap -->
+                        </div><!-- end module min -->
+                    </div><!-- end module -->
+                    <div class="module clear">
+                        <h3>Tools</h3>
+                        <ul class="module-actions">
+                            <li><a href="#" class="module-control"><i class="fa fa-share"></i></a>
+                                <ul>
+                                	<li><a href="#" title="Add to Dashboard" data-action="dashboard">Add to a Dashboard...</a></li>
+                                    <li><a href="#" title="Add to a Collaboration" data-action="collaborate">Add to a Collaboration...</a></li>
+                                    <li><a href="#" title="Add to Report" data-action="report">Add to Report...</a></li>
+                                    <li><a href="#" title="Make PDF" data-action="pdf">Make PDF</a></li>
+                                    <li><a href="#" title="Email" data-action="Email">Email it</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="module-settings">
+                            <li><a href="#" class="module-control"><i class="fa fa-gear"></i></a>
+                                <ul>
+                                    <li><a href="#" title="Edit Settings" data-action="settings">Edit Settings</a></li>
+                                    <li><a href="#" title="Minimize" data-action="minimize">Minimize</a></li>
+                                    <li><a href="#" title="Refresh" data-action="share">Refresh</a></li>
+                                    <li><a href="#" title="Duplicate" data-action="duplicate">Duplicate</a></li>
+                                    <li><a href="#" title="Remove" data-action="remove">Remove</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="module-min">
+                            <div class="module-body icon icon-topology clear">
+                                <div class="left list half">
+                                    <h4>Load Balancer 1</h4>
+                                    <a href="#" title="View Attributes">View Attributes</a>
+                                    <a href="#" title="Edit Settings">Edit Settings</a>
+                                    <a href="#" title="Explore Metrics">Explore Metrics</a>
+                                </div>
+                                <div class="left list half">
+                                    <h4>Related Objects</h4>
+                                    <a href="#" title="Most Correlated Objects">Most Correlated Objects</a>
+                                    <a href="#" title="Similar Objects">Similar Objects</a>
+                                    <a href="#" title="See All Load Balancers">See All Load Balancers</a>
+                                </div>                	
+                            </div><!-- end module body -->
+                        </div><!-- end module min -->
+                    </div><!-- end module -->
+                </div><!-- end left side-modules -->
+                <div class="center-modules left">
+                    <div class="module">
+                        <h3>Key Performance Indicators</h3>
+                        <ul class="module-actions">
+                            <li><a href="#" class="module-control"><i class="fa fa-share"></i></a>
+                                <ul>
+                                	<li><a href="#" title="Add to Dashboard" data-action="dashboard">Add to a Dashboard...</a></li>
+                                    <li><a href="#" title="Add to a Collaboration" data-action="collaborate">Add to a Collaboration...</a></li>
+                                    <li><a href="#" title="Add to Report" data-action="report">Add to Report...</a></li>
+                                    <li><a href="#" title="Make PDF" data-action="pdf">Make PDF</a></li>
+                                    <li><a href="#" title="Email" data-action="Email">Email it</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="module-settings">
+                            <li><a href="#" class="module-control"><i class="fa fa-gear"></i></a>
+                                <ul>
+                                    <li><a href="#" title="Edit Settings" data-action="settings">Edit Settings</a></li>
+                                    <li><a href="#" title="Minimize" data-action="minimize">Minimize</a></li>
+                                    <li><a href="#" title="Refresh" data-action="share">Refresh</a></li>
+                                    <li><a href="#" title="Duplicate" data-action="duplicate">Duplicate</a></li>
+                                    <li><a href="#" title="Remove" data-action="remove">Remove</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="module-min">
+                            <div class="module-body">
+                                <div class="sub-module clear">
+                                    <h4>Connections Per Second</h4>
+                                    <div class="graph-wrap left">
+                                        <img src="img/kpi-graph.png" height="46" />
+                                    </div><!-- end graph wrap -->
+                                    <div class="data left">22<span>k</span></div>
+                                </div><!--- end sub-module -->
+                                <div class="sub-module clear">
+                                    <h4>Active Sessions Per Hour</h4>
+                                    <div class="graph-wrap left">
+                                        <img src="img/kpi-graph.png" height="46" />
+                                    </div><!-- end graph wrap -->
+                                    <div class="data left">811</div>
+                                </div><!--- end sub-module -->
+                                <div class="sub-module clear">
+                                    <h4>Abandoned Sessions</h4>
+                                    <div class="graph-wrap left">
+                                        <img src="img/kpi-graph.png" height="46" />
+                                    </div><!-- end graph wrap -->
+                                    <div class="data left">4.2<span>%</span></div>
+                                </div><!--- end sub-module -->
+                                <div class="sub-module clear">
+                                    <h4>Queue Size Moving Avg</h4>
+                                    <div class="graph-wrap left">
+                                        <img src="img/kpi-graph.png" height="46" />
+                                    </div><!-- end graph wrap -->
+                                    <div class="data left">31.8</div>
+                                </div><!--- end sub-module -->
+                            </div><!-- end module body -->
+                            <div class="module-footer clear center">
+                                <a href="#" title="Examine all these KPIs in detail" class="left">Examine all these KPIs in detail</a>
+                                <div class="time-wrapper">
+                                    <a href="javascript:void(0);" class="left time" data-change="prev" title="prev"><i class="fa fa-chevron-left"></i></a>
+                                    <ul class="fake-select left time-range">
+                                        <li><a data-value="12" class="control" href="javascript:void(0);">12 hrs</a>
+                                            <ul>
+                                                <li><a data-value="1" href="#">1 hr</a></li>
+                                                <li><a data-value="2" href="#">2 hrs</a></li>
+                                                <li><a data-value="6" href="#">6 hrs</a></li>
+                                                <li class="selected"><a data-value="12" href="#">12 hrs</a></li>
+                                                <li><a data-value="24" href="#">24 hrs</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <a href="javascript:void(0);" class="left time" data-change="next" title="next"><i class="fa fa-chevron-right"></i></a>
+                                </div><!-- end time-wrapper -->
+                                <a href="#" title="Edit KPIs for Inventory Systems" class="right">Edit KPIs for Inventory Systems</a>
+                            </div><!-- end module footer -->
+                        </div><!-- end module min -->
+                    </div><!-- end module -->
+                    <div class="module">
+                        	<h3>Recent Activity</h3>
+                            <ul class="module-actions">
+                            <li><a href="#" class="module-control"><i class="fa fa-share"></i></a>
+                                <ul>
+                                	<li><a href="#" title="Add to Dashboard" data-action="dashboard">Add to a Dashboard...</a></li>
+                                    <li><a href="#" title="Add to a Collaboration" data-action="collaborate">Add to a Collaboration...</a></li>
+                                    <li><a href="#" title="Add to Report" data-action="report">Add to Report...</a></li>
+                                    <li><a href="#" title="Make PDF" data-action="pdf">Make PDF</a></li>
+                                    <li><a href="#" title="Email" data-action="Email">Email it</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="module-settings">
+                            <li><a href="#" class="module-control"><i class="fa fa-gear"></i></a>
+                                <ul>
+                                    <li><a href="#" title="Edit Settings" data-action="settings">Edit Settings</a></li>
+                                    <li><a href="#" title="Minimize" data-action="minimize">Minimize</a></li>
+                                    <li><a href="#" title="Refresh" data-action="share">Refresh</a></li>
+                                    <li><a href="#" title="Duplicate" data-action="duplicate">Duplicate</a></li>
+                                    <li><a href="#" title="Remove" data-action="remove">Remove</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="module-min">
+                            <ul class="module-tabs clear">
+                                <li class="active hasNew"><a href="#" data-tab="1" title="Incidents">Incidents</a><span>4</span></li>
+                                <li class="hasNew"><a href="#" data-tab="2" title="Alarms">Alarms</a><span>9</span></li>
+                                <li><a href="#" data-tab="3" title="Anamolies">Anamolies</a></li>
+                                <li><a href="#" data-tab="4" title="Events">Events</a></li>
+                            </ul>           
+                            <div class="tab-wrap">
+                                <div data-tab="1" class="module-tab active">
+                                    <div class="table-wrap notifications-table">
+                                        <table class="table">
+                                            <thead class="table-head">
+                                            	<tr>
+                                                    <th class="head t-cell">Start Time</th><!-- end head cell -->
+                                                    <th class="head t-cell">Criticality</th><!-- end head cell -->
+                                                    <th class="head t-cell">Cause</th><!-- end head cell -->
+                                                    <th class="head t-cell">Alarms</th><!-- end head cell -->
+                                                    <th class="head t-cell">Impact</th><!-- end head cell -->
+                                                </tr>
+                                            </thead><!-- end table head -->
+                                            <tbody class="table-body">
+                                                <tr class="t-row">
+                                                    <td class="t-cell">Today 9:07am</td><!-- end t-cell -->
+                                                    <td class="t-cell">
+                                                        <div class="alarm high"><span></span><span></span><span></span></div><!-- end alarm -->
+                                                    </td><!-- end t-cell -->
+                                                    <td class="t-cell"><a href="#">Network Congestion</a></td><!-- end t-cell -->
+                                                    <td class="t-cell">3</td><!-- end t-cell -->
+                                                    <td class="t-cell impact-icon high">Inventory System</td><!-- end t-cell -->
+                                                </tr><!-- end t-row -->
+                                                <tr class="t-row">
+                                                    <td class="t-cell">Today 8:41am</td><!-- end t-cell -->
+                                                    <td class="t-cell">
+                                                        <div class="alarm high"><span></span><span></span><span></span></div><!-- end alarm -->
+                                                    </td><!-- end t-cell -->
+                                                    <td class="t-cell"><a href="#">Port Failure</a></td><!-- end t-cell -->
+                                                    <td class="t-cell">2</td><!-- end t-cell -->
+                                                    <td class="t-cell impact-icon medium">SAP</td><!-- end t-cell -->
+                                                </tr><!-- end t-row -->
+                                                <tr class="t-row">
+                                                    <td class="t-cell">Yesterday 11:26pm</td><!-- end t-cell -->
+                                                    <td class="t-cell">
+                                                        <div class="alarm medium"><span></span><span></span><span></span></div><!-- end alarm -->
+                                                    </td><!-- end t-cell -->
+                                                    <td class="t-cell"><a href="#">Constrained Disk Space</a></td><!-- end t-cell -->
+                                                    <td class="t-cell">4</td><!-- end t-cell -->
+                                                    <td class="t-cell impact-icon low">Intranet</td><!-- end t-cell -->
+                                                </tr><!-- end t-row -->
+                                                <tr class="t-row">
+                                                    <td class="t-cell">Yesterday 8:55pm</td><!-- end t-cell -->
+                                                    <td class="t-cell">
+                                                        <div class="alarm low"><span></span><span></span><span></span></div><!-- end alarm -->
+                                                    </td><!-- end t-cell -->
+                                                    <td class="t-cell"><a href="#">Insufficient Memory Allocation</a></td><!-- end t-cell -->
+                                                    <td class="t-cell">2</td><!-- end t-cell -->
+                                                    <td class="t-cell impact-icon medium">Mail Relay</td><!-- end t-cell -->
+                                                </tr><!-- end t-row -->
+                                                <tr class="t-row">
+                                                    <td class="t-cell">Yesterday 11:55pm</td><!-- end t-cell -->
+                                                    <td class="t-cell">
+                                                        <div class="alarm low"><span></span><span></span><span></span></div><!-- end alarm -->
+                                                    </td><!-- end t-cell -->
+                                                    <td class="t-cell"><a href="#">Port Failure</a></td><!-- end t-cell -->
+                                                    <td class="t-cell">3</td><!-- end t-cell -->
+                                                    <td class="t-cell impact-icon high">Inventory System</td><!-- end t-cell -->
+                                                </tr><!-- end t-row -->
+                                            </tbody><!-- end table body -->
+                                        </table><!-- end table -->
+                                    </div><!-- end table wrap -->
+                                </div><!-- end module tab -->
+                                <div data-tab="2" class="module-tab"></div>
+                                <div data-tab="3" class="module-tab"></div>
+                                <div data-tab="4" class="module-tab"></div>
+                            </div><!-- end tab wrap -->
+                        </div><!-- end module min -->
+                    </div><!-- end module -->
+                </div><!-- end center modules -->            
+        	</section><!-- end main -->
+        </div><!-- end wrapper -->
+        <div class="actions-panel">
+        	<ul>
+            	<li class="bookmark"><a href="#"><span>12</span><i class="fa fa-bookmark"></i></a></li>
+                <li class="alarms hasNew"><a href="#"><span>45</span><i class="fa fa-warning"></i></a>
+                	<ul>
+                    	<li><a href="#">Slow response time due to network condition</a></li>
+                        <li><a href="#" class="alarms">Queue size above SLA due to port failure</a></li>
+                    </ul>
+                </li>
+                <li class="archive"><a href="#"><span>5</span><i class="fa fa-archive"></i></a></li>
+                <li class="comments"><a href="#"><span>1</span><i class="fa fa-comment"></i></a></li>           
+            </ul>
+        </div><!-- end actions panel -->
+		<footer class="clear">
+        	
+        	<!-- Attach scripts -->
+            <script src="js/plugins.js"></script>
+            <script src="js/scripts.js"></script>
+            <script src="js/jquery.outside.js"></script>
+            <script src="js/jquery-ui-timepicker-addon.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js" async ></script>
+            <script src="js/jquery.tablesorter.min.js"></script>
+            <script src="js/jquery.tablesorter.widgets.min.js"></script>
+            <script src="js/jquery.tablesorter.stickyHeader.js"></script>
+            
+            <!-- attach CSS thats not needed on page load -->
+            <link rel="stylesheet" href="css/jquery.datepicker.css">
+            <link rel="stylesheet" href="css/jquery-ui-timepicker-addon.min.css">
+            
+            <script>
+				$(function() {
+					/* Not currently used */
+    				$('.modal').easyModal({
+						top: 'auto',
+						autoOpen: false,
+						overlayOpacity: 0.5,
+						overlayColor: "#000",
+						overlayClose: true,
+						closeOnEscape: true
+					});
+
+					$('#datepicker').datetimepicker({
+						showOtherMonths: true,
+                        showButtonPanel: true,
+                        currentText: "Now",
+                        defaultDate: "Now",
+                        changeMonth: true, //Adds Month DD 
+                        changeYear: true, //Adds year DD
+						timeFormat: "hh:mm tt",
+						dayNamesMin: [ "Su", "M", "Tu", "W", "Th", "F", "Sa" ],
+						onSelect: function(datetimeText,datepickerInstance){ 
+							setHistoric(datetimeText, datepickerInstance);
+						},
+                        beforeShow: function(input){
+                            setTimeout(function() {
+                            var widgetHeader = $(input).datepicker("widget").find(".ui-datepicker-header");
+                            var prevYrBtn = $('<a class="ui-datepicker-prev year-prev ui-corner-all"><span></span></a>');
+                            prevYrBtn.on("click", function() {
+                                console.log($(input));
+                                $.datepicker._adjustDate($(input), -1, 'Y');
+                
+                            });
+                            var nextYrBtn = $('<a class="ui-datepicker-next year-next ui-corner-all"><span></span></a>');
+                            nextYrBtn.on("click", function() {
+                                $.datepicker._adjustDate($(input), +1, 'Y');
+                
+                            });
+                            prevYrBtn.appendTo(widgetHeader);
+                            nextYrBtn.appendTo(widgetHeader);
+                
+                        }, 1);
+                        },
+                        onChangeMonthYear: function(year, month, instance){
+                            setTimeout(function() {
+                            var widgetHeader = $(this).datepicker("widget").find(".ui-datepicker-header");
+                            var prevYrBtn = $('<a class="ui-datepicker-prev year-prev ui-corner-all"><span></span></a>');
+                            prevYrBtn.on("click", function() {
+                                $.datepicker._adjustDate($(instance.input), -1, 'Y');
+                
+                            });
+                            var nextYrBtn = $('<a class="ui-datepicker-next year-next ui-corner-all"><span></span></a>');
+                            nextYrBtn.on("click", function() {
+                                $.datepicker._adjustDate($(instance.input), +1, 'Y');
+                
+                            });
+                            prevYrBtn.appendTo(widgetHeader);
+                            nextYrBtn.appendTo(widgetHeader);
+                
+                        }, 1);
+                            
+                        }
+					});
+					
+					// Add Table Sort Functionality
+					$('table').tablesorter({
+						widthFixed : true,
+					
+						widgets: [ 'cssStickyHeaders' ],
+					
+						widgetOptions: {
+						  cssStickyHeaders_attachTo      : '.table-wrap',
+						  cssStickyHeaders_addCaption    : true
+						}
+					});
+				});
+				 $(document).ready( function(){
+                     
+                     /** Set the Default Date to Todays Date **/
+                     $('#datepicker').datepicker('setDate', new Date());                     
+
+				 });
+               
+                 
+                 /** Function to check whether the time selected is in the past
+				    or not. If so, add a historical class to <body> element
+				**/
+				function setHistoric(date, instance){
+					var now  = new Date();
+					var date = new Date(date);
+					if(date < now){
+						$('body').addClass('historical');
+						console.log(date);
+					} else {
+						$('body').removeClass('historical');
+					}
+				}				 
+				</script>	
+        	<!--- attach typekit account for custom fonts -->
+        	<script src="http://use.typekit.net/kws6hqw.js"></script>
+			<script>try{Typekit.load();}catch(e){}</script>
+            
+        	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        	<script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        	</script>
+        </footer><!-- end footer -->
+        
+        <!-- Code for jQuery Modal Overlay -->
+        <!-- Create additional <div>s with the class .modal
+        	 Give them a unique ID and use $('#ID').trigger('openModal') to
+             open the modal window.  $('#ID').trigger('closeModal') to close it.
+         -->
+  		<div id="login" class="modal">
+  			<div class="clear modalHeader">
+            	<h2 class="left">Log In</h2>
+            	<a href="#" class="close right" title="Close"><i class="fa fa-times"></i></a>
+            </div><!-- end clear -->
+    		<div class="content">
+
+            </div><!-- end content -->
+  		</div><!-- end #login -->
+  		<!-- end Modal Overlay -->
+    </body>
+</html>

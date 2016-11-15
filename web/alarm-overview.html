@@ -1,0 +1,388 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Perspica | Alarm Overview</title>
+        
+        <!-- meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- dns prefetch -->
+        <link href="http://www.google-analytics.com" rel="dns-prefetch">
+        
+        <!-- icons -->
+		<link href="img/favicon.ico" rel="shortcut icon">
+		<link href="img/touch.png" rel="apple-touch-icon-precomposed">
+		
+        <!-- stylesheets -->
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/jquery.datepicker.css">
+        <link rel="stylesheet" href="css/style.css">
+        
+        <!-- font awesome css -->
+        <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+
+        <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <!-- load jQuery from Goolge CDN -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="js/svgforeverybody.min.js"></script>
+        
+    </head>
+    <body class="alarm-overview logged-in">
+        <header id="header" role="banner">
+        	<div class="inner clear nav">
+            	<a href="javascript:void(0);" class="nav-control left toggle" onClick="jQuery('body').toggleClass('open');"></a>
+                <a href="/" title="Home" class="logo left"><img src="img/logo.png" alt="the Tech" /></a>
+                <a href="javascript:void(0);" class="showMobile search-control right" onClick="jQuery('body').toggleClass('search');"></a>
+            </div><!-- end left -->
+            <form class="left form-item" action="index.html" method="get" id="global-search" name="global-search">
+                <div class="showLabels">
+                    <label for="search">Search Here</label>
+                    <input type="search" name="search" id="search"/>
+                </div>
+                <button type="submit" class="search"><i class="fa fa-search"></i></button>
+            </form><!-- end form -->
+			<div class="inner right clear" id="profile-menu">
+                <div class="avatar left">               	
+                    <a href="profile.html" title="Profile"><img src="img/nelson.jpg" width="33px" alt="Scott" /></a>
+                    <span>Hello Scott</span>
+                </div><!-- end avatar -->
+                 <ul class="right toggleable" id="user-settings">
+                    <li><a class="settings toggle" href="javascript:void(0);"></a>
+                        <ul>
+                            <li><a href="#" title="Profile">My Profile</a></li>
+                            <li><a href="#" title="Preferences">Preferences</a></li>
+                            <li><a href="#" title="Administration">Help</a></li>
+                            <li><a href="#" title="Log Out" class="logout">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+        	</div><!-- end inner -->
+        </header><!-- end header -->
+        <nav class="toggleable">
+            <ul>
+                <li><a href="#" title="Topology" class="icon topology-icon">Topology</a></li>
+                <li class="hasChildren">
+                	<a href="#" title="Alerting" class="icon alert-icon">Alerting</a><span class="sub-toggle"></span>
+                    <ul>
+                    	<li><a href="#" title="Alerting">Alerting Overview</a></li>
+                        <li><a href="#" title="Alerting">Incidents</a></li>
+                        <li><a href="#" title="Alerting">Alarms</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" title="Dashboard" class="icon dashboard-icon">Dashboards</a></li>
+                <li><a href="#" title="Reports" class="icon reports-icon">Reports</a></li>
+                <li><a href="#" title="Planning" class="icon plan-icon">Planning</a></li>
+                <li><a href="#" title="KnowledgeBase" class="icon knowledge-icon">Knowledge Base</a></li>
+                <li><a href="#" title="Configuration" class="icon configuration-icon">Configuration</a></li>
+                <li><a href="#" title="Collaboration" class="icon collaboration-icon">Collaboration</a></li>
+                <li><a href="#" title="Help" class="icon help-icon">Help</a></li>
+            </ul>
+        </nav>
+        <div class="wrapper clear">
+        	<div class="page-top clear">
+                <div class="breadcrumbs left">
+                    <ul class="clear">
+                        <li><a href="/" title="Home">Home</a></li>
+                        <li>&nbsp;/&nbsp;&nbsp;</li>
+                        <li><a href="search.html" title="Alerting">Search</a></li>
+                        <li>&nbsp;/&nbsp;&nbsp;</li>
+                        <li><span>Results</span></li>
+                    </ul>
+                </div><!-- end breadcrumbs -->
+                <ul class="header-actions right clear">
+                	<li><a href="#"><i class="fa fa-bookmark"></i></a></li>
+                    <li><a href="#"><i class="fa fa-file-pdf-o"></i></a></li>
+                    <li><a href="#"><i class="fa fa-share"></i></a></li>
+                    <li><a href="#"><i class="fa fa-comment"></i></a></li>
+                </ul>
+            </div><!-- end page-top -->
+        	<section id="alarm-overview" class="main clear">
+            	<div class="module clear">
+                    <ul class="module-actions">
+                        <li><a href="#" class="module-control"><i class="fa fa-share"></i></a>
+                            <ul>
+                                <li><a href="#" title="Add to Dashboard" data-action="dashboard">Add to a Dashboard...</a></li>
+                                <li><a href="#" title="Add to a Collaboration" data-action="collaborate">Add to a Collaboration...</a></li>
+                                <li><a href="#" title="Add to Report" data-action="report">Add to Report...</a></li>
+                                <li><a href="#" title="Make PDF" data-action="pdf">Make PDF</a></li>
+                                <li><a href="#" title="Email" data-action="Email">Email it</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="module-settings">
+                        <li><a href="#" class="module-control"><i class="fa fa-gear"></i></a>
+                            <ul>
+                                <li><a href="#" title="Edit Settings" data-action="settings">Edit Settings</a></li>
+                                <li><a href="#" title="Minimize" data-action="minimize">Minimize</a></li>
+                                <li><a href="#" title="Refresh" data-action="share">Refresh</a></li>
+                                <li><a href="#" title="Duplicate" data-action="duplicate">Duplicate</a></li>
+                                <li><a href="#" title="Remove" data-action="remove">Remove</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="search-filters left">
+                    	<h3>Filter Results</h3>
+                        <strong>From:</strong>
+                        <div class="date-picker clear">
+                            <input type="text" class="left datepicker" value="" id="start" name="start">
+                    		<label class="left" for="start"><i class="fa fa-calendar"></i></label>
+                        </div><!-- end date picker -->
+                        <strong>To:</strong>
+                        <div class="date-picker clear last">
+                            <input type="text" class="left datepicker" value="" id="end" name="end">
+                    		<label class="left" for="end"><i class="fa fa-calendar"></i></label>
+                        </div><!-- end date picker -->
+                        <select name="active">
+                            <option>Active</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                        </select>
+                        <select name="objecttype">
+                            <option>Object Type</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                        </select>
+                        <select name="croticality">
+                            <option>Criticality</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                        </select>
+                        <select name="status">
+                            <option>Status</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                        </select>
+                        <select name="active">
+                            <option>Health</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                        </select>
+                        <select name="objecttype">
+                            <option>Alarm</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                        </select>
+                        <select name="croticality">
+                            <option>Anomally</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                        </select>
+                        <select name="status">
+                            <option>Attribute</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                        </select>
+                        <div class="clear">
+                        	<a href="javascript:void(0);" title="Cancel" class="button cancel left">Reset</a>
+                            <a href="javascript:void(0);" title="Apply" class="button right">Apply</a>
+                        </div><!-- end clear -->
+                    </div><!-- end search filters -->
+                    <div class="search-results left clear">
+                    	<div class="overview-top">
+                            <div class="graph-wrap">
+                                <img src="img/alarm-overview.png" height="161" width="100%" />
+                            </div><!-- end graph wrap -->
+                            <div class="stats-wrap clear">
+                                <div class="stat left">
+                                    <span>41</span> <i class="fa fa-exclamation-triangle critical"></i>
+                                    <div class="label">open alarms in range</div>
+                                </div><!-- end stat left -->
+                                <div class="stat left clear">
+                                    <span class="left">8</span> <div class="left small alarm high"><span></span><span></span><span></span></div><!-- end alarm -->
+                                    <div class="label">Critical</div>
+                                </div><!-- end stat left -->
+                                <div class="stat left">
+                                    <span class="left">11</span> <div class="alarm small medium left"><span></span><span></span><span></span></div><!-- end alarm -->
+                                    <div class="label">Major</div>
+                                </div><!-- end stat left -->
+                                <div class="stat left">
+                                    <span class="left">22</span> <div class="alarm small low left"><span></span><span></span><span></span></div><!-- end alarm -->
+                                    <div class="label">Minor</div>
+                                </div><!-- end stat left -->
+                                <div class="stat right">
+                                    <span>1hr 22min</span>
+                                    <div class="label">Average resolution time</div>
+                                </div><!-- end stat left -->
+                            </div><!-- end stats wrap -->
+                        </div><!-- end overview top -->
+                        <div class="table-wrap notifications-table left">
+                            <table class="table">
+                                <thead class="table-head">
+                                    <tr>
+                                        <th class="head t-cell">Start</th><!-- end head cell -->
+                                        <th class="head t-cell center">Criticality</th><!-- end head cell -->
+                                        <th class="head t-cell center">Object</th><!-- end head cell -->
+                                        <th class="head t-cell">Alarm</th><!-- end head cell -->
+                                        <th class="head t-cell">Top Recommendations</th><!-- end head cell -->
+                                    </tr>
+                                </thead><!-- end table head -->
+                                <tbody class="table-body">
+                                    <tr class="t-row">
+                                        <td class="t-cell">Today 9:07am</td><!-- end t-cell -->
+                                        <td class="t-cell">
+                                            <div class="alarm high small"><span></span><span></span><span></span></div><!-- end alarm -->
+                                        </td><!-- end t-cell -->
+                                        <td class="t-cell center">
+                                        	<svg class="icon24 critical" role="img" viewBox="0 0 1024 1024">
+                                            	<use xlink:href="svgs/icons.svg#icon-loadbalancer"/>
+                                            </svg>
+                                        </td><!-- end t-cell -->
+                                        <td class="t-cell"><a href="#">Network Congestion</a></td><!-- end t-cell -->
+                                        <td class="t-cell"><a href="#">Software Reboot</a></td><!-- end t-cell -->
+                                    </tr><!-- end t-row -->
+                                    <tr class="t-row">
+                                        <td class="t-cell">Today 8:41am</td><!-- end t-cell -->
+                                        <td class="t-cell">
+                                            <div class="alarm high small"><span></span><span></span><span></span></div><!-- end alarm -->
+                                        </td><!-- end t-cell -->
+                                        <td class="t-cell center">
+                                        	<svg class="icon24 critical" role="img" viewBox="0 0 1024 1024">
+                                        		<use xlink:href="svgs/icons.svg#icon-loadbalancer"/>
+                                            </svg>
+                                        </td><!-- end t-cell -->
+                                        <td class="t-cell"><a href="#">Port Failure</a></td><!-- end t-cell -->
+                                        <td class="t-cell"><a href="#">Run hardware diagnostic</a></td><!-- end t-cell -->
+                                    </tr><!-- end t-row -->
+                                    <tr class="t-row">
+                                        <td class="t-cell">Yesterday 11:26pm</td><!-- end t-cell -->
+                                        <td class="t-cell">
+                                            <div class="alarm medium small"><span></span><span></span><span></span></div><!-- end alarm -->
+                                        </td><!-- end t-cell -->
+                                        <td class="t-cell center">
+                                        	<svg class="icon24 urgent" role="img" viewBox="0 0 1024 1024">
+                                        		<use xlink:href="svgs/icons.svg#icon-loadbalancer"/>
+                                            </svg>
+                                        </td><!-- end t-cell -->
+                                        <td class="t-cell"><a href="#">Constrained Disk Space</a></td><!-- end t-cell -->
+                                        <td class="t-cell"><a href="#">Run hardware diagnostic</a></td><!-- end t-cell -->
+                                    </tr><!-- end t-row -->
+                                    <tr class="t-row">
+                                        <td class="t-cell">Yesterday 8:55pm</td><!-- end t-cell -->
+                                        <td class="t-cell">
+                                            <div class="alarm low small"><span></span><span></span><span></span></div><!-- end alarm -->
+                                        </td><!-- end t-cell -->
+                                        <td class="t-cell center">
+                                        	<svg class="icon24 urgent" role="img" viewBox="0 0 1024 1024">
+                                        		<use xlink:href="svgs/icons.svg#icon-application"/>
+                                        	</svg>
+                                        </td><!-- end t-cell -->
+                                        <td class="t-cell"><a href="#">Insufficient Memory Allocation</a></td><!-- end t-cell -->
+                                        <td class="t-cell"><a href="#">Increae allocation or change</a></td><!-- end t-cell -->
+                                    </tr><!-- end t-row -->
+                                    <tr class="t-row">
+                                        <td class="t-cell">Yesterday 11:55pm</td><!-- end t-cell -->
+                                        <td class="t-cell">
+                                            <div class="alarm low small"><span></span><span></span><span></span></div><!-- end alarm -->
+                                        </td><!-- end t-cell -->
+                                        <td class="t-cell center">
+                                            <svg class="icon24 warning" role="img" viewBox="0 0 1024 1024">
+                                            	<use xlink:href="svgs/icons.svg#icon-application"/>
+                                            </svg>
+                                        </td><!-- end t-cell -->
+                                        <td class="t-cell"><a href="#">Port Failure</a></td><!-- end t-cell -->
+                                        <td class="t-cell"><a href="#">Software Reboot</a></td><!-- end t-cell -->
+                                    </tr><!-- end t-row -->
+                                </tbody><!-- end table body -->
+                            </table><!-- end table -->
+                        </div><!-- end table wrap -->
+                	</div><!-- end search results -->
+            	</div><!-- end module -->
+                <!-- Loading ICON
+                	 Possibly Used for Lazy loading of Search results 
+                -->
+                <div id="loading-icon"></div>
+        	</section><!-- end main -->
+        </div><!-- end wrapper -->
+        <div class="actions-panel">
+        	<ul>
+            	<li class="bookmark"><a href="#"><span>12</span><i class="fa fa-bookmark"></i></a></li>
+                <li class="alarms hasNew"><a href="#"><span>45</span><i class="fa fa-warning"></i></a>
+                	<ul>
+                    	<li><a href="#">Slow response time due to network condition</a></li>
+                        <li><a href="#" class="alarms">Queue size above SLA due to port failure</a></li>
+                    </ul>
+                </li>
+                <li class="archive"><a href="#"><span>5</span><i class="fa fa-archive"></i></a></li>
+                <li class="comments"><a href="#"><span>1</span><i class="fa fa-comment"></i></a></li>           
+            </ul>
+        </div><!-- end actions panel -->
+		<footer class="clear">
+        	
+        	<!-- Attach scripts -->
+            <script src="js/plugins.js"></script>
+            <script src="js/scripts.js"></script>
+            <script src="js/jquery.outside.js"></script>
+            <script src="js/jquery.modal.js"></script>
+            <script src="js/jquery-ui-timepicker-addon.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js" async ></script>
+            <script src="js/jquery.tablesorter.min.js"></script>
+            <script src="js/jquery.tablesorter.widgets.min.js"></script>
+            <script src="js/jquery.tablesorter.stickyHeader.js"></script>
+            
+            
+            <!-- attach CSS thats not needed on page load -->
+            <link rel="stylesheet" href="css/jquery-ui-timepicker-addon.min.css">
+            
+            
+            <script>
+				$(function() {
+					/* Not currently used */
+    				$('.modal').easyModal({
+						top: 'auto',
+						autoOpen: false,
+						overlayOpacity: 0.8,
+						overlayColor: "#000",
+						overlayClose: true,
+						closeOnEscape: true
+					});
+					
+					// Add Table Sort Functionality
+					$('table').tablesorter({
+						widthFixed : true,
+					
+						widgets: [ 'cssStickyHeaders' ],
+					
+						widgetOptions: {
+						  cssStickyHeaders_attachTo      : '.table-wrap',
+						  cssStickyHeaders_addCaption    : true
+						}
+					});
+					
+					// Iniate the datepicker
+					$( "#start, #end" ).datetimepicker({
+						showOtherMonths: true,
+						timeFormat: "hh:mm tt",
+						dayNamesMin: [ "Su", "M", "Tu", "W", "Th", "F", "Sa" ]
+					});
+					
+					$( "#start" ).datetimepicker('setDate', '-1');
+					$( "#end" ).datetimepicker('setDate', new Date());
+					
+				});
+				 $(document).ready( function(){
+					 
+					 // Initiate Select Method
+                	$("select").selectmenu();
+
+				 });				 
+				</script>	
+        	<!--- attach typekit account for custom fonts -->
+        	<script src="http://use.typekit.net/kws6hqw.js"></script>
+			<script>try{Typekit.load();}catch(e){}</script>
+            
+        	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        	<script>
+           /*(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview'); */
+        	</script>
+        </footer><!-- end footer -->
+    </body>
+</html>

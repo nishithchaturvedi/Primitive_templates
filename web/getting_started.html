@@ -1,0 +1,226 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Perspica | Getting Started Step 1</title>
+        
+        <!-- meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- dns prefetch -->
+        <link href="http://www.google-analytics.com" rel="dns-prefetch">
+        
+        <!-- icons -->
+		<link href="img/favicon.ico" rel="shortcut icon">
+		<link href="img/touch.png" rel="apple-touch-icon-precomposed">
+		
+        <!-- stylesheets -->
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/jquery.datepicker.css">
+        <link rel="stylesheet" href="css/style.css">
+        
+        <!-- font awesome css -->
+        <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+
+        <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <!-- load jQuery from Goolge CDN -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="js/svgforeverybody.min.js"></script>
+        
+    </head>
+    <body class="search-result logged-in">
+        <header id="header" role="banner">
+        	<div class="inner clear nav">
+            	<a href="javascript:void(0);" class="nav-control left toggle" onClick="jQuery('body').toggleClass('open');"></a>
+                <a href="/" title="Home" class="logo left"><img src="img/logo.png" alt="the Tech" /></a>
+                <a href="javascript:void(0);" class="showMobile search-control right" onClick="jQuery('body').toggleClass('search');"></a>
+            </div><!-- end left -->
+            <form class="left form-item" action="index.html" method="get" id="global-search" name="global-search">
+                <div class="showLabels">
+                    <label for="search">Search Here</label>
+                    <input type="search" name="search" id="search"/>
+                </div>
+                <button type="submit" class="search"><i class="fa fa-search"></i></button>
+            </form><!-- end form -->
+			<div class="inner right clear" id="profile-menu">
+                <div class="avatar left">               	
+                    <a href="profile.html" title="Profile"><img src="img/nelson.jpg" width="33px" alt="Scott" /></a>
+                    <span>Hello Scott</span>
+                </div><!-- end avatar -->
+                 <ul class="right toggleable" id="user-settings">
+                    <li><a class="settings toggle" href="javascript:void(0);"></a>
+                        <ul>
+                            <li><a href="#" title="Profile">My Profile</a></li>
+                            <li><a href="#" title="Preferences">Preferences</a></li>
+                            <li><a href="#" title="Administration">Help</a></li>
+                            <li><a href="#" title="Log Out" class="logout">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+        	</div><!-- end inner -->
+        </header><!-- end header -->
+        <nav class="toggleable">
+            <ul>
+                <li><a href="#" title="Topology" class="icon topology-icon">Topology</a></li>
+                <li class="hasChildren">
+                	<a href="#" title="Alerting" class="icon alert-icon">Alerting</a><span class="sub-toggle"></span>
+                    <ul>
+                    	<li><a href="#" title="Alerting">Alerting Overview</a></li>
+                        <li><a href="#" title="Alerting">Incidents</a></li>
+                        <li><a href="#" title="Alerting">Alarms</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" title="Dashboard" class="icon dashboard-icon">Dashboards</a></li>
+                <li><a href="#" title="Reports" class="icon reports-icon">Reports</a></li>
+                <li><a href="#" title="Planning" class="icon plan-icon">Planning</a></li>
+                <li><a href="#" title="KnowledgeBase" class="icon knowledge-icon">Knowledge Base</a></li>
+                <li><a href="#" title="Configuration" class="icon configuration-icon">Configuration</a></li>
+                <li><a href="#" title="Collaboration" class="icon collaboration-icon">Collaboration</a></li>
+                <li><a href="#" title="Help" class="icon help-icon">Help</a></li>
+            </ul>
+        </nav>
+        <div class="wrapper clear">
+        	<div class="page-top clear">
+                <div class="breadcrumbs left">
+                    <ul class="clear">
+
+                        <li><span>Getting Started</span></li>
+                    </ul>
+                </div><!-- end breadcrumbs -->
+            </div><!-- end page-top -->
+        	<section id="getting-started" class="main clear">
+            	<div class="left-side-modules left">
+                    <div class="module clear" style="padding:30px">
+                        <h2>Hi John:</h2>
+							<p>Thank you for trying PERSPICA!</p>
+
+							<p>You can start using PERSPICA in just two
+							simple steps shown in the box. Once you have completed these steps,
+							click on Let's Go! to start monitoring 
+							your network applications.</p>
+
+							<p>You may revisit either of the steps to reconfigure your solution at
+							any time. You may always return to this page by clicking
+							"Getting started" in top-menu.</p>
+
+							<p>If you get stuck or have any questions please call (605) 555-2010
+							or <a href="#">write to Customer Support</a> at any time.
+							We want to you to get the most out of PERSPICA!
+							</p>
+							<p>Sincerely,</p>
+							<p>The Perspica Support Team</p>
+                    </div><!-- end module -->
+                </div><!-- end left side modules -->
+            	<div class="center-modules left">
+                    <div class="module clear">
+                    	<h3>You are two steps away from using PERSPICA!</h3>
+                    	<div class="module-body">
+                    		<div class="sub-module clear">
+                    			<div class="clear"><h2><i class="fa fa-check" style="color:#6bbd70; font-size:30px; vertical-align:middle;"></i> Step 1: <a href="#">Set up your collector appliance</a></h2></div>
+								<p style="padding-left:40px">Most PERSPICA installations require you to set up a collection
+								appliance. This can be set-up in <b>vSphere</b> in less than 5 minutes.</p>
+							</div><!-- end sub module -->
+                    		<div class="sub-module clear">
+                    			<div class="clear"><h2><i class="fa fa-check" style="color:#eaeef4; font-size:30px; vertical-align:middle;"></i> Step 2: <a href="#">Select your integration</a></h2></div>
+								<p style="padding-left:40px">Select the ways PERSPICA collects information about your networks and
+        applications. Look here first if you want to see the available
+        integration methods, but remember, you will need to complete Step
+        1 before you can add them.</p>
+							</div><!-- end sub module -->
+                    		<div class="sub-module clear">
+								<p style="padding-left:40px">When you are finished you can click on the button below to start
+								using the Main Dashboard.  If you have a custom integration 
+								you may <span class="p6-x-link">skip this step</span>.
+								Don't worry, you can always get back to this page by clicking
+								<b>Getting started</b> at the top-right menu.</p>
+								
+								<div class="clear" style="padding-left:40px"><br /><a href="javascript:void(0);" title="Let's Go!" class="button left">Let's Go!</a></div>
+							</div><!-- end sub module -->
+						</div><!-- end module body -->
+                    </div><!-- end module -->
+                </div><!-- end center modules -->
+        	</section><!-- end main -->
+        </div><!-- end wrapper -->
+		<footer class="clear">
+        	
+        	<!-- Attach scripts -->
+            <script src="js/plugins.js"></script>
+            <script src="js/scripts.js"></script>
+            <script src="js/jquery.outside.js"></script>
+            <script src="js/jquery.modal.js"></script>
+            <script src="js/jquery-ui-timepicker-addon.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js" async ></script>
+            <script src="js/jquery.tablesorter.min.js"></script>
+            <script src="js/jquery.tablesorter.widgets.min.js"></script>
+            <script src="js/jquery.tablesorter.stickyHeader.js"></script>
+            
+            
+            <!-- attach CSS thats not needed on page load -->
+            <link rel="stylesheet" href="css/jquery-ui-timepicker-addon.min.css">
+            
+            
+            <script>
+				$(function() {
+					/* Not currently used */
+    				$('.modal').easyModal({
+						top: 'auto',
+						autoOpen: false,
+						overlayOpacity: 0.8,
+						overlayColor: "#000",
+						overlayClose: true,
+						closeOnEscape: true
+					});
+					
+					// Add Table Sort Functionality
+					$('table').tablesorter({
+						widthFixed : true,
+					
+						widgets: [ 'cssStickyHeaders' ],
+					
+						widgetOptions: {
+						  cssStickyHeaders_attachTo      : '.table-wrap',
+						  cssStickyHeaders_addCaption    : true
+						}
+					});
+					
+					// Iniate the datepicker
+					$( "#start, #end" ).datetimepicker({
+						showOtherMonths: true,
+						timeFormat: "hh:mm tt",
+						dayNamesMin: [ "Su", "M", "Tu", "W", "Th", "F", "Sa" ]
+					});
+					
+					$( "#start" ).datetimepicker('setDate', '-1');
+					$( "#end" ).datetimepicker('setDate', new Date());
+					
+				});
+				 $(document).ready( function(){
+					 
+					 // Initiate Select Method
+                	$("select").selectmenu();
+					
+					 $(window).resize( function(){
+						$("select").selectmenu("destroy").selectmenu();
+					});
+
+				 });				 
+				</script>	
+        	<!--- attach typekit account for custom fonts -->
+        	<script src="http://use.typekit.net/kws6hqw.js"></script>
+			<script>try{Typekit.load();}catch(e){}</script>
+            
+        	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        	<script>
+           /*(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview'); */
+        	</script>
+        </footer><!-- end footer -->
+    </body>
+</html>

@@ -1,0 +1,841 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Perspica | Dashboard</title>
+        
+        <!-- meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- dns prefetch -->
+        <link href="http://www.google-analytics.com" rel="dns-prefetch">
+        
+        <!-- icons -->
+		<link href="img/favicon.ico" rel="shortcut icon">
+		<link href="img/touch.png" rel="apple-touch-icon-precomposed">
+		
+        <!-- stylesheets -->
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        
+        <!-- font awesome css -->
+        <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+
+        <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <!-- load jQuery from Goolge CDN -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    </head>
+    <body class="dashboard logged-in">
+        <header id="header" role="banner">
+        	<div class="inner clear nav">
+            	<a href="javascript:void(0);" class="nav-control left toggle" onClick="jQuery('body').toggleClass('open');"></a>
+                <a href="/" title="Home" class="logo left"><img src="img/logo.png" alt="the Tech" /></a>
+                <a href="javascript:void(0);" class="showMobile search-control right" onClick="jQuery('body').toggleClass('search');"></a>
+            </div><!-- end left -->
+            <form class="left form-item" action="index.html" method="get" id="global-search" name="global-search">
+                <div class="showLabels">
+                    <label for="search">Search Here</label>
+                    <input type="search" name="search" id="search"/>
+                </div>
+                <button type="submit" class="search"><i class="fa fa-search"></i></button>
+            </form><!-- end form -->
+			<div class="inner right clear" id="profile-menu">
+                <div class="avatar left">               	
+                    <a href="profile.html" title="Profile"><img src="img/nelson.jpg" width="33px" alt="Scott" /></a>
+                    <span>Hello Scott</span>
+                </div><!-- end avatar -->
+                 <ul class="right toggleable" id="user-settings">
+                    <li><a class="settings toggle" href="javascript:void(0);"></a>
+                        <ul>
+                            <li><a href="#" title="Profile">My Profile</a></li>
+                            <li><a href="#" title="Preferences">Preferences</a></li>
+                            <li><a href="#" title="Administration">Help</a></li>
+                            <li><a href="#" title="Log Out" class="logout">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+        	</div><!-- end inner -->
+        </header><!-- end header -->
+        <nav class="toggleable">
+            <ul>
+                <li><a href="#" title="Topology" class="icon topology-icon">Topology</a></li>
+                <li class="hasChildren">
+                	<a href="#" title="Alerting" class="icon alert-icon">Alerting</a><span class="sub-toggle"></span>
+                    <ul>
+                    	<li><a href="#" title="Alerting">Alerting Overview</a></li>
+                        <li><a href="#" title="Alerting">Incidents</a></li>
+                        <li><a href="#" title="Alerting">Alarms</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" title="Dashboard" class="icon dashboard-icon">Dashboards</a></li>
+                <li><a href="#" title="Reports" class="icon reports-icon">Reports</a></li>
+                <li><a href="#" title="Planning" class="icon plan-icon">Planning</a></li>
+                <li><a href="#" title="KnowledgeBase" class="icon knowledge-icon">Knowledge Base</a></li>
+                <li><a href="#" title="Configuration" class="icon configuration-icon">Configuration</a></li>
+                <li><a href="#" title="Collaboration" class="icon collaboration-icon">Collaboration</a></li>
+                <li><a href="#" title="Help" class="icon help-icon">Help</a></li>
+            </ul>
+        </nav>
+        <div class="wrapper clear">
+        	<div class="page-top clear">
+            	<div class="clear left titles">
+                	<div id="current-title">
+                        <h1 class="title left">Overview</h1>
+                        <a href="javascript:void(0)" id="editTitle" class="left"><i class="fa fa-pencil"></i></a>
+                    </div><!-- end current -->
+                    <div id="new-title" class="clear">
+                        <input type="text" id="editableTitle" value="" class="left" />
+                        <a href="#" id="saveTitle" class="right button">Save</a>
+                    </div><!-- end new -->
+                 </div><!-- end editable tile -->
+                 <a href="javascript:void(0);" class="right" id="toggleTiles" onClick="jQuery('body').toggleClass('tile-selector');"><span>TILES</span></a>
+                 <div class="date-picker right clear">
+                    <input type="text" class="left" value="" id="datepicker" name="datepicker">
+                    <label class="left" for="datepicker"><i class="fa fa-calendar"></i></label>
+                </div><!-- end date-picker -->
+                <ul class="header-actions right clear">
+                	<li><a href="#"><i class="fa fa-bookmark"></i></a></li>
+                    <li><a href="#"><i class="fa fa-file-pdf-o"></i></a></li>
+                    <li><a href="#"><i class="fa fa-share"></i></a></li>
+                    <li><a href="#"><i class="fa fa-comment"></i></a></li>
+                </ul>
+            </div><!-- end page-top -->
+            <div id="selectionTiles">
+                <div class="jcarousel">
+                    <ul>
+                        <li>
+                            <span class="instructions">Drag and Drop tiles onto your Dashboard. Configure with <i class="fa fa-gear"></i>.</span>
+                        </li>
+                        <li data-tile="health" draggable="true" class="draggable" data-type="health">
+                            <a href="javascript:void(0);">
+                                <img src="img/health-tile.png" width="100" height="69" />
+                                <span>Health</span>
+                            </a>	
+                        </li>
+                        <li data-tile="alarm" draggable="true" class="draggable" data-type="alarm">
+                            <a href="javascript:void(0);">
+                                <img src="img/health-tile.png" width="100" height="69" />
+                                <span>Alarm Overview</span>
+                            </a>	
+                        </li>
+                        <li data-tile="anomalies" draggable="true" class="draggable" data-type="alarm">
+                            <a href="javascript:void(0);">
+                                <img src="img/health-tile.png" width="100" height="69" />
+                                <span>Anomalies Overview</span>
+                            </a>	
+                        </li>
+                        <li data-tile="insights" draggable="true" class="draggable" data-type="recommendations">
+                            <a href="javascript:void(0);">
+                                <img src="img/health-tile.png" width="100" height="69" />
+                                <span>Key Insights</span>
+                            </a>	
+                        </li>
+                        <li data-tile="incident" draggable="true" class="draggable" data-type="alarms">
+                            <a href="javascript:void(0);">
+                                <img src="img/health-tile.png" width="100" height="69" />
+                                <span>Inciddent Watch</span>
+                            </a>	
+                        </li>
+                        <li data-tile="topology" draggable="true" class="draggable" data-type="topology">
+                            <a href="javascript:void(0);">
+                                <img src="img/health-tile.png" width="100" height="69" />
+                                <span>Topology</span>
+                            </a>	
+                        </li>
+                        <li data-tile="kpis" draggable="true" class="draggable" data-type="health">
+                            <a href="javascript:void(0);">
+                                <img src="img/health-tile.png" width="100" height="69" />
+                                <span>Key Performance Indicators</span>
+                            </a>	
+                        </li>
+                        <li data-tile="tools" draggable="true" class="draggable" data-type="recommendations">
+                            <a href="javascript:void(0);">
+                                <img src="img/health-tile.png" width="100" height="69" />
+                                <span>Tools</span>
+                            </a>	
+                        </li>
+                        <li data-tile="more-tools" draggable="true" class="draggable" data-type="recommendations">
+                            <a href="javascript:void(0);">
+                                <img src="img/health-tile.png" width="100" height="69" />
+                                <span>More Tools</span>
+                            </a>	
+                        </li>
+                    </ul>
+                </div><!-- end carousel -->
+                <a href="#" class="arrow back jcarousel-prev"><i class="fa fa-angle-left"></i></a>
+                <a href="#" class="arrow forward jcarousel-next"><i class="fa fa-angle-right"></i></a>
+                <ul class="filter">
+                	<li><a href="javascript:void(0);" title="All" data-filter="all" class="current">All</a></li>
+                    <li><a href="javascript:void(0);" title="Alarms" data-filter="alarms">Alarms</a></li>
+                    <li><a href="javascript:void(0);" title="Health" data-filter="health">Health</a></li>
+                    <li><a href="javascript:void(0);" title="Recommendations" data-filter="recommendations">Recommendations</a></li>
+                    <li><a href="javascript:void(0);" title="Topology" data-filter="topology">Topology</a></li>
+                </ul>
+            </div><!-- end selection Tiles -->
+        	<section id="dashboard-overview" class="main clear">
+                <div class="tile-container module-container clear" data-tiles="3">
+                	<div class="drag-target left" data-order="1">
+                        <div class="module clear overview-module health-module" data-type="health">
+                            <h3>Health</h3>
+                            <ul class="module-actions">
+                                <li><a href="#" class="module-control"><i class="fa fa-share"></i></a>
+                                    <ul>
+                                        <li><a href="#" title="Add to Dashboard" data-action="dashboard">Add to a Dashboard...</a></li>
+                                        <li><a href="#" title="Add to a Collaboration" data-action="collaborate">Add to a Collaboration...</a></li>
+                                        <li><a href="#" title="Add to Report" data-action="report">Add to Report...</a></li>
+                                        <li><a href="#" title="Make PDF" data-action="pdf">Make PDF</a></li>
+                                        <li><a href="#" title="Email" data-action="Email">Email it</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="module-settings">
+                                <li><a href="#" class="module-control"><i class="fa fa-gear"></i></a>
+                                    <ul>
+                                        <li><a href="#" title="Edit Settings" data-action="settings">Edit Settings</a></li>
+                                        <li><a href="#" title="Minimize" data-action="minimize">Minimize</a></li>
+                                        <li><a href="#" title="Refresh" data-action="share">Refresh</a></li>
+                                        <li><a href="#" title="Duplicate" data-action="duplicate">Duplicate</a></li>
+                                        <li><a href="#" title="Remove" data-action="remove">Remove</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="module-min">
+                                <div class="module-body clear">
+                                    <div class="graph-wrap left">
+                                        <img src="img/health-overview-graph.png" height="108" width="100%" />
+                                    </div><!--end graph wrap -->
+                                    <div class="graph-health widget right">
+                                        <strong>NOW</strong>
+                                        <div class="health-box low large">
+                                            <span class="data">85</span>
+                                            <span class="label">Health</span>
+                                        </div>
+                                        <span class="gray">69 Avg</span>
+                                    </div><!-- end graph health --> 
+                                    <div class="legend clear">
+                                        <div class="stat left">
+                                            <span class="total">2,280</span>
+                                            <span class="label">Objects</span>
+                                        </div><!-- end stat -->
+                                        <div class="stat left">
+                                            <span><span class="glow-circle red"></span>8</span>
+                                            <span class="label">0.3%</span>
+                                        </div><!-- end stat -->
+                                        <div class="stat left">
+                                            <span><span class="glow-circle orange"></span>41</span>
+                                            <span class="label">1.5%</span>
+                                        </div><!-- end stat -->
+                                        <div class="stat left">
+                                            <span><span class="glow-circle yellow"></span>375</span>
+                                            <span class="label">14%</span>
+                                        </div><!-- end stat -->
+                                        <div class="stat left">
+                                            <span><span class="glow-circle gray"></span>2,190</span>
+                                            <span class="label">81%</span>
+                                        </div><!-- end stat -->
+                                        <div class="stat left">
+                                            <span><i class="fa fa-question-circle"></i>106</span>
+                                            <span class="label">3.9%</span>
+                                        </div><!-- end stat -->
+                                    </div><!-- end graph stats -->           	
+                                </div><!-- end module body -->
+                            </div><!-- end module min -->
+                        </div><!-- end module -->
+                    </div><!-- end drag target -->
+                    <div class="drag-target left" data-order="2">
+                        <div class="module clear overview-module alarm-module left" data-type="alarm">
+                            <h3>Alarms</h3>
+                            <ul class="module-actions">
+                                <li><a href="#" class="module-control"><i class="fa fa-share"></i></a>
+                                    <ul>
+                                        <li><a href="#" title="Add to Dashboard" data-action="dashboard">Add to a Dashboard...</a></li>
+                                        <li><a href="#" title="Add to a Collaboration" data-action="collaborate">Add to a Collaboration...</a></li>
+                                        <li><a href="#" title="Add to Report" data-action="report">Add to Report...</a></li>
+                                        <li><a href="#" title="Make PDF" data-action="pdf">Make PDF</a></li>
+                                        <li><a href="#" title="Email" data-action="Email">Email it</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="module-settings">
+                                <li><a href="#" class="module-control"><i class="fa fa-gear"></i></a>
+                                    <ul>
+                                        <li><a href="#" title="Edit Settings" data-action="settings">Edit Settings</a></li>
+                                        <li><a href="#" title="Minimize" data-action="minimize">Minimize</a></li>
+                                        <li><a href="#" title="Refresh" data-action="share">Refresh</a></li>
+                                        <li><a href="#" title="Duplicate" data-action="duplicate">Duplicate</a></li>
+                                        <li><a href="#" title="Remove" data-action="remove">Remove</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="module-min">
+                                <div class="module-body clear">
+                                    <div class="graph-wrap left">
+                                        <img src="img/alarm-mini-graph.png" height="108" width="100%" />
+                                    </div><!--end graph wrap -->
+                                    <div class="graph-health widget right">
+                                        <strong>NOW</strong>
+                                        <div class="health-box high large">
+                                            <span class="data">51</span>
+                                            <span class="label">Alarms Open</span>
+                                        </div>
+                                        <span class="gray">926 in range</span>
+                                    </div><!-- end graph health --> 
+                                    <div class="legend clear">
+                                        <div class="stat left clear">
+                                            <div class="left small alarm high"><span></span><span></span><span></span></div><!-- end alarm -->
+                                            <span class="left">6</span> 
+                                            <div class="label">12%</div>
+                                        </div><!-- end stat left -->
+                                        <div class="stat left clear">
+                                            <div class="left small alarm medium"><span></span><span></span><span></span></div><!-- end alarm -->
+                                            <span class="left">14</span> 
+                                            <div class="label">18%</div>
+                                        </div><!-- end stat left -->
+                                        <div class="stat left clear">
+                                            <div class="left small alarm low"><span></span><span></span><span></span></div><!-- end alarm -->
+                                            <span class="left">31</span> 
+                                            <div class="label">61%</div>
+                                        </div><!-- end stat left -->
+                                    </div><!-- end legend -->           	
+                                </div><!-- end module body -->
+                            </div><!-- end module min -->
+                        </div><!-- end module -->
+                    </div><!-- end drag target -->
+                    <div class="drag-target left" data-order="3">
+                        <div class="module clear overview-module alarm-module left" data-type="anomalies">
+                            <h3>Anomalies</h3>
+                            <ul class="module-actions">
+                                <li><a href="#" class="module-control"><i class="fa fa-share"></i></a>
+                                    <ul>
+                                        <li><a href="#" title="Add to Dashboard" data-action="dashboard">Add to a Dashboard...</a></li>
+                                        <li><a href="#" title="Add to a Collaboration" data-action="collaborate">Add to a Collaboration...</a></li>
+                                        <li><a href="#" title="Add to Report" data-action="report">Add to Report...</a></li>
+                                        <li><a href="#" title="Make PDF" data-action="pdf">Make PDF</a></li>
+                                        <li><a href="#" title="Email" data-action="Email">Email it</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="module-settings">
+                                <li><a href="#" class="module-control"><i class="fa fa-gear"></i></a>
+                                    <ul>
+                                        <li><a href="#" title="Edit Settings" data-action="settings">Edit Settings</a></li>
+                                        <li><a href="#" title="Minimize" data-action="minimize">Minimize</a></li>
+                                        <li><a href="#" title="Refresh" data-action="share">Refresh</a></li>
+                                        <li><a href="#" title="Duplicate" data-action="duplicate">Duplicate</a></li>
+                                        <li><a href="#" title="Remove" data-action="remove">Remove</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="module-min">
+                                <div class="module-body anamolies clear">
+                                    <div class="graph-wrap left">
+                                        <img src="img/anamolies-mini.png" height="108" width="100%" />
+                                    </div><!--end graph wrap -->
+                                    <div class="graph-health widget right">
+                                        <strong>NOW</strong>
+                                        <div class="health-box high large blue">
+                                            <span class="data">29</span>
+                                            <span class="label">Anomalies Open</span>
+                                        </div>
+                                        <span class="gray">926 in range</span>
+                                    </div><!-- end graph health --> 
+                                    <div class="legend clear">
+                                        <div class="stat left clear">
+                                            <div class="left small alarm high blue"><span></span><span></span><span></span></div><!-- end alarm -->
+                                            <span class="left">6</span> 
+                                            <div class="label">12%</div>
+                                        </div><!-- end stat left -->
+                                        <div class="stat left clear">
+                                            <div class="left small alarm medium blue"><span></span><span></span><span></span></div><!-- end alarm -->
+                                            <span class="left">14</span> 
+                                            <div class="label">18%</div>
+                                        </div><!-- end stat left -->
+                                        <div class="stat left clear">
+                                            <div class="left small alarm low blue"><span></span><span></span><span></span></div><!-- end alarm -->
+                                            <span class="left">31</span> 
+                                            <div class="label">61%</div>
+                                        </div><!-- end stat left -->
+                                    </div><!-- end legend -->           	
+                                </div><!-- end module body -->
+                            </div><!-- end module min -->
+                        </div><!-- end module -->
+                    </div><!-- end drag target -->
+                </div><!-- end container tiles -->  
+                <div class="tile-container module-container clear" data-tiles="2">
+                	<div class="drag-target left" data-order="1">
+                        <div class="module insights-module clear" data-type="insights">
+                            <h3>Key Insights</h3>
+                            <ul class="module-actions">
+                                <li><a href="#" class="module-control"><i class="fa fa-share"></i></a>
+                                    <ul>
+                                        <li><a href="#" title="Add to Dashboard" data-action="dashboard">Add to a Dashboard...</a></li>
+                                        <li><a href="#" title="Add to a Collaboration" data-action="collaborate">Add to a Collaboration...</a></li>
+                                        <li><a href="#" title="Add to Report" data-action="report">Add to Report...</a></li>
+                                        <li><a href="#" title="Make PDF" data-action="pdf">Make PDF</a></li>
+                                        <li><a href="#" title="Email" data-action="Email">Email it</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="module-settings">
+                                <li><a href="#" class="module-control"><i class="fa fa-gear"></i></a>
+                                    <ul>
+                                        <li><a href="#" title="Edit Settings" data-action="settings">Edit Settings</a></li>
+                                        <li><a href="#" title="Minimize" data-action="minimize">Minimize</a></li>
+                                        <li><a href="#" title="Refresh" data-action="share">Refresh</a></li>
+                                        <li><a href="#" title="Duplicate" data-action="duplicate">Duplicate</a></li>
+                                        <li><a href="#" title="Remove" data-action="remove">Remove</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="module-min hasToggle">
+                                <ul class="view-toggle">
+                                    <li><a href="#" title="table" data-toggle="1"><i class="fa fa-list"></i></a></li>
+                                    <li class="active"><a href="#" title="chart" data-toggle="2"><i class="fa fa-sitemap"></i></a></li>
+                                </ul><!-- end view toggle -->
+                                <div class="toggle-tab" data-toggle="1">
+                                    Table?
+                                </div><!-- end toggle tab -->
+                                <div class="toggle-tab active chart" data-toggle="2">
+                                    <img src="img/world-map-graph.png" height="286" width="100%" />
+                                </div><!-- end toggle tab -->
+                            </div><!-- end module min -->
+                        </div><!-- end module -->
+                    </div><!-- end drag target -->
+                    <div class="drag-target left" data-order="2">
+                        <div class="module clear incident-module left" data-type="incident">
+                            <h3>Incident Watch</h3>
+                            <ul class="module-actions">
+                                <li><a href="#" class="module-control"><i class="fa fa-share"></i></a>
+                                    <ul>
+                                        <li><a href="#" title="Add to Dashboard" data-action="dashboard">Add to a Dashboard...</a></li>
+                                        <li><a href="#" title="Add to a Collaboration" data-action="collaborate">Add to a Collaboration...</a></li>
+                                        <li><a href="#" title="Add to Report" data-action="report">Add to Report...</a></li>
+                                        <li><a href="#" title="Make PDF" data-action="pdf">Make PDF</a></li>
+                                        <li><a href="#" title="Email" data-action="Email">Email it</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="module-settings">
+                                <li><a href="#" class="module-control"><i class="fa fa-gear"></i></a>
+                                    <ul>
+                                        <li><a href="#" title="Edit Settings" data-action="settings">Edit Settings</a></li>
+                                        <li><a href="#" title="Minimize" data-action="minimize">Minimize</a></li>
+                                        <li><a href="#" title="Refresh" data-action="share">Refresh</a></li>
+                                        <li><a href="#" title="Duplicate" data-action="duplicate">Duplicate</a></li>
+                                        <li><a href="#" title="Remove" data-action="remove">Remove</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="module-min">
+                                <div class="module-body clear">
+                                    <div class="graph-wrap left">
+                                        <img src="img/stacked-incident-graphs.png" height="320" width="100%" />
+                                    </div><!--end graph wrap -->
+                                    <div class="graph-health widget right">
+                                        <strong>NOW</strong>
+                                        <div class="health-box high large">
+                                            <span class="data">3</span>
+                                            <span class="label">Incidents Open</span>
+                                        </div>
+                                        <div class="stats">
+                                            <div class="stat">
+                                                <span class="data">14</span>
+                                                <span class="label">Alarms Contributing</span>
+                                            </div><!-- end stat -->
+                                            <div class="stat">
+                                                <span class="data">73</span>
+                                                <span class="label">Objects Impacted</span>
+                                            </div><!-- end stat -->
+                                        </div><!--end stats -->                         
+                                    </div><!-- end graph health -->        	
+                                </div><!-- end module body -->
+                            </div><!-- end module min -->
+                        </div><!-- end module -->
+                	</div><!-- end drag target -->
+                    <div class="drag-target left empty" data-order="3"></div><!-- end drag target -->                
+                </div><!-- end container tiles --> 
+                <div class="tile-container module-container clear last" data-tiles="0">
+                	<div class="drag-target left empty" data-order="1"></div><!-- end drag target --> 
+                    <div class="drag-target left empty" data-order="2"></div><!-- end drag target --> 
+                    <div class="drag-target left empty" data-order="3"></div><!-- end drag target --> 
+                </div><!-- end last container -->        
+        	</section><!-- end main -->
+        </div><!-- end wrapper -->
+        <div class="actions-panel">
+        	<ul>
+            	<li class="bookmark"><a href="#"><span>12</span><i class="fa fa-bookmark"></i></a></li>
+                <li class="alarms hasNew"><a href="#"><span>45</span><i class="fa fa-warning"></i></a>
+                	<ul>
+                    	<li><a href="#">Slow response time due to network condition</a></li>
+                        <li><a href="#" class="alarms">Queue size above SLA due to port failure</a></li>
+                    </ul>
+                </li>
+                <li class="archive"><a href="#"><span>5</span><i class="fa fa-archive"></i></a></li>
+                <li class="comments"><a href="#"><span>1</span><i class="fa fa-comment"></i></a></li>           
+            </ul>
+        </div><!-- end actions panel -->
+		<footer class="clear">
+        	
+        	<!-- Attach scripts -->
+            <script src="js/plugins.js"></script>
+            <script src="js/scripts.js"></script>
+            <script src="js/jquery.outside.js"></script>
+            <script src="js/jquery-ui-timepicker-addon.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js" async ></script>
+            <script src="js/jquery.gridster.min.js"></script>
+            
+            <!-- attach CSS thats not needed on page load -->
+            <link rel="stylesheet" href="css/jquery.datepicker.css">
+            <link rel="stylesheet" href="css/jquery-ui-timepicker-addon.min.css">
+            <link rel="stylesheet" href="css/jquery.gridster.min.css">
+            
+            <script>
+				$(function() {
+					/* Not currently used */
+    				$('.modal').easyModal({
+						top: 'auto',
+						autoOpen: false,
+						overlayOpacity: 0.5,
+						overlayColor: "#000",
+						overlayClose: true,
+						closeOnEscape: true
+					});
+
+					$('#datepicker').datetimepicker({
+						showOtherMonths: true,
+                        changeMonth: true, //Adds Month DD 
+                        changeYear: true, //Adds year DD
+						timeFormat: "hh:mm tt",
+						dayNamesMin: [ "Su", "M", "Tu", "W", "Th", "F", "Sa" ],
+						onSelect: function(datetimeText,datepickerInstance){ 
+							setHistoric(datetimeText, datepickerInstance);
+						}
+					});
+					
+					/** Initiate the jCarousel Plugin **/
+					var carousel = $('.jcarousel');
+				
+					carousel.swipe({
+						swipeLeft: function(event, direction, distance, duration, fingerCount) {   
+							carousel.jcarousel('scroll', '+=1');
+						},
+						swipeRight: function(event, direction, distance, duration, fingerCount) {
+							carousel.jcarousel('scroll', '-=1');
+						}
+					});
+					$('.jcarousel').jcarousel();
+					//Add on the prev/next buttons
+					$('.jcarousel-prev').jcarouselControl({
+						target: '-=1'
+					});
+				
+					$('.jcarousel-next').jcarouselControl({
+						target: '+=1'
+					});
+					
+				/*******  DRAG AND DROP Functions / jQuery UI **********/
+				/* Bind the draggable elements */
+				$('.draggable, .module').draggable({
+					 containment: '.wrapper',
+					 cursor: 'default',
+					 scroll: true,
+					 distance: 20,
+					 //handle: 'h3',
+					 snap: '.drag-target',
+					 helper: 'clone',
+					 opacity: 0.75,
+					 appendTo: '.wrapper',
+					 start: dragGo,
+					 stop: dragGo,
+				 });
+				 
+				 $('.drag-target').droppable({
+					drop: dropHere, 
+				 });
+				 
+				 function dragGo(){
+					 $('section').toggleClass('dragging');
+				 }
+				 
+				 function dropHere( event, ui){
+					 var target = $( event.target );
+					 var draggable = ui.draggable;
+					 //If draggable element has .draggable class, then its a NEW tile
+					 if(draggable.hasClass('draggable')){
+						 // Get the new Tile data/markup
+						 var data = draggable.data('tile');
+					     var html = getModuleMarkup(data);
+						 // Move to an empty spot
+						 if(target.hasClass('empty')){
+							 target.append(html).removeClass('empty');
+							 updateParentNumber(target.parents('.tile-container'),1);
+							 //Re-initialize draggable on new element
+							 $('.module').draggable({
+								 containment: '.wrapper',
+								 cursor: 'default',
+								 scroll: true,
+								 distance: 20,
+								 handle: 'h3',
+								 snap: '.drag-target',
+								 helper: 'clone',
+								 opacity: 0.75,
+								 appendTo: '.wrapper',
+								 start: dragGo,
+								 stop: dragGo,			 
+							 });
+						 } else {
+							//Add in the new markup
+							target.append(html);
+							//Save the targets markup!
+							var oldHTML = target.children('.module:first-child');
+							//Slide all the tiles over to the right!
+							shiftTilesRight(oldHTML, target); 
+						 }
+					 } else {
+						 //Simply move the EXISTING tile
+						 moveTile(target, draggable);
+					 }
+					//Check last row
+					checkLastRow(); 
+				 }
+				
+				 function moveTile(target, element){
+					//Define the containing parents
+					var targetParent = target.parents('.tile-container'); // Place its going to 
+					var dragParent = element.parents('.tile-container');
+					var dropParent = element.parents('.drag-target');  //Place its coming from
+					var draggableOrder = dropParent.data('order');
+					var dragParentTileNum = dragParent.data('tiles');
+					//If target is Empty, just drop the new element in
+					if(target.hasClass('empty')){
+						target.append(element).removeClass('empty');
+						//Update the Container Counts
+						updateParentNumber(targetParent,1);
+						updateParentNumber(dragParent,-1);
+						//Add empty class to previous parent
+						dropParent.addClass('empty');
+						//Reorder the tiles
+						reorderTiles(dragParent);
+					} else {//Only if the tile is moved!
+						if(!dropParent.is(target)){
+							// If they are in the same row
+							if(targetParent.is(dragParent)){
+								//If its The first tile moving to the 3rd, then shift left
+								if(dropParent.is(targetParent.find('.drag-target').eq(0)) && target.is(targetParent.find('.drag-target').eq(2))){
+									//Move the drag target to the end of the container
+									targetParent.append(dropParent);
+									
+								} else {
+									//Just swap the tiles for each other
+									//Add in the new markup
+									target.append(element);
+									//Save the targets markup!
+									var oldHTML = target.children('.module:first-child');
+									dropParent.append(oldHTML);
+								}
+							} else {
+								//Not in the same row
+								//Add in the new markup
+								target.append(element);
+								//Save the targets markup!
+								var oldHTML = target.children('.module:first-child');
+								//Update the Container Counts
+								updateParentNumber(dragParent,-1);
+								//Add Empty to the previous Tile
+								dropParent.addClass('empty');
+								//Slide all the tiles over to the right!
+								shiftTilesRight(oldHTML, target);	
+							}
+							//Reorder the tiles so empty is last
+							reorderTiles(dragParent);
+						} else {
+							//Do nothing
+							//console.log('same');
+						}
+						
+					}
+				}
+				/** Function to update the number of active tiles
+					in a .tile-container div
+					
+					@variable el - the jQuery container object
+					@variable number - the number to increase/decrease by
+				**/
+				function updateParentNumber(el, number){
+					
+					var old = el.attr('data-tiles');
+					var updated  = parseInt(old) + number;
+					el.attr('data-tiles', updated);
+				}
+				
+				/** Function to re-order tiles in a given row 
+					by placing the empty target at the end.
+				**/
+				function reorderTiles(container){
+					var empty = container.find('.empty');
+					container.append(empty);
+				}
+				
+				/* Get the correct markup for the new Module */
+				/* Just as an example, it simply CLONES the code from a
+				   matching module already on the Dashboard.
+				   
+				   @variable data - string, type of module
+				   returns the html of the module
+				   
+				**/
+				function getModuleMarkup(data){
+					return $('.module[data-type="'+data+'"]').parents('.drag-target').html();				
+				}
+				
+				/** Check the last row, and make sure theres always an
+					empty row to accept more tiles.  Add a new empty
+					row if the current  last row is NOT empty
+					@variable - no arguments
+				**/
+				function checkLastRow(){
+					var html = 
+						'<div class="tile-container module-container clear last" data-tiles="0">' +
+                			'<div class="drag-target left empty" data-order="1"></div><!-- end drag target -->' +
+                    		'<div class="drag-target left empty" data-order="2"></div><!-- end drag target -->' + 
+                    		'<div class="drag-target left empty" data-order="3"></div><!-- end drag target -->' + 
+                		'</div><!-- end last container -->';
+					  
+					if($('.tile-container:last').attr('data-tiles') != 0){
+						$('#dashboard-overview').append(html);
+						//Re-initialze drop targets
+						$('.drag-target').droppable({
+							drop: dropHere, 
+						});
+					}
+				}
+				
+				/** Function to shift the tiles to the right 
+					when trying to add a tile to an occupied spot
+				**/
+					
+				function shiftTilesRight(html, target){
+					var nextTarget;
+					var nextParent;
+					//Check last row
+					checkLastRow(); 
+					// Check to see if target is last in a row
+					if(target.is(":last-child")){
+						// Go to the next row
+						nextParent = target.parent().next();
+						nextTarget = nextParent.find('.drag-target:first-child');
+						
+					} else {
+						nextTarget = target.next();
+					}
+					// If the next target is empty, then just drop in the
+					// markup and end the recursive
+					if(nextTarget.hasClass('empty')){
+						nextTarget.html(html).removeClass('empty');
+						nextParent = nextTarget.parent();
+						updateParentNumber(nextParent, 1);
+						//Re-initialize draggable on new element
+						 $('.module').draggable({
+							 containment: '.wrapper',
+							 cursor: 'default',
+							 scroll: true,
+							 distance: 20,
+							 handle: 'h3',
+							 snap: '.drag-target',
+							 helper: 'clone',
+							 opacity: 0.75,
+							 appendTo: '.wrapper',
+							 start: dragGo,
+							 stop: dragGo,			 
+						 });
+					} else {
+						//Drop in it and try again!
+						var newHTML = nextTarget.html();
+						nextTarget.html(html);
+						shiftTilesRight(newHTML, nextTarget);			
+					}
+				}
+				
+				/** Function to check whether the time selected is in the past
+				    or not. If so, add a historical class to <body> element
+				**/
+				function setHistoric(date, instance){
+					var now  = new Date();
+					var date = new Date(date);
+					if(date < now){
+						$('body').addClass('historical');
+						console.log(date);
+					} else {
+						$('body').removeClass('historical');
+					}
+				}
+
+				});
+				 $(document).ready( function(){
+
+					// Edit title functions
+					// NOTE: Does NOT actually SAVE anything
+					var oldTitle = $('#current-title');
+					var newTitle = $('#new-title');
+					$('#editTitle').on('click', function(){
+						$('#editableTitle').val($('h1').html());
+						oldTitle.fadeOut(200, function(){
+							newTitle.fadeIn(200);
+						});
+					});
+					
+					$('#saveTitle').on('click', function(){
+						$('h1').html($('#editableTitle').val());
+						newTitle.fadeOut(200, function(){
+							oldTitle.fadeIn(200);
+						});
+						
+					});
+					
+					/* Bind filter tiles to <a> */
+					$("ul.filter a").on("click", function(){
+						var type = $(this).data('filter');
+						filterTiles(type, $(this));
+					});
+					 
+
+				 });
+				 /** Function to filter the list of Tiles in the selector
+					based on category.
+					
+					@variable - type 
+					@variable - el, the element that was clicked
+				**/
+				
+				function filterTiles(type, el){
+					$('#selectionTiles a').removeClass('current');
+					//Hide all tiles that are not of the filter type
+					if(type == "all"){
+						//Show all tiles 
+						$('#selectionTiles li.draggable').show();
+					} else {
+						$('#selectionTiles li.draggable:not([data-type="'+type+'"])').hide();
+						$('#selectionTiles li.draggable[data-type="'+type+'"]').show();
+					}
+					el.addClass('current');
+				}
+				</script>	
+        	<!--- attach typekit account for custom fonts -->
+        	<script src="http://use.typekit.net/kws6hqw.js"></script>
+			<script>try{Typekit.load();}catch(e){}</script>
+            
+        	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        	<script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        	</script>
+        </footer><!-- end footer -->
+    </body>
+</html>
